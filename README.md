@@ -1,8 +1,11 @@
-# PAC PAC · v1.0.0
+# PAC PAC · v1.2.0
 
 Arcade HTML autonomo, senza dipendenze runtime o servizi esterni. Apri `index.html` nel browser oppure pubblicalo su GitHub Pages.
 
 ## Funzioni
+- Selezione PAC PAC / Giovanni (predefinito) / Bruno. Bruno include l’immagine verde allegata; Giovanni ha un segnaposto G perché il file rosso non era accessibile. Caricamento immagine per personaggio dalle impostazioni, salvata localmente.
+- Fumetto “pac pac!” allo sparo, disattivabile.
+- Icone palline selezionabili: classiche, birra, ciliegie o stelle. Scelta salvata e anteprima nelle impostazioni.
 - Tastiera, D-Pad, swipe e FIRE; tutorial touch senza nemici.
 - Modalità orizzontale attivabile nelle impostazioni, con gioco a sinistra e comandi a destra.
 - Anteprima disposizione, pulsanti grandi, contrasto elevato, sparo singolo/continuo/a interruttore.

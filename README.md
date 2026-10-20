@@ -1,21 +1,21 @@
-# PAC PAC 2.0.1 - Stabilizzazione
+# PAC PAC 2.1.0 - Prestazioni
 
-Release tecnica completa. Regole, grafica, multiplayer e progressione della 2.0.0 restano invariati.
+Release completa basata sulla 2.0.1. Regole, progressione, multiplayer e grafica restano compatibili.
 
-## Stabilita
-- Simulazione fissa 120 Hz, massimo 8 step per frame, protezione anti spiral-of-death.
-- Rendering sospeso a pagina nascosta e accumulatore azzerato al rientro.
-- Heartbeat 2 s; avviso 4,5 s; pausa 8 s; disconnessione 15 s senza messaggi.
-- RTT diagnostico, massimo 90 messaggi/s, backpressure sopra 100 KB.
-- Pausa automatica dell'host quando la pagina passa in background; ripresa manuale.
-- Tipi di messaggio e snapshot validati prima dell'uso.
-- Verifica audio non bloccante; file assenti non fermano il gioco.
-- Progressi locali ripuliti da valori corrotti, duplicati o fuori intervallo.
+## Ottimizzazioni
+- Tre profili grafici: Prestazioni (30 FPS, DPR 1), Bilanciato (45 FPS, DPR 1,5, predefinito), Qualità (60 FPS, DPR 2).
+- Simulazione invariata a 120 Hz: il profilo limita solo rendering e densità delle particelle.
+- Cache LRU di 12 labirinti procedurali, restituiti sempre come copie indipendenti.
+- Cache per massimo 32 mappe di distanza BFS del livello corrente; invalidazione a ogni cambio mappa.
+- Snapshot multiplayer ridotti da 15 a 10 invii al secondo; heartbeat della 2.0.1 invariato.
+- Conteggio locale di frame, cache e traffico disponibile con `stabilityDiagnostics()`.
+- Effetto shake disabilitato nel profilo Prestazioni.
 
-Apri la console e usa `stabilityDiagnostics()` per visualizzare step scartati, RTT, silenzio di rete, backpressure e stato degli audio.
+## Diagnostica
+Apri la console ed esegui `stabilityDiagnostics()`. La sezione performance mostra cache hit/miss, frame renderizzati/scartati, profilo, dimensione cache e byte/messaggi WebRTC inviati.
 
-## File audio
-Aggiungi nella cartella `audio`: `smoot-criminal.mp3`, `hee-hee.mp3`, `gun.wav`. Non sono inclusi.
+## Audio e deploy
+Aggiungi nella cartella audio: smoot-criminal.mp3, hee-hee.mp3 e gun.wav. I file non sono inclusi. Il workflow GitHub Pages esegue il controllo JavaScript e pubblica audio/.
 
 ## Limiti
-Multiplayer ancora beta, senza server di signaling o TURN. Non testato in questa consegna su smartphone fisici, Safari/iOS, reti mobili o reti differenti. Nessun deploy remoto effettuato.
+Il multiplayer resta beta, senza signaling server o TURN. Testato in Chromium automatizzato; non testato su due smartphone fisici, Safari/iOS o reti distinte. Nessun deploy remoto effettuato.

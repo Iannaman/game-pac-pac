@@ -1,21 +1,22 @@
-# PAC PAC 2.1.0 - Prestazioni
+# PAC PAC 2.2.0 - Multiplayer più semplice
 
-Release completa basata sulla 2.0.1. Regole, progressione, multiplayer e grafica restano compatibili.
+## Nuovo accesso con codice stanza
+Dopo aver configurato il signaling, Giovanni crea una stanza e condivide un codice di 6 caratteri. Bruno inserisce il codice; offer e answer WebRTC vengono scambiati automaticamente. Giovanni avvia la partita quando Bruno risulta connesso.
 
-## Ottimizzazioni
-- Tre profili grafici: Prestazioni (30 FPS, DPR 1), Bilanciato (45 FPS, DPR 1,5, predefinito), Qualità (60 FPS, DPR 2).
-- Simulazione invariata a 120 Hz: il profilo limita solo rendering e densità delle particelle.
-- Cache LRU di 12 labirinti procedurali, restituiti sempre come copie indipendenti.
-- Cache per massimo 32 mappe di distanza BFS del livello corrente; invalidazione a ogni cambio mappa.
-- Snapshot multiplayer ridotti da 15 a 10 invii al secondo; heartbeat della 2.0.1 invariato.
-- Conteggio locale di frame, cache e traffico disponibile con `stabilityDiagnostics()`.
-- Effetto shake disabilitato nel profilo Prestazioni.
+Il pacchetto include un Worker opzionale in `signaling-worker/`. Il Worker conserva offer/answer per 10 minuti in KV, non riceve lo stato della partita e non sostituisce TURN. `multiplayer-config.js` contiene URL signaling e configurazione ICE. Con URL vuoto il gioco mostra il fallback manuale della 2.1.0.
 
-## Diagnostica
-Apri la console ed esegui `stabilityDiagnostics()`. La sezione performance mostra cache hit/miss, frame renderizzati/scartati, profilo, dimensione cache e byte/messaggi WebRTC inviati.
+## Limiti e sicurezza
+- Serve distribuire separatamente il Worker e configurare `multiplayer-config.js`; GitHub Pages non esegue il backend.
+- Il codice stanza non garantisce connettività attraverso NAT o firewall restrittivi. In tali casi configura un tuo TURN.
+- Non inserire credenziali TURN a lunga durata nel repository pubblico.
+- Stanze di 6 caratteri, alfabeto senza caratteri ambigui, scadenza 10 minuti, primo Bruno ammesso.
+- Condivisione tramite Web Share API quando disponibile, altrimenti copia negli appunti.
+- Il multiplayer resta peer-to-peer e host-authoritative; nessun account o matchmaking pubblico.
 
-## Audio e deploy
-Aggiungi nella cartella audio: smoot-criminal.mp3, hee-hee.mp3 e gun.wav. I file non sono inclusi. Il workflow GitHub Pages esegue il controllo JavaScript e pubblica audio/.
+## Prestazioni e stabilità
+Conservate tutte le ottimizzazioni 2.1.0 e le protezioni 2.0.1. Snapshot a 10 Hz, heartbeat, timeout, profili grafici, cache livelli/BFS e diagnostica rimangono attivi.
 
-## Limiti
-Il multiplayer resta beta, senza signaling server o TURN. Testato in Chromium automatizzato; non testato su due smartphone fisici, Safari/iOS o reti distinte. Nessun deploy remoto effettuato.
+## Audio
+Aggiungi in `audio/`: smoot-criminal.mp3, hee-hee.mp3 e gun.wav. Non sono inclusi.
+
+Nessun Worker o deploy GitHub remoto è stato pubblicato da questa consegna. I test della stanza automatica usano un server locale simulato; reti reali, TURN e smartphone fisici restano da verificare.

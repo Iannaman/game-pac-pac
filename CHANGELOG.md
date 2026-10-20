@@ -1,3 +1,7 @@
+# 2.2.0
+- Optional 6-character room-code signaling.
+- Automatic offer/answer exchange, share/copy invite, manual fallback.
+- Cloudflare Worker KV template with 10-minute room expiry.
 # 2.1.0
 - Graphics performance profiles and frame pacing.
 - LRU level and BFS distance caches.

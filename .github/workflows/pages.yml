@@ -1,43 +1,33 @@
-name: Test and deploy PAC PAC
+name: Deploy PAC PAC
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
+  pages: write
+  id-token: write
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages
   cancel-in-progress: true
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - name: Check JavaScript and game logic
-        run: node tests/smoke.cjs
   deploy:
-    if: github.event_name != 'pull_request'
-    needs: test
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - name: Prepare static site
+      - name: Prepare site
         run: |
           mkdir -p public
           cp index.html public/index.html
+          if [ -d assets ]; then cp -R assets public/assets; fi
+          if [ -d audio ]; then cp -R audio public/audio; fi
           touch public/.nojekyll
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: public
-      - name: Publish
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

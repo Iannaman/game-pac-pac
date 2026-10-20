@@ -1,3 +1,7 @@
+# 2.0.0
+- Multiplayer WebRTC a due dispositivi: cooperativa e contro.
+- Host autoritativo, scambio manuale invito/risposta, pausa e disconnessione.
+- Galleria livelli sbloccati con anteprime e progressi locali.
 # 1.8.1
 - hee-hee solo per la sfera power.
 - Musica avviata con la partita, non in splash/menu/tutorial.

@@ -1,4 +1,4 @@
-name: Deploy PAC PAC
+name: Test and deploy PAC PAC
 on:
   push:
     branches: [main]
@@ -25,7 +25,6 @@ jobs:
         run: |
           mkdir -p public
           cp index.html public/index.html
-          if [ -d assets ]; then cp -R assets public/assets; fi
           if [ -d audio ]; then cp -R audio public/audio; fi
           touch public/.nojekyll
       - uses: actions/upload-pages-artifact@v3

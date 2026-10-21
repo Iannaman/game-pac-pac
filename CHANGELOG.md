@@ -1,5 +1,9 @@
-# 2.7.0
-- Level Engine v2 schema and validator.
-- Frozen LegacyGeneratorV1 with stable IDs/checksums.
-- Three separate official levels and catalog.
-- Mode Hub and tutorials from 2.6.0 included.
+# 2.8.1
+- Restore Arcade Run, Record e medaglie.
+- Verify localStorage persistence after reload.
+- Add historical API and UI anti-regression gates.
+# 2.8.0
+- Dynamic doors, bridge and moving wall.
+- Contextual FIRE.
+- Occupancy and reachability safety guards.
+- Three new dynamic levels.

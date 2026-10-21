@@ -1,3 +1,8 @@
+# 3.0.0
+- Hunt: 2 runners vs 1-4 player ghosts.
+- Role lobby and local role testing.
+- Base balance and power-role reversal.
+- Dedicated tutorial and result/rematch flow.
 # 2.9.0
 - Host Level Editor.
 - Undo/redo, validator and local playtest.

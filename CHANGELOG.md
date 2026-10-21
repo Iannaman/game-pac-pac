@@ -1,3 +1,6 @@
+# 2.5.1
+- Move the combo information box from the maze overlay into the main HUD.
+- Preserve full visibility of pellets, ghosts and routes on desktop and mobile.
 # 2.5.0
 - Arcade Run with cumulative score and three lives.
 - Three level missions, stars, records and local persistence.

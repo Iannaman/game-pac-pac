@@ -1,3 +1,6 @@
+# 3.0.1
+- Restore combo box, multiplier, max combo, near miss and ghost chain.
+- Add complete feature-contract regression gate.
 # 3.0.0
 - Hunt: 2 runners vs 1-4 player ghosts.
 - Role lobby and local role testing.

@@ -1,15 +1,7 @@
-feat: deliver social sharing, arcade scoring, and retention systems
+feat: add metric boxes and interactive maze infrastructure
 
-- add local QR room invitations with SVG download
-- add WhatsApp, Web Share, and clipboard result sharing
-- exclude room, SDP, and ICE data from shared results
-- introduce x1-x8 collectible combos with a 1.25-second window
-- add power ghost chains, near-miss bonuses, live combo HUD, and D-S grades
-- add Arcade Run with three lives and cumulative score progression
-- add Speed Clear, Untouchable, and Combo Master level missions
-- persist stars, best scores, best times, max combos, and Arcade Run records locally
-- display medals in the level gallery and add a records dashboard
-- add Coop Team Combo bonuses, Versus lead-change feedback, and instant rematch labeling
-- preserve multiplayer rooms, signaling fallback, performance profiles, and stability safeguards
-
-Releases: 2.3.0, 2.4.0, 2.5.0
+- place Near Miss, Max Combo and Ghost Chain boxes beside Combo
+- preserve the compact 34px mobile HUD and maze viewport
+- add FIRE-operated doors across three dynamic level profiles
+- add timed automatic passages with occupancy and reachability guards
+- add paired Pac-Man tunnel teleporters with warp particles, sound and cooldown

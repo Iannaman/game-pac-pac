@@ -1,3 +1,6 @@
+# 3.0.2
+- Compact Combo, Max Combo, Near Miss and Ghost Chain into one 34px row on smartphones.
+- Preserve maze viewport height.
 # 3.0.1
 - Restore combo box, multiplier, max combo, near miss and ghost chain.
 - Add complete feature-contract regression gate.

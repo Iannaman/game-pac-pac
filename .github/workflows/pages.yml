@@ -19,13 +19,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check JavaScript
-        run: node tests/check.cjs
+        run: node tests/check.cjs && node tests/arcade_check.cjs && node tests/retention_check.cjs
       - uses: actions/configure-pages@v5
       - name: Prepare site
         run: |
           mkdir -p public
           cp index.html public/index.html
           cp multiplayer-config.js public/multiplayer-config.js
+          cp social-230.js social-230.css arcade-240.js arcade-240.css retention-250.js retention-250.css public/
+          mkdir -p public/vendor
+          cp vendor/qrcode-core.js public/vendor/qrcode-core.js
           if [ -d audio ]; then cp -R audio public/audio; fi
           touch public/.nojekyll
       - uses: actions/upload-pages-artifact@v3

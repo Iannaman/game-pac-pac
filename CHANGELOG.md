@@ -1,3 +1,7 @@
+# 2.9.0
+- Host Level Editor.
+- Undo/redo, validator and local playtest.
+- Draft persistence, JSON/QR sharing and checksum.
 # 2.8.1
 - Restore Arcade Run, Record e medaglie.
 - Verify localStorage persistence after reload.

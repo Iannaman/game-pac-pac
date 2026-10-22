@@ -1,10 +1,6 @@
 name = "pac-pac-signaling"
 main = "src/index.js"
-compatibility_date = "2026-10-01"
-
+compatibility_date = "2026-10-22"
 [[kv_namespaces]]
 binding = "ROOMS"
 id = "REPLACE_WITH_KV_NAMESPACE_ID"
-
-[vars]
-APP_ORIGIN = "https://REPLACE_WITH_YOUR_GITHUB_PAGES_ORIGIN"

@@ -1,33 +1,53 @@
-## 3.1.0
-- Riallineata la baseline funzionale ed estetica 2.5.1 dai moduli forniti.
-- Ripristinati combo x1-x8, ghost chain, near miss, HUD arcade e gradi D-S.
-- Ripristinati Arcade Run, tre vite, missioni, stelle, record, medaglie e persistenza locale.
-- Ripristinati Team Combo, lead change, rematch, WhatsApp, Web Share e clipboard.
-- Spostato il box combo nell'HUD per non coprire maze, palline, fantasmi e percorsi.
-- Aggiunto regression guard 3.1.0 e test statici della baseline.
-- Corretta la versione diagnostica non allineata.
-- Gestita in sicurezza l'assenza del motore QR nei frammenti ricevuti.
+# Changelog
+## 4.5.0 - 2026-10-22
+- Riscritta la storia come `Il compagno rapito`, con scelta del protagonista.
+- Creati otto labirinti strutturalmente differenti e legati ai boss.
+- Aggiunti acqua invalicabile, fiumi, fiaccole, trappole e muri mobili.
+- Impedito il posizionamento di raccoglibili nelle celle del castello e nei percorsi mobili.
+- Aggiunti Power Birra per Giovanni e Power Stella per Bruno.
+- Aggiunti velocità 120%, Power, munizioni infinite e raffica temporanea.
+- Ridotti e differenziati i fumetti per una narrazione più compatta.
 
-## 3.2.0
-- Compact mobile arcade telemetry in one 34px HUD row: combo, max combo, near miss and ghost chain.
-- Added complete feature-contract regression gate.
-- Added Hunt / Caccia inversa: player hunts while ghosts flee and try to survive a configurable timer.
-- Added dedicated Hunt tutorial, result and rematch flow.
-- Added Host Level Editor with undo/redo, reachability validator, local playtest, draft persistence, JSON export/import and checksum.
+## 4.4.0 - 2026-10-22
+- Ambientati i primi livelli nei castelli della Transilvania.
+- Aggiunte Vespera, Glacia e Morvella, antagoniste gotiche originali in pixel art.
+- Aggiunto Dracula come boss della campagna rumena, con salute e seconda fase.
+- Resa Roma estremamente difficile con fantasmi extra e teletrasporti.
+- Chiarito Trastevere come quartiere di Roma e aggiunto il livello Colosseo.
+- Aggiunto il Custode della Cupola, boss immaginario del Vaticano.
+- Integrato Ralph come cane narratore con ritratto e fumetti.
 
-## 3.3.0
-- Added separate adjacent Near Miss, Max Combo and Ghost Chain HUD boxes.
-- Added FIRE-operated doors, timed automatic passages and paired Pac-Man teleport tunnels.
-- Added occupancy/reachability guards, portal cooldown, particles and audio feedback.
+## 4.3.0 - 2026-10-22
+- Rifatta la Story Game come viaggio dalla Transilvania a Roma.
+- Integrata l’origine rumena e il mestiere di muratore di Giovanni.
+- Integrati l’origine romana, il passato da steward e l’interesse per arte e vita mondana di Bruno.
+- Ambientati cinque capitoli in Transilvania: Sighișoara, Brașov, Carpazi, Bran e Sibiu.
+- Ambientati gli ultimi capitoli a Trastevere, Colosseo e Vaticano.
+- Aggiunte abilità narrative Muratura, Occhio artistico, Curatela e Vita mondana.
+- Sostituita la splash con il viaggio visivo Transilvania-Roma.
 
-### 3.3.1
-- Fixed Level 3 completion after all reachable spheres are collected.
-- Synchronized collectible counters after dynamic doors and automatic passage mutations.
-- Hardened level-clear detection against stale or negative counters.
-- Added Level 3 completion regression coverage.
+## 4.2.0 - 2026-10-22
+- Aggiunta Story Game in otto capitoli: `I Frammenti del Legame`.
+- Giovanni e Bruno sono protagonisti come coppia e affrontano la storia insieme.
+- Aggiunto Bruno come compagno visibile nel labirinto.
+- Aggiunta meccanica Legame con barra HUD, progressione e bonus al 100%.
+- Aggiunti dialoghi, obiettivi, sblocco capitoli, salvataggio e finale narrativo.
+- Sostituita la splash con nuova grafica Story Game desktop e mobile.
 
-### 3.3.2
-- Fixed Level 4 completion by keeping collectible counts synchronized across dynamic map mutations.
-- Updated visible Arcade version labels from 3.3.0 to 3.3.2.
-- Added an explicit Level Editor save action with validation, confirmation and storage error feedback.
-- Added anti-regression coverage for the three reported defects.
+## 4.1.0 - 2026-10-22
+- Aggiunto manuale integrato e pagina autonoma `manual.html`.
+- Aggiunta ricerca nel manuale e collegamento dal menu principale.
+- Sostituita la splash incorporata con asset WebP locali desktop e mobile.
+- Aggiunte animazioni responsive, safe-area e supporto reduced motion.
+- Mantenuta compatibilità con GitHub Pages mediante percorsi relativi.
+
+## 4.0.0 - 2026-10-22
+- Estratti i livelli ufficiali in 20 file JSON e aggiunto manifest versionato.
+- Separata la campagna progettata dall'Arcade infinito procedurale.
+- Aggiunti loader, cache, validatore e runtime dichiarativo di porte e portali.
+- Implementata progressione campagna, stelle e sblocco sequenziale.
+- Sostituito l'editor storico con Level Studio multilivello e download JSON.
+- Aggiunti feedback per palline residue, ultime cinque, FIRE, munizioni, porte automatiche e portali.
+- Reso il near miss resistente al farming e chiarita la progressione combo.
+- Aggiunte sfida giornaliera e telemetria esclusivamente locale.
+- Integrato QR offline reale e preservate tutte le funzioni storiche.

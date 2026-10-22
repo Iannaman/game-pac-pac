@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 2,
+  "version": "4.0.0",
+  "campaigns": [
+    {
+      "id": "main",
+      "name": "Campagna PAC PAC",
+      "description": "20 livelli didattici e progressivi",
+      "levels": [
+        {
+          "id": "level-001",
+          "order": 1,
+          "name": "Primi passi",
+          "file": "campaign/level-001.json",
+          "unlockAfter": null,
+          "mechanics": [
+            "pellets"
+          ]
+        },
+        {
+          "id": "level-002",
+          "order": 2,
+          "name": "Energia rosa",
+          "file": "campaign/level-002.json",
+          "unlockAfter": "level-001",
+          "mechanics": [
+            "pellets",
+            "power"
+          ]
+        },
+        {
+          "id": "level-003",
+          "order": 3,
+          "name": "Primo FIRE",
+          "file": "campaign/level-003.json",
+          "unlockAfter": "level-002",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door"
+          ]
+        },
+        {
+          "id": "level-004",
+          "order": 4,
+          "name": "Riserva munizioni",
+          "file": "campaign/level-004.json",
+          "unlockAfter": "level-003",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo"
+          ]
+        },
+        {
+          "id": "level-005",
+          "order": 5,
+          "name": "Porta automatica",
+          "file": "campaign/level-005.json",
+          "unlockAfter": "level-004",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door"
+          ]
+        },
+        {
+          "id": "level-006",
+          "order": 6,
+          "name": "Tunnel A/B",
+          "file": "campaign/level-006.json",
+          "unlockAfter": "level-005",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-007",
+          "order": 7,
+          "name": "Doppio percorso",
+          "file": "campaign/level-007.json",
+          "unlockAfter": "level-006",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-008",
+          "order": 8,
+          "name": "Incrocio pericoloso",
+          "file": "campaign/level-008.json",
+          "unlockAfter": "level-007",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-009",
+          "order": 9,
+          "name": "Labirinto dinamico",
+          "file": "campaign/level-009.json",
+          "unlockAfter": "level-008",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-010",
+          "order": 10,
+          "name": "Catena fantasma",
+          "file": "campaign/level-010.json",
+          "unlockAfter": "level-009",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-011",
+          "order": 11,
+          "name": "Fuoco incrociato",
+          "file": "campaign/level-011.json",
+          "unlockAfter": "level-010",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-012",
+          "order": 12,
+          "name": "Ritmo automatico",
+          "file": "campaign/level-012.json",
+          "unlockAfter": "level-011",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-013",
+          "order": 13,
+          "name": "Portali gemelli",
+          "file": "campaign/level-013.json",
+          "unlockAfter": "level-012",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-014",
+          "order": 14,
+          "name": "Scorta limitata",
+          "file": "campaign/level-014.json",
+          "unlockAfter": "level-013",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-015",
+          "order": 15,
+          "name": "Corridoio del rischio",
+          "file": "campaign/level-015.json",
+          "unlockAfter": "level-014",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-016",
+          "order": 16,
+          "name": "Camera Power",
+          "file": "campaign/level-016.json",
+          "unlockAfter": "level-015",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-017",
+          "order": 17,
+          "name": "Doppia chiusa",
+          "file": "campaign/level-017.json",
+          "unlockAfter": "level-016",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-018",
+          "order": 18,
+          "name": "Warp Run",
+          "file": "campaign/level-018.json",
+          "unlockAfter": "level-017",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-019",
+          "order": 19,
+          "name": "Maestria arcade",
+          "file": "campaign/level-019.json",
+          "unlockAfter": "level-018",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        },
+        {
+          "id": "level-020",
+          "order": 20,
+          "name": "Gran finale",
+          "file": "campaign/level-020.json",
+          "unlockAfter": "level-019",
+          "mechanics": [
+            "pellets",
+            "power",
+            "fire-door",
+            "ammo",
+            "auto-door",
+            "portals"
+          ]
+        }
+      ]
+    }
+  ],
+  "procedural": {
+    "enabled": true,
+    "name": "Arcade infinito"
+  }
+}

@@ -1,7 +1,8 @@
-fix: release PAC PAC 3.3.2 gameplay and editor repairs
+feat: release PAC PAC 4.5.0 The Kidnapped Companion
 
-- fix Level 4 completion after collecting all spheres
-- synchronize counters after dynamic doors and passages
-- update visible Arcade branding to 3.3.2
-- restore explicit Level Editor save with validation and feedback
-- add targeted anti-regression tests
+- redesign all story mazes with unique boss-driven layouts
+- add rivers, blocked water, torches, traps and moving walls
+- keep collectibles outside castle and moving-wall cells
+- add Giovanni beer power and Bruno star power
+- grant 120 percent speed, Power and infinite rapid fire
+- rewrite Ralph narrative as a concise kidnapping mystery

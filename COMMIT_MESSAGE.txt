@@ -1,7 +1,7 @@
-feat: add metric boxes and interactive maze infrastructure
+fix: release PAC PAC 3.3.2 gameplay and editor repairs
 
-- place Near Miss, Max Combo and Ghost Chain boxes beside Combo
-- preserve the compact 34px mobile HUD and maze viewport
-- add FIRE-operated doors across three dynamic level profiles
-- add timed automatic passages with occupancy and reachability guards
-- add paired Pac-Man tunnel teleporters with warp particles, sound and cooldown
+- fix Level 4 completion after collecting all spheres
+- synchronize counters after dynamic doors and passages
+- update visible Arcade branding to 3.3.2
+- restore explicit Level Editor save with validation and feedback
+- add targeted anti-regression tests

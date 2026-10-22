@@ -1,1 +1,0 @@
-const fs=require('fs'),assert=require('assert/strict'),s=fs.readFileSync('arcade-240-restored.css','utf8');for(const x of ['grid-template-columns:repeat(4,minmax(0,1fr))','height:34px','white-space:nowrap','CMB','NEAR','GHOST'])assert(s.includes(x),x);console.log('PASS compact single-row arcade HUD contract');

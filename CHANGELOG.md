@@ -19,3 +19,15 @@
 - Added separate adjacent Near Miss, Max Combo and Ghost Chain HUD boxes.
 - Added FIRE-operated doors, timed automatic passages and paired Pac-Man teleport tunnels.
 - Added occupancy/reachability guards, portal cooldown, particles and audio feedback.
+
+### 3.3.1
+- Fixed Level 3 completion after all reachable spheres are collected.
+- Synchronized collectible counters after dynamic doors and automatic passage mutations.
+- Hardened level-clear detection against stale or negative counters.
+- Added Level 3 completion regression coverage.
+
+### 3.3.2
+- Fixed Level 4 completion by keeping collectible counts synchronized across dynamic map mutations.
+- Updated visible Arcade version labels from 3.3.0 to 3.3.2.
+- Added an explicit Level Editor save action with validation, confirmation and storage error feedback.
+- Added anti-regression coverage for the three reported defects.

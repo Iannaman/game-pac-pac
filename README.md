@@ -1,6 +1,6 @@
-# PAC PAC 3.1.0 - Consolidamento baseline 2.5.1
+# PAC PAC 3.3.1 - Consolidamento baseline 2.5.1
 
-Questa build riallinea i moduli forniti della 2.5.1 e aggiunge un regression guard.
+Bugfix release della 3.3.0 con correzione del completamento del livello 3 e regression gate aggiornato.
 
 ## Avvio
 Aprire `index.html` tramite un server locale HTTPS/localhost per usare WebRTC e le API di condivisione.

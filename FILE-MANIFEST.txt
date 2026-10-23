@@ -83,6 +83,7 @@
 ./tests/level-completion-331.test.js
 ./tests/levels-400.test.js
 ./tests/manual-splash-410.test.js
+./tests/menu-boss-audio-475.test.js
 ./tests/menu-share-471.test.js
 ./tests/menu-share-472.test.js
 ./tests/regression.test.js

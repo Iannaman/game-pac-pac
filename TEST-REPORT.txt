@@ -1,5 +1,5 @@
 === tests/audio-motion-473.test.js ===
-PASS version 4.7.4
+PASS version 4.7.5
 PASS module loaded last
 PASS Giovanni audio
 PASS Bruno audio
@@ -22,7 +22,7 @@ PASS no inline click
 PASS single intro button
 === tests/bugfix-332.test.js ===
 PASS no visible Arcade 3.3.0
-PASS visible Arcade 4.7.4
+PASS visible Arcade 4.7.5
 PASS explicit editor save button
 PASS editor save binding
 PASS editor save error handling
@@ -61,7 +61,7 @@ PASS counter synchronization helper
 PASS clear uses real map count
 PASS dynamic configure synchronizes
 PASS automatic passage synchronizes
-PASS diagnostic version 4.7.4
+PASS diagnostic version 4.7.5
 === tests/levels-400.test.js ===
 PASS manifest schema
 PASS 20 campaign levels
@@ -222,8 +222,23 @@ PASS GitHub Pages relative paths
 PASS accessible intro
 PASS asset assets/splash/pac-pac-trailer-desktop.webp
 PASS asset assets/splash/pac-pac-trailer-mobile.webp
+=== tests/menu-boss-audio-475.test.js ===
+PASS only current menu version
+PASS large PAC PAC G&B sign
+PASS current release
+PASS pathfinding distance map
+PASS escape-space analysis
+PASS avoids reverse
+PASS avoids dead ends
+PASS adaptive sprint
+PASS faster act speed
+PASS duck exactly 40 percent
+PASS duck only battle cry
+PASS restore on ended
+PASS restore on failure
+PASS all music sources ducked
 === tests/menu-share-471.test.js ===
-PASS version 4.7.4
+PASS version 4.7.5
 PASS compact launcher
 PASS no section menu
 PASS five main modes
@@ -240,7 +255,7 @@ PASS deterministic phrase
 PASS PNG file share
 PASS no wa text
 === tests/menu-share-472.test.js ===
-PASS version 4.7.4
+PASS version 4.7.5
 PASS compact launcher
 PASS no section menu
 PASS five main modes
@@ -275,7 +290,7 @@ PASS web share
 PASS png export
 PASS qr download
 === tests/release-400.test.js ===
-PASS version 4.7.4
+PASS version 4.7.5
 PASS manifest loader
 PASS campaign UI
 PASS procedural mode
@@ -377,7 +392,7 @@ PASS all mazes distinct
 PASS Ralph concise scenes
 PASS render hook
 === tests/story-chase-474.test.js ===
-PASS version 4.7.4
+PASS version 4.7.5
 PASS chase module loaded after audio
 PASS castle bounds
 PASS all hidden collectible types removed
@@ -419,4 +434,4 @@ PASS Pac-Man effect
 PASS teleport cooldown
 PASS portal renderer
 PASS version
-SUITES: 16/16 PASS
+SUITES: 17/17 PASS

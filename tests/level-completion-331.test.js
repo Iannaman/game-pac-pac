@@ -7,6 +7,6 @@ const checks={
  'clear uses real map count':'if(syncRemaining()<=0)',
  'dynamic configure synchronizes':'syncRemaining();game.initial=game.remaining',
  'automatic passage synchronizes':"if(typeof syncRemaining==='function')syncRemaining()",
- 'diagnostic version 4.7.4':"version:'4.7.4'"
+ 'diagnostic version 4.7.5':"version:'4.7.5'"
 };
 let bad=0;for(const [name,needle] of Object.entries(checks)){const ok=(index+'\n'+world).includes(needle);console.log((ok?'PASS':'FAIL')+' '+name);bad+=!ok}process.exit(bad?1:0);

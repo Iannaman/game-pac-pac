@@ -22,3 +22,5 @@ Required 4.7.2: compact no-scroll launcher; existing menu actions preserved; sig
 Required 4.7.3: animated dynamic launcher; reduced-motion support; Giovanni, Bruno and PAC PAC selection audio; normal and Story completion audio; non-blocking Web Audio beep fallback when MP3 is absent or rejected; 4.7.2 gameplay unchanged.
 
 Required 4.7.4: no collectibles under the Story castle; the last collectible starts boss chase instead of completion; boss capture completes the act; `grido-battaglia.mp3` at chase start; `missione-compiuta.mp3` at actual completion; non-Story modes unchanged; clean special characters.
+
+Required 4.7.5: only current version in main menu; large `PAC PAC G&B` sign; smarter Story boss with BFS distance, escape-space and dead-end avoidance; adaptive sprint; background music reduced by exactly 40% only while `grido-battaglia.mp3` plays, then restored; all other behavior unchanged.

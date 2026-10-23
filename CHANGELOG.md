@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.7.5 - insegna G&B, boss evasivo e audio ducking
+- Rimossi i riferimenti di versione obsoleti dal menu principale.
+- Il menu mostra un’unica versione corrente: v4.7.5.
+- Aggiunta la grande insegna `PAC PAC G&B`.
+- Il boss usa una mappa BFS delle distanze reali dal giocatore.
+- Il boss valuta spazio disponibile, uscite, continuità e rischio di vicolo cieco.
+- Il boss evita inversioni inutili e accelera quando viene avvicinato.
+- Durante `grido-battaglia.mp3` la musica di sottofondo scende al 60%, cioè del 40%.
+- Il volume originale viene ripristinato alla fine o in caso di errore audio.
+- Tutto il resto della 4.7.4 è invariato.
+
+
 ## 4.7.4 - caccia al boss nella Storia
 - Rimossi palline, Power Sphere, Power Birra e Power Stella dall’area visiva del castello.
 - Ricalcolato il numero dei collezionabili dopo la bonifica del castello.

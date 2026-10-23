@@ -1,5 +1,5 @@
 === tests/audio-motion-473.test.js ===
-PASS version 4.7.5
+PASS version 4.7.6
 PASS module loaded last
 PASS Giovanni audio
 PASS Bruno audio
@@ -22,7 +22,7 @@ PASS no inline click
 PASS single intro button
 === tests/bugfix-332.test.js ===
 PASS no visible Arcade 3.3.0
-PASS visible Arcade 4.7.5
+PASS visible Arcade 4.7.6
 PASS explicit editor save button
 PASS editor save binding
 PASS editor save error handling
@@ -61,7 +61,7 @@ PASS counter synchronization helper
 PASS clear uses real map count
 PASS dynamic configure synchronizes
 PASS automatic passage synchronizes
-PASS diagnostic version 4.7.5
+PASS diagnostic version 4.7.6
 === tests/levels-400.test.js ===
 PASS manifest schema
 PASS 20 campaign levels
@@ -230,15 +230,15 @@ PASS pathfinding distance map
 PASS escape-space analysis
 PASS avoids reverse
 PASS avoids dead ends
-PASS adaptive sprint
-PASS faster act speed
+PASS balanced adaptive boss
+PASS balanced initial speed
 PASS duck exactly 40 percent
 PASS duck only battle cry
 PASS restore on ended
 PASS restore on failure
 PASS all music sources ducked
 === tests/menu-share-471.test.js ===
-PASS version 4.7.5
+PASS version 4.7.6
 PASS compact launcher
 PASS no section menu
 PASS five main modes
@@ -255,7 +255,7 @@ PASS deterministic phrase
 PASS PNG file share
 PASS no wa text
 === tests/menu-share-472.test.js ===
-PASS version 4.7.5
+PASS version 4.7.6
 PASS compact launcher
 PASS no section menu
 PASS five main modes
@@ -290,7 +290,7 @@ PASS web share
 PASS png export
 PASS qr download
 === tests/release-400.test.js ===
-PASS version 4.7.5
+PASS version 4.7.6
 PASS manifest loader
 PASS campaign UI
 PASS procedural mode
@@ -392,7 +392,7 @@ PASS all mazes distinct
 PASS Ralph concise scenes
 PASS render hook
 === tests/story-chase-474.test.js ===
-PASS version 4.7.5
+PASS version 4.7.6
 PASS chase module loaded after audio
 PASS castle bounds
 PASS all hidden collectible types removed
@@ -418,6 +418,20 @@ PASS story act 6
 PASS story act 7
 PASS story act 8
 PASS all acts give feedback
+=== tests/story-superpowers-476.test.js ===
+PASS version 4.7.6
+PASS powers story chase only
+PASS normal shoot preserved
+PASS passive speed boost 42%
+PASS dash duration
+PASS power cooldown
+PASS boss slow duration
+PASS boss slow strength
+PASS balanced boss speed
+PASS ghost protection during chase
+PASS power feedback
+PASS cooldown HUD
+PASS visual aura
 === tests/world-330.test.js ===
 PASS near box
 PASS max box
@@ -434,4 +448,4 @@ PASS Pac-Man effect
 PASS teleport cooldown
 PASS portal renderer
 PASS version
-SUITES: 17/17 PASS
+SUITES: 18/18 PASS

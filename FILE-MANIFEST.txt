@@ -92,6 +92,7 @@
 ./tests/story-450.test.js
 ./tests/story-chase-474.test.js
 ./tests/story-start-470.test.js
+./tests/story-superpowers-476.test.js
 ./tests/world-330.test.js
 ./ui-470.css
 ./vendor/qrcode-core.js

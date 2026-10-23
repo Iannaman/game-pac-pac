@@ -1,9 +1,9 @@
-feat: release PAC PAC 4.7.5 menu sign and smarter story boss
+feat: release PAC PAC 4.7.6 story chase superpowers
 
-- show only the current version in the main menu
-- add the large PAC PAC G&B sign
-- use BFS distance and escape-space scoring for boss evasion
-- avoid dead ends, reversals and predictable movement
-- sprint adaptively when the player closes in
-- duck background music by 40 percent during battle cry only
-- restore music volume after ending or audio failure
+- rebalance boss speed while preserving evasive pathfinding
+- boost player chase speed by 42 percent
+- add FIRE-activated Bond Dash
+- slow the boss temporarily with the dash impulse
+- protect the player from ghosts during the final chase
+- show power aura and cooldown feedback
+- preserve all behavior outside Story boss chase

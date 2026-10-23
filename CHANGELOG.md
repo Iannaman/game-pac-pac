@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.7.6 - super poteri nella caccia al boss
+- Ridotta la velocità del boss a valori raggiungibili, mantenendo l’IA evasiva.
+- Durante la sola caccia il personaggio corre il 42% più veloce.
+- FIRE attiva lo Scatto del Legame per 0,62 secondi.
+- Lo Scatto genera un impulso che rallenta il boss per 2,6 secondi.
+- Il potere si ricarica in 1,65 secondi e non consuma munizioni.
+- Durante la caccia il personaggio è protetto dai fantasmi.
+- Aggiunti aura e indicatore della ricarica del super potere.
+- Tutto il resto della 4.7.5 è invariato.
+
+
 ## 4.7.5 - insegna G&B, boss evasivo e audio ducking
 - Rimossi i riferimenti di versione obsoleti dal menu principale.
 - Il menu mostra un’unica versione corrente: v4.7.5.

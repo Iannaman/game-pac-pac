@@ -24,3 +24,5 @@ Required 4.7.3: animated dynamic launcher; reduced-motion support; Giovanni, Bru
 Required 4.7.4: no collectibles under the Story castle; the last collectible starts boss chase instead of completion; boss capture completes the act; `grido-battaglia.mp3` at chase start; `missione-compiuta.mp3` at actual completion; non-Story modes unchanged; clean special characters.
 
 Required 4.7.5: only current version in main menu; large `PAC PAC G&B` sign; smarter Story boss with BFS distance, escape-space and dead-end avoidance; adaptive sprint; background music reduced by exactly 40% only while `grido-battaglia.mp3` plays, then restored; all other behavior unchanged.
+
+Required 4.7.6: Story boss remains intelligent but catchable; chase-only 42% player speed boost; FIRE activates 0.62s Bond Dash and 2.6s boss slow with 1.65s cooldown; no ammunition cost; ghost protection and visible cooldown during chase; all non-chase behavior unchanged.

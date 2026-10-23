@@ -1,6 +1,6 @@
 const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..');const index=fs.readFileSync(path.join(root,'index.html'),'utf8'),legacy=fs.readFileSync(path.join(root,'legacy-320.js'),'utf8'),all=index+'\n'+legacy;const checks={
 'no visible Arcade 3.3.0':!all.includes('ARCADE 3.3.0')&&!all.includes('Arcade 3.3.0'),
-'visible Arcade 4.7.5':all.includes('v4.7.5'),
+'visible Arcade 4.7.6':all.includes('v4.7.6'),
 'explicit editor save button':all.includes('id="edSave"'),
 'editor save binding':all.includes("$('edSave').onclick"),
 'editor save error handling':all.includes('Editor save failed'),

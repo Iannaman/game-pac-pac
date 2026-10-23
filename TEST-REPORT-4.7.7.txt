@@ -1,0 +1,15 @@
+PAC PAC 4.7.7 - TEST REPORT
+
+PASS sintassi story-450.js
+PASS sintassi audio-motion-473.js
+PASS validazione runtime raggiungibilita Story
+PASS labirinto 2 protetto da aree obbligatorie isolate
+PASS ritorno fantasmi alla base del castello
+PASS recovery anti-blocco occhi dopo 2,5 secondi
+PASS audio morte richiama audio/gameover.mp3
+PASS fallback audio non bloccante
+PASS test mirati release-477.test.js
+
+NOTA ASSET
+Il file unificato sorgente elenca ma non incorpora i file binari WebP/PNG/MP3.
+I percorsi e i riferimenti originali sono preservati; per una pubblicazione grafica identica, copiare le cartelle assets e audio binarie dalla 4.7.6 originale.

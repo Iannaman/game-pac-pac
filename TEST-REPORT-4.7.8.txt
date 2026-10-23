@@ -1,0 +1,11 @@
+PAC PAC 4.7.8 - TEST REPORT
+
+PASS sintassi audio-visualizer-478.js
+PASS modulo caricato da index.html
+PASS Web Audio Analyser collegabile al bus musica
+PASS fallback ambientale senza segnale audio
+PASS canvas non interattivo: pointer-events none
+PASS pausa rendering con pagina non visibile
+PASS supporto prefers-reduced-motion
+PASS versione menu 4.7.8
+PASS funzioni 4.7.7 preservate

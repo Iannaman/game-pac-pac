@@ -26,3 +26,7 @@ Required 4.7.4: no collectibles under the Story castle; the last collectible sta
 Required 4.7.5: only current version in main menu; large `PAC PAC G&B` sign; smarter Story boss with BFS distance, escape-space and dead-end avoidance; adaptive sprint; background music reduced by exactly 40% only while `grido-battaglia.mp3` plays, then restored; all other behavior unchanged.
 
 Required 4.7.6: Story boss remains intelligent but catchable; chase-only 42% player speed boost; FIRE activates 0.62s Bond Dash and 2.6s boss slow with 1.65s cooldown; no ammunition cost; ghost protection and visible cooldown during chase; all non-chase behavior unchanged.
+
+Required 4.7.7: every Story maze is fully reachable at runtime; eyes return to the castle ghost base with anti-stuck recovery in Arcade and Story; death requests `audio/gameover.mp3` with non-blocking fallback; all other 4.7.6 behavior unchanged.
+
+Required 4.7.8: futuristic non-interactive background audio visualizer, Web Audio reactive when available, ambient fallback, reduced-motion support; all gameplay unchanged.

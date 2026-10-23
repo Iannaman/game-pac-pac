@@ -1,5 +1,5 @@
 (()=>{'use strict';
-const FILES={giovanni:'./audio/giovanni-start.mp3',bruno:'./audio/bruno-start.mp3',pac:'./audio/pac-pac-start.mp3',complete:'./audio/missione-compiuta.mp3',storyComplete:'./audio/grido-battaglia.mp3'};
+const FILES={giovanni:'./audio/giovanni-start.mp3',bruno:'./audio/bruno-start.mp3',pac:'./audio/pac-pac-start.mp3',complete:'./audio/missione-compiuta.mp3',storyComplete:'./audio/grido-battaglia.mp3',death:'./audio/gameover.mp3'};
 let active=null,audioContext=null,lastCharacter='',duckDepth=0;
 function beep(kind='select'){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return false;audioContext=audioContext||new C();if(audioContext.state==='suspended')audioContext.resume();const now=audioContext.currentTime,o=audioContext.createOscillator(),g=audioContext.createGain();o.type=kind==='complete'?'triangle':'sine';o.frequency.setValueAtTime(kind==='complete'?523.25:392,now);if(kind==='complete')o.frequency.exponentialRampToValueAtTime(783.99,now+.22);g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.13,now+.015);g.gain.exponentialRampToValueAtTime(.0001,now+(kind==='complete'?.34:.16));o.connect(g).connect(audioContext.destination);o.start(now);o.stop(now+(kind==='complete'?.36:.18));return true}catch{return false}}
 

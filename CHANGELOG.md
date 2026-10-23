@@ -1,4 +1,22 @@
 # Changelog
+## 4.7.9 - correzione simboli e codifica UTF-8
+- Ripristinati accenti, apostrofi tipografici, frecce, icone, emoji e simboli dei controlli.
+- Corretti i nomi Sighișoara e Brașov.
+- Uniformata la codifica testuale dei moduli a UTF-8.
+- Visualizer e gameplay 4.7.8 invariati.
+## 4.7.8 - audio visualizer futuristico
+- Aggiunto visualizer audio futuristico sullo sfondo.
+- Le barre reagiscono alla musica tramite Web Audio Analyser.
+- In assenza di segnale audio resta attiva una delicata animazione ambientale.
+- Il visualizer non intercetta input e rispetta `prefers-reduced-motion`.
+- Gameplay e funzionalita della 4.7.7 restano invariati.
+## 4.7.7 - completabilita labirinti, rientro fantasmi e audio morte
+- Aggiunta riparazione runtime della raggiungibilita per tutti gli otto labirinti della Storia.
+- Corretto il labirinto 2 e impedita la generazione di aree obbligatorie isolate.
+- Il respawn dei fantasmi avviene nella base del castello, mai sulla posizione del giocatore.
+- Aggiunto recupero anti-blocco nel ritorno alla base anche in Arcade.
+- Alla morte viene riprodotto `audio/gameover.mp3`, con fallback sonoro non bloccante.
+- Tutto il resto della 4.7.6 resta invariato.
 
 ## 4.7.6 - super poteri nella caccia al boss
 - Ridotta la velocità del boss a valori raggiungibili, mantenendo l’IA evasiva.
@@ -111,7 +129,7 @@
 - Rifatta la Story Game come viaggio dalla Transilvania a Roma.
 - Integrata l’origine rumena e il mestiere di muratore di Giovanni.
 - Integrati l’origine romana, il passato da steward e l’interesse per arte e vita mondana di Bruno.
-- Ambientati cinque capitoli in Transilvania: SighiÈ™oara, BraÈ™ov, Carpazi, Bran e Sibiu.
+- Ambientati cinque capitoli in Transilvania: Sighișoara, Brașov, Carpazi, Bran e Sibiu.
 - Ambientati gli ultimi capitoli a Trastevere, Colosseo e Vaticano.
 - Aggiunte abilità narrative Muratura, Occhio artistico, Curatela e Vita mondana.
 - Sostituita la splash con il viaggio visivo Transilvania-Roma.

@@ -35,7 +35,7 @@ Ralph, cane narratore in pixel art, presenta la storia tramite fumetti. I primi 
 Nei capitoli boss, una volta terminate le palline si apre una seconda fase: le sfere-sigillo riattivano il Power e ogni fantasma sconfitto riduce la salute del boss. Ralph commenta introduzioni, missioni e conclusioni con fumetti.
 
 ## Story Game: Le Strade del Legame
-Giovanni, muratore originario della Romania, e Bruno, romano, già steward e amante dell’arte e della vita mondana, sono protagonisti di un viaggio in otto capitoli. I primi cinque livelli attraversano SighiÈ™oara, BraÈ™ov, i Carpazi, il Castello di Bran e Sibiu. Gli ultimi capitoli sono ambientati a Trastevere, al Colosseo e al Vaticano. Giovanni è il personaggio controllato; Bruno è il compagno visibile che segue il percorso e alimenta la meccanica **Legame**.
+Giovanni, muratore originario della Romania, e Bruno, romano, già steward e amante dell’arte e della vita mondana, sono protagonisti di un viaggio in otto capitoli. I primi cinque livelli attraversano Sighișoara, Brașov, i Carpazi, il Castello di Bran e Sibiu. Gli ultimi capitoli sono ambientati a Trastevere, al Colosseo e al Vaticano. Giovanni è il personaggio controllato; Bruno è il compagno visibile che segue il percorso e alimenta la meccanica **Legame**.
 
 Il Legame aumenta raccogliendo sfere, avanzando insieme e sconfiggendo fantasmi. Al 100% attiva un bonus condiviso: Power temporaneo e due munizioni. Capitoli, record di Legame e avanzamento sono salvati in `pacpac-story-450`.
 

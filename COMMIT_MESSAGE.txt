@@ -1,9 +1,5 @@
-feat: release PAC PAC 4.7.6 story chase superpowers
+fix: release PAC PAC 4.7.9 UTF-8 symbols
 
-- rebalance boss speed while preserving evasive pathfinding
-- boost player chase speed by 42 percent
-- add FIRE-activated Bond Dash
-- slow the boss temporarily with the dash impulse
-- protect the player from ghosts during the final chase
-- show power aura and cooldown feedback
-- preserve all behavior outside Story boss chase
+- repair mojibake across UI and story modules
+- restore arrows icons emoji and Romanian place names
+- preserve visualizer and gameplay

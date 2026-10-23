@@ -1,5 +1,41 @@
 # Changelog
 
+## 4.7.3 - menu dinamico e cue audio
+- Aggiunto sfondo dinamico al launcher con orbite luminose e particelle.
+- Aggiunte animazioni di ingresso, hover, selezione personaggio e risalto della Storia.
+- Supportato `prefers-reduced-motion`.
+- Selezione Giovanni: tenta `audio/giovanni-start.mp3`; beep se assente o non riproducibile.
+- Selezione Bruno: tenta `audio/bruno-start.mp3`; beep se assente o non riproducibile.
+- Selezione PAC PAC: tenta `audio/pac-pac-start.mp3`; beep se assente o non riproducibile.
+- Completamento normale: tenta `audio/missione-compiuta.mp3`; beep di completamento come fallback.
+- Completamento Storia: tenta `audio/grido-battaglia.mp3`; beep di completamento come fallback.
+- Gameplay e tutte le altre funzioni 4.7.2 invariati.
+
+
+## 4.7.2 - compact launcher e sfide firmate
+- Menu principale ridisegnato come game launcher compatto, senza scrollbar interna.
+- Personaggi ridotti a selettore orizzontale; Modalità Storia, Arcade Run, Campagna, Sfida giornaliera e Caccia inversa sono accessi immediati.
+- Multiplayer, Level Studio, Record e pannello Altro organizzati in una barra secondaria.
+- Card risultato con icona del personaggio effettivamente usato: Giovanni, Bruno o PAC PAC.
+- Inserimento obbligatorio di nome o nickname, massimo 24 caratteri, salvato localmente.
+- Firma incorporata nei pixel dell’immagine PNG.
+- Aggiunte 30 frasi ironiche e motivazionali predefinite con selezione deterministica.
+- Condivisione invariata come file PNG, con download di fallback.
+- Gameplay, livelli, Storia, multiplayer e Level Studio non modificati.
+
+
+## 4.7.1 - menu e condivisione immagine
+- Riorganizzato il menu principale in tre sezioni: In primo piano, Modalità di gioco, Crea e consulta.
+- Migliorati gerarchia visiva, leggibilità, focus da tastiera e resa responsive.
+- Modalità Storia e Arcade classico mantenute come accessi prioritari.
+- Sostituita la condivisione testuale del risultato con una card PNG 1080x1350.
+- La card include modalità, livello, punteggio, ranking S-D, combo massima, near miss, ghost chain, esito, data e codice risultato.
+- Condivisione tramite Web Share del file PNG; fallback con download locale del PNG.
+- Rimossi dal risultato WhatsApp il link wa.me e il testo copiabile.
+- Inviti multiplayer e QR invariati.
+- Gameplay e altre funzionalità lasciati invariati.
+
+
 ## 4.7.0 - ricostruzione stabile dalla 4.5.0
 - Ricostruzione completa a partire esclusivamente dal pacchetto 4.5.0 funzionante.
 - Nessun file applicativo importato dalle release 4.5.1-4.6.4.
@@ -39,7 +75,7 @@
 - Rifatta la Story Game come viaggio dalla Transilvania a Roma.
 - Integrata l’origine rumena e il mestiere di muratore di Giovanni.
 - Integrati l’origine romana, il passato da steward e l’interesse per arte e vita mondana di Bruno.
-- Ambientati cinque capitoli in Transilvania: Sighișoara, Brașov, Carpazi, Bran e Sibiu.
+- Ambientati cinque capitoli in Transilvania: SighiÈ™oara, BraÈ™ov, Carpazi, Bran e Sibiu.
 - Ambientati gli ultimi capitoli a Trastevere, Colosseo e Vaticano.
 - Aggiunte abilità narrative Muratura, Occhio artistico, Curatela e Vita mondana.
 - Sostituita la splash con il viaggio visivo Transilvania-Roma.

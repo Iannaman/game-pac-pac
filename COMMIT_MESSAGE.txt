@@ -1,10 +1,7 @@
-release: rebuild PAC PAC 4.7.0 from stable 4.5.0 baseline
+feat: release PAC PAC 4.7.3 animated menu and audio cues
 
-- preserve the original 4.5.0 splash entry logic
-- add trailer assets without changing splash behavior
-- modernize the menu in an isolated module
-- repair UTF-8 source text
-- make all eight story acts directly startable
-- add bosses, castles, live dialogue and recognizable braziers
-- fix story ghost return, stuck recovery and moving-wall collision
-- retain all 4.5.0 historical features and tests
+- add a dynamic animated launcher background
+- animate menu entry, cards and character selection
+- play character-specific start audio with beep fallback
+- play normal and story-specific completion audio with beep fallback
+- preserve all 4.7.2 gameplay and sharing behavior

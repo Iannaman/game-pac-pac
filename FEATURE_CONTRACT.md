@@ -14,3 +14,9 @@ Required 4.4: Ralph narrator, comic bubbles, three original castle antagonists, 
 Required 4.5: eight distinct mazes, water blocking, rivers, torches, traps, moving walls, no castle collectibles, Beer/Star powers, 120% speed, infinite rapid fire and concise kidnapping narrative.
 
 Required 4.7.0: preserve the exact 4.5.0 splash behavior; all eight Story acts start; modern menu; clean UTF-8; visible castle and boss per act; live boss dialogue; reachable ghost home; stuck recovery; solid moving walls; recognizable braziers; all 4.5.0 features retained.
+
+Required 4.7.1: organized three-section main menu; PNG-only result sharing containing level, score, ranking, combo, near miss and ghost chain; no wa.me text result; download fallback; all gameplay unchanged.
+
+Required 4.7.2: compact no-scroll launcher; existing menu actions preserved; signed PNG result card; selected Giovanni, Bruno or PAC PAC icon; exactly 30 preset challenge phrases; no editable WhatsApp result text; gameplay unchanged.
+
+Required 4.7.3: animated dynamic launcher; reduced-motion support; Giovanni, Bruno and PAC PAC selection audio; normal and Story completion audio; non-blocking Web Audio beep fallback when MP3 is absent or rejected; 4.7.2 gameplay unchanged.

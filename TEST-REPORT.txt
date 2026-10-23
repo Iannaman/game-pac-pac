@@ -1,3 +1,18 @@
+=== tests/audio-motion-473.test.js ===
+PASS version 4.7.3
+PASS module loaded last
+PASS Giovanni audio
+PASS Bruno audio
+PASS PAC PAC audio
+PASS normal completion
+PASS story completion
+PASS beep fallback
+PASS story selection before clear
+PASS character click binding
+PASS dynamic stars
+PASS animated background
+PASS card motion
+PASS reduced motion
 === tests/baseline-splash-470.test.js ===
 PASS original show function
 PASS original click listener
@@ -7,7 +22,7 @@ PASS no inline click
 PASS single intro button
 === tests/bugfix-332.test.js ===
 PASS no visible Arcade 3.3.0
-PASS visible Arcade 4.7.0
+PASS visible Arcade 4.7.3
 PASS explicit editor save button
 PASS editor save binding
 PASS editor save error handling
@@ -46,7 +61,7 @@ PASS counter synchronization helper
 PASS clear uses real map count
 PASS dynamic configure synchronizes
 PASS automatic passage synchronizes
-PASS diagnostic version 4.7.0
+PASS diagnostic version 4.7.3
 === tests/levels-400.test.js ===
 PASS manifest schema
 PASS 20 campaign levels
@@ -207,6 +222,40 @@ PASS GitHub Pages relative paths
 PASS accessible intro
 PASS asset assets/splash/pac-pac-trailer-desktop.webp
 PASS asset assets/splash/pac-pac-trailer-mobile.webp
+=== tests/menu-share-471.test.js ===
+PASS version 4.7.3
+PASS compact launcher
+PASS no section menu
+PASS five main modes
+PASS collapsible more
+PASS no menu scroll
+PASS responsive launcher
+PASS 30 challenge phrases
+PASS character in snapshot
+PASS player icon
+PASS name prompt
+PASS name sanitized
+PASS signature in pixels
+PASS deterministic phrase
+PASS PNG file share
+PASS no wa text
+=== tests/menu-share-472.test.js ===
+PASS version 4.7.3
+PASS compact launcher
+PASS no section menu
+PASS five main modes
+PASS collapsible more
+PASS no menu scroll
+PASS responsive launcher
+PASS 30 challenge phrases
+PASS character in snapshot
+PASS player icon
+PASS name prompt
+PASS name sanitized
+PASS signature in pixels
+PASS deterministic phrase
+PASS PNG file share
+PASS no wa text
 === tests/regression.test.js ===
 PASS index loads arcade
 PASS index loads retention
@@ -221,12 +270,12 @@ PASS arcade run
 PASS missions
 PASS records
 PASS team combo
-PASS whatsapp
+PASS image share
 PASS web share
-PASS clipboard
+PASS png export
 PASS qr download
 === tests/release-400.test.js ===
-PASS version 4.7.0
+PASS version 4.7.3
 PASS manifest loader
 PASS campaign UI
 PASS procedural mode
@@ -353,4 +402,4 @@ PASS Pac-Man effect
 PASS teleport cooldown
 PASS portal renderer
 PASS version
-SUITES: 12/12 PASS
+SUITES: 15/15 PASS

@@ -1,7 +1,10 @@
+./BASELINE-SPLASH-450.txt
+./BASELINE-TEST-REPORT.txt
 ./CHANGELOG.md
 ./COMMIT_MESSAGE.txt
 ./FEATURE_CONTRACT.md
 ./FILE-MANIFEST.txt
+./GITHUB-PAGES-TEST-CHECKLIST.md
 ./README-STORY-450.md
 ./README.md
 ./TEST-REPORT.txt
@@ -19,6 +22,8 @@
 ./assets/splash/pac-pac-mobile.webp
 ./assets/splash/pac-pac-story-desktop.webp
 ./assets/splash/pac-pac-story-mobile.webp
+./assets/splash/pac-pac-trailer-desktop.webp
+./assets/splash/pac-pac-trailer-mobile.webp
 ./audio/README.md
 ./index.html
 ./legacy-320.css
@@ -64,10 +69,13 @@
 ./src/modes/story-430.js
 ./src/modes/story-440.js
 ./src/modes/story-450.js
+./src/modes/story-runtime-470.js
 ./src/ui/campaign-ui.js
 ./src/ui/gameplay-feedback.js
 ./src/ui/manual-410.js
+./src/ui/menu-470.js
 ./story-420.css
+./tests/baseline-splash-470.test.js
 ./tests/bugfix-332.test.js
 ./tests/feature-contract.test.js
 ./tests/level-completion-331.test.js
@@ -75,6 +83,9 @@
 ./tests/manual-splash-410.test.js
 ./tests/regression.test.js
 ./tests/release-400.test.js
+./tests/release-470.test.js
 ./tests/story-450.test.js
+./tests/story-start-470.test.js
 ./tests/world-330.test.js
+./ui-470.css
 ./vendor/qrcode-core.js

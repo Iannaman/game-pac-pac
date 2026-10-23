@@ -1,0 +1,312 @@
+PASS no visible Arcade 3.3.0
+PASS visible Arcade 4.5.0
+PASS explicit editor save button
+PASS editor save binding
+PASS editor save error handling
+PASS level completion map sync
+PASS dynamic configure sync
+PASS fire door sync
+PASS 3.0.2 compact 34px
+PASS 3.0.2 max combo
+PASS 3.0.2 near miss
+PASS 3.0.2 ghost chain
+PASS 3.0.1 feature gate
+PASS 3.0.0 hunt
+PASS 3.0.0 role escape
+PASS 3.0.0 reversal
+PASS 3.0.0 tutorial
+PASS 2.9 editor
+PASS 2.9 undo
+PASS 2.9 redo
+PASS 2.9 validator
+PASS 2.9 playtest
+PASS 2.9 persistence
+PASS 2.9 JSON
+PASS 2.9 checksum
+PASS 2.8.1 retention
+PASS 2.8.1 storage
+PASS 2.8 dynamic doors
+PASS 2.8 bridge
+PASS 2.8 moving wall
+PASS 2.8 contextual FIRE
+PASS 2.8 occupancy safety
+PASS 2.8 reachability safety
+PASS collectible counter helper
+PASS counter synchronization helper
+PASS clear uses real map count
+PASS dynamic configure synchronizes
+PASS automatic passage synchronizes
+PASS diagnostic version 4.5.0
+PASS manifest schema
+PASS 20 campaign levels
+PASS level-001 dimensions
+PASS level-001 progression
+PASS level-001 player spawn
+PASS level-001 ghost spawn
+PASS level-001 portals paired
+PASS level-001 collectible
+PASS level-001 reachable
+PASS level-002 dimensions
+PASS level-002 progression
+PASS level-002 player spawn
+PASS level-002 ghost spawn
+PASS level-002 portals paired
+PASS level-002 collectible
+PASS level-002 reachable
+PASS level-003 dimensions
+PASS level-003 progression
+PASS level-003 player spawn
+PASS level-003 ghost spawn
+PASS level-003 portals paired
+PASS level-003 collectible
+PASS level-003 reachable
+PASS level-004 dimensions
+PASS level-004 progression
+PASS level-004 player spawn
+PASS level-004 ghost spawn
+PASS level-004 portals paired
+PASS level-004 collectible
+PASS level-004 reachable
+PASS level-005 dimensions
+PASS level-005 progression
+PASS level-005 player spawn
+PASS level-005 ghost spawn
+PASS level-005 portals paired
+PASS level-005 collectible
+PASS level-005 reachable
+PASS level-006 dimensions
+PASS level-006 progression
+PASS level-006 player spawn
+PASS level-006 ghost spawn
+PASS level-006 portals paired
+PASS level-006 collectible
+PASS level-006 reachable
+PASS level-007 dimensions
+PASS level-007 progression
+PASS level-007 player spawn
+PASS level-007 ghost spawn
+PASS level-007 portals paired
+PASS level-007 collectible
+PASS level-007 reachable
+PASS level-008 dimensions
+PASS level-008 progression
+PASS level-008 player spawn
+PASS level-008 ghost spawn
+PASS level-008 portals paired
+PASS level-008 collectible
+PASS level-008 reachable
+PASS level-009 dimensions
+PASS level-009 progression
+PASS level-009 player spawn
+PASS level-009 ghost spawn
+PASS level-009 portals paired
+PASS level-009 collectible
+PASS level-009 reachable
+PASS level-010 dimensions
+PASS level-010 progression
+PASS level-010 player spawn
+PASS level-010 ghost spawn
+PASS level-010 portals paired
+PASS level-010 collectible
+PASS level-010 reachable
+PASS level-011 dimensions
+PASS level-011 progression
+PASS level-011 player spawn
+PASS level-011 ghost spawn
+PASS level-011 portals paired
+PASS level-011 collectible
+PASS level-011 reachable
+PASS level-012 dimensions
+PASS level-012 progression
+PASS level-012 player spawn
+PASS level-012 ghost spawn
+PASS level-012 portals paired
+PASS level-012 collectible
+PASS level-012 reachable
+PASS level-013 dimensions
+PASS level-013 progression
+PASS level-013 player spawn
+PASS level-013 ghost spawn
+PASS level-013 portals paired
+PASS level-013 collectible
+PASS level-013 reachable
+PASS level-014 dimensions
+PASS level-014 progression
+PASS level-014 player spawn
+PASS level-014 ghost spawn
+PASS level-014 portals paired
+PASS level-014 collectible
+PASS level-014 reachable
+PASS level-015 dimensions
+PASS level-015 progression
+PASS level-015 player spawn
+PASS level-015 ghost spawn
+PASS level-015 portals paired
+PASS level-015 collectible
+PASS level-015 reachable
+PASS level-016 dimensions
+PASS level-016 progression
+PASS level-016 player spawn
+PASS level-016 ghost spawn
+PASS level-016 portals paired
+PASS level-016 collectible
+PASS level-016 reachable
+PASS level-017 dimensions
+PASS level-017 progression
+PASS level-017 player spawn
+PASS level-017 ghost spawn
+PASS level-017 portals paired
+PASS level-017 collectible
+PASS level-017 reachable
+PASS level-018 dimensions
+PASS level-018 progression
+PASS level-018 player spawn
+PASS level-018 ghost spawn
+PASS level-018 portals paired
+PASS level-018 collectible
+PASS level-018 reachable
+PASS level-019 dimensions
+PASS level-019 progression
+PASS level-019 player spawn
+PASS level-019 ghost spawn
+PASS level-019 portals paired
+PASS level-019 collectible
+PASS level-019 reachable
+PASS level-020 dimensions
+PASS level-020 progression
+PASS level-020 player spawn
+PASS level-020 ghost spawn
+PASS level-020 portals paired
+PASS level-020 collectible
+PASS level-020 reachable
+PASS manual module loaded
+PASS manual menu button
+PASS manual search
+PASS manual standalone
+PASS manual return link
+PASS desktop splash
+PASS mobile splash
+PASS picture orientation
+PASS splash animation
+PASS prompt animation
+PASS reduced motion
+PASS local assets
+PASS GitHub Pages relative paths
+PASS accessible intro
+PASS asset assets/splash/pac-pac-journey-desktop.webp
+PASS asset assets/splash/pac-pac-journey-mobile.webp
+PASS index loads arcade
+PASS index loads retention
+PASS index loads social
+PASS index loads guard
+PASS combo x1-x8
+PASS combo window
+PASS near miss
+PASS ghost chain
+PASS arcade grade
+PASS arcade run
+PASS missions
+PASS records
+PASS team combo
+PASS whatsapp
+PASS web share
+PASS clipboard
+PASS qr download
+PASS version 4.5.0
+PASS manifest loader
+PASS campaign UI
+PASS procedural mode
+PASS level validation
+PASS editor library
+PASS JSON download
+PASS fire door priority
+PASS ammo feedback
+PASS auto warning
+PASS portal cooldown
+PASS remaining feedback
+PASS last five
+PASS near miss anti abuse
+PASS combo progress
+PASS mode explanation
+PASS daily challenge
+PASS local telemetry
+PASS module loaded
+PASS title
+PASS 8 acts
+PASS short scene structure
+PASS beer power
+PASS star power
+PASS 120 speed
+PASS infinite rapid ammo
+PASS torches
+PASS water blocked
+PASS moving walls
+PASS rivers
+PASS traps
+PASS spiral dimensions
+PASS spiral torches
+PASS spiral special power
+PASS spiral no pellet on castle
+PASS spiral enough pellets
+PASS spiral all pellets reachable
+PASS islands dimensions
+PASS islands torches
+PASS islands special power
+PASS islands no pellet on castle
+PASS islands enough pellets
+PASS islands all pellets reachable
+PASS rotor dimensions
+PASS rotor torches
+PASS rotor special power
+PASS rotor no pellet on castle
+PASS rotor enough pellets
+PASS rotor all pellets reachable
+PASS triptych dimensions
+PASS triptych torches
+PASS triptych special power
+PASS triptych no pellet on castle
+PASS triptych enough pellets
+PASS triptych all pellets reachable
+PASS heart dimensions
+PASS heart torches
+PASS heart special power
+PASS heart no pellet on castle
+PASS heart enough pellets
+PASS heart all pellets reachable
+PASS streets dimensions
+PASS streets torches
+PASS streets special power
+PASS streets no pellet on castle
+PASS streets enough pellets
+PASS streets all pellets reachable
+PASS rings dimensions
+PASS rings torches
+PASS rings special power
+PASS rings no pellet on castle
+PASS rings enough pellets
+PASS rings all pellets reachable
+PASS cross dimensions
+PASS cross torches
+PASS cross special power
+PASS cross no pellet on castle
+PASS cross enough pellets
+PASS cross all pellets reachable
+PASS all mazes distinct
+PASS Ralph concise scenes
+PASS render hook
+PASS near box
+PASS max box
+PASS chain box
+PASS adjacent grid
+PASS 34px HUD
+PASS fire doors
+PASS fire action
+PASS automatic passages
+PASS occupancy guard
+PASS reachability guard
+PASS teleport pairs
+PASS Pac-Man effect
+PASS teleport cooldown
+PASS portal renderer
+PASS version
+BASELINE SUITES: 9/9 PASS

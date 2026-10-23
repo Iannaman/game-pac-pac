@@ -1,0 +1,14 @@
+ if(toastUntil&&now>toastUntil){$('toast').classList.add('hidden');toastUntil=0}requestAnimationFrame(loop)
+}
+
+function showIntroSplash(){
+ state='intro';stopMusic();stopPelletAudio();$('introSplash').classList.remove('hidden');document.body.classList.add('intro-active');$('app').inert=true;$('modal').inert=true;$('introSplash').focus({preventScroll:true});
+}
+$('introSplash').addEventListener('click',()=>{
+ if(state!=='intro')return;unlockMusic();$('introSplash').classList.add('hidden');document.body.classList.remove('intro-active');$('app').inert=false;$('modal').inert=false;mainMenu();
+});
+
+// PAC PAC 2.5.1: host-authoritative WebRTC, manual signaling, no external libraries.
+let progress=readStore('pacPacProgressV2',{max:1,completed:[]});
+if(!progress||!Number.isInteger(progress.max)||progress.max<1)progress={max:1,completed:[]};
+progress.max=Math.min(progress.max,100000);if(!Array.isArray(progress.completed))progress.completed=[];progress.completed=[...new Set(progress.completed.filter(n=>Number.isInteger(n)&&n>=1&&n<=100000))].slice(-10000);

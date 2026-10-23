@@ -1,8 +1,10 @@
-feat: release PAC PAC 4.5.0 The Kidnapped Companion
+release: rebuild PAC PAC 4.7.0 from stable 4.5.0 baseline
 
-- redesign all story mazes with unique boss-driven layouts
-- add rivers, blocked water, torches, traps and moving walls
-- keep collectibles outside castle and moving-wall cells
-- add Giovanni beer power and Bruno star power
-- grant 120 percent speed, Power and infinite rapid fire
-- rewrite Ralph narrative as a concise kidnapping mystery
+- preserve the original 4.5.0 splash entry logic
+- add trailer assets without changing splash behavior
+- modernize the menu in an isolated module
+- repair UTF-8 source text
+- make all eight story acts directly startable
+- add bosses, castles, live dialogue and recognizable braziers
+- fix story ghost return, stuck recovery and moving-wall collision
+- retain all 4.5.0 historical features and tests

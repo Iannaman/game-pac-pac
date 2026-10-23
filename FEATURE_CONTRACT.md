@@ -12,3 +12,5 @@ Required 4.3 features: character backgrounds, five Transylvania chapters, Traste
 Required 4.4: Ralph narrator, comic bubbles, three original castle antagonists, Dracula boss, chaotic Rome portals, Trastevere, Colosseum and fictional Vatican guardian boss.
 
 Required 4.5: eight distinct mazes, water blocking, rivers, torches, traps, moving walls, no castle collectibles, Beer/Star powers, 120% speed, infinite rapid fire and concise kidnapping narrative.
+
+Required 4.7.0: preserve the exact 4.5.0 splash behavior; all eight Story acts start; modern menu; clean UTF-8; visible castle and boss per act; live boss dialogue; reachable ghost home; stuck recovery; solid moving walls; recognizable braziers; all 4.5.0 features retained.

@@ -20,3 +20,5 @@ Required 4.7.1: organized three-section main menu; PNG-only result sharing conta
 Required 4.7.2: compact no-scroll launcher; existing menu actions preserved; signed PNG result card; selected Giovanni, Bruno or PAC PAC icon; exactly 30 preset challenge phrases; no editable WhatsApp result text; gameplay unchanged.
 
 Required 4.7.3: animated dynamic launcher; reduced-motion support; Giovanni, Bruno and PAC PAC selection audio; normal and Story completion audio; non-blocking Web Audio beep fallback when MP3 is absent or rejected; 4.7.2 gameplay unchanged.
+
+Required 4.7.4: no collectibles under the Story castle; the last collectible starts boss chase instead of completion; boss capture completes the act; `grido-battaglia.mp3` at chase start; `missione-compiuta.mp3` at actual completion; non-Story modes unchanged; clean special characters.

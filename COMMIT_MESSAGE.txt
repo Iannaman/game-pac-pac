@@ -1,7 +1,9 @@
-feat: release PAC PAC 4.7.3 animated menu and audio cues
+fix: release PAC PAC 4.7.4 story boss chase
 
-- add a dynamic animated launcher background
-- animate menu entry, cards and character selection
-- play character-specific start audio with beep fallback
-- play normal and story-specific completion audio with beep fallback
-- preserve all 4.7.2 gameplay and sharing behavior
+- remove hidden collectibles from the castle footprint
+- start a real boss chase after the last story collectible
+- require physical boss capture to complete the act
+- play battle cry when the chase begins
+- play mission accomplished only after boss capture
+- clean residual special-character encoding issues
+- preserve all non-story gameplay

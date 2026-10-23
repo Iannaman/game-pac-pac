@@ -68,6 +68,7 @@
 ./src/modes/story-430.js
 ./src/modes/story-440.js
 ./src/modes/story-450.js
+./src/modes/story-chase-474.js
 ./src/modes/story-runtime-470.js
 ./src/ui/audio-motion-473.js
 ./src/ui/campaign-ui.js
@@ -88,6 +89,7 @@
 ./tests/release-400.test.js
 ./tests/release-470.test.js
 ./tests/story-450.test.js
+./tests/story-chase-474.test.js
 ./tests/story-start-470.test.js
 ./tests/world-330.test.js
 ./ui-470.css

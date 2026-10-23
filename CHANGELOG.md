@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.7.4 - caccia al boss nella Storia
+- Rimossi palline, Power Sphere, Power Birra e Power Stella dall’area visiva del castello.
+- Ricalcolato il numero dei collezionabili dopo la bonifica del castello.
+- La raccolta dell’ultima sfera non completa più immediatamente l’atto narrativo.
+- Il boss esce dal castello e fugge lungo le celle percorribili del maze.
+- Il protagonista deve raggiungere fisicamente il boss per concludere l’atto.
+- `grido-battaglia.mp3` parte all’inizio della caccia al boss.
+- `missione-compiuta.mp3` parte soltanto alla cattura e conclusione effettiva.
+- Le modalità non narrative conservano il completamento originale.
+- Bonificati i residui di caratteri speciali corrotti.
+- Tutto il resto della 4.7.3 è invariato.
+
+
 ## 4.7.3 - menu dinamico e cue audio
 - Aggiunto sfondo dinamico al launcher con orbite luminose e particelle.
 - Aggiunte animazioni di ingresso, hover, selezione personaggio e risalto della Storia.

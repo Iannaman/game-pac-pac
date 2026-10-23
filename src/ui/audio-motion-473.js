@@ -8,6 +8,6 @@ function bindMenu(){const root=document.querySelector('#modal .game-launcher-472
 function dynamicBackdrop(){const panel=document.querySelector('#modal .game-launcher-472');if(!panel||panel.querySelector('.menu-stars-473'))return;const stars=document.createElement('div');stars.className='menu-stars-473';stars.setAttribute('aria-hidden','true');for(let i=0;i<18;i++){const dot=document.createElement('i');dot.style.setProperty('--x',`${(i*37)%97}%`);dot.style.setProperty('--y',`${(i*53)%89}%`);dot.style.setProperty('--d',`${4+(i%7)}s`);dot.style.setProperty('--s',`${1+(i%3)}px`);stars.append(dot)}panel.prepend(stars)}
 function enhance(){queueMicrotask(()=>{bindMenu();dynamicBackdrop()})}
 const menu0=window.mainMenu;window.mainMenu=function(...args){const out=menu0.apply(this,args);enhance();setTimeout(enhance,0);return out};enhance();
-const clear0=window.clearLevel;window.clearLevel=function(...args){const story=!!game?.storyMode;const already=!!game?.cleared;const out=clear0.apply(this,args);if(!already)play(story?'storyComplete':'complete','complete');return out};
+const clear0=window.clearLevel;window.clearLevel=function(...args){const already=!!game?.cleared;const out=clear0.apply(this,args);if(!already)play('complete','complete');return out};
 window.PacPacAudioMotion473={FILES,play,beep,selectCharacter,bindMenu,dynamicBackdrop};
 })();

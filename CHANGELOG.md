@@ -1,4 +1,22 @@
 # Changelog
+
+## 4.7.0 - ricostruzione stabile dalla 4.5.0
+- Ricostruzione completa a partire esclusivamente dal pacchetto 4.5.0 funzionante.
+- Nessun file applicativo importato dalle release 4.5.1-4.6.4.
+- Logica della splash 4.5.0 preservata integralmente e coperta da test dedicato.
+- Nuova splash trailer desktop e mobile, senza cambiamenti al relativo click handler.
+- Menu moderno realizzato come livello visuale separato.
+- Correzione diretta UTF-8 dei sorgenti e delle scritte accentate.
+- Avvio Story Game reso indipendente dal loader JSON non necessario.
+- Avvio reale e testato degli otto atti.
+- Castello e boss visibili in ciascun atto.
+- Dialoghi contestuali del boss durante la partita.
+- Casa Story dei fantasmi calcolata su una cella percorribile.
+- Recupero automatico dei fantasmi bloccati.
+- Prenotazione preventiva delle celle dei muri mobili per impedirne l’attraversamento.
+- Bracieri riconoscibili e legenda ambientale.
+- Conservate tutte le modalità e le funzioni storiche della 4.5.0.
+
 ## 4.5.0 - 2026-10-22
 - Riscritta la storia come `Il compagno rapito`, con scelta del protagonista.
 - Creati otto labirinti strutturalmente differenti e legati ai boss.

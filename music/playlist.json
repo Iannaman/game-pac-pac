@@ -1,6 +1,19 @@
 {
   "version": 1,
   "start": "smoot-criminal.mp3",
-  "generatedAt": "2026-10-24T13:54:14.374Z",
-  "tracks": []
+  "generatedAt": "2026-10-24T14:04:38.735Z",
+  "tracks": [
+    {
+      "file": "Cybernetic Oasis.mp3",
+      "title": "Cybernetic Oasis"
+    },
+    {
+      "file": "Legacy.mp3",
+      "title": "Legacy"
+    },
+    {
+      "file": "Michael Jackson - Beat It (Official Audio).mp3",
+      "title": "Michael Jackson   Beat It (Official Audio)"
+    }
+  ]
 }

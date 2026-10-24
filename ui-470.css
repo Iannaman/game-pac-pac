@@ -22,3 +22,7 @@
 
 /* 4.8.9 icon for the levels, records and grades button. */
 #levelRecords487{display:inline-flex!important;align-items:center;justify-content:center;gap:6px}.level-records-icon-489{display:inline-flex;align-items:flex-end;gap:2px;width:18px;height:16px;padding:2px;border:1px solid #58efff88;border-radius:4px;background:#071523;box-shadow:0 0 8px #58efff33}.level-records-icon-489 i{display:block;width:3px;border-radius:2px 2px 0 0;background:linear-gradient(#ffe176,#ff68bc)}.level-records-icon-489 i:nth-child(1){height:5px}.level-records-icon-489 i:nth-child(2){height:9px}.level-records-icon-489 i:nth-child(3){height:12px}.launcher-tool-472#levelRecords487:hover .level-records-icon-489{border-color:#ffe176;box-shadow:0 0 10px #ffe17655}@media(max-width:520px){#levelRecords487{gap:3px}.level-records-icon-489{width:16px;height:15px}}
+
+.maze-preview-491{grid-row:1/4;width:58px;height:58px;border:1px solid #385270;border-radius:7px;margin-right:6px}.level-record-487{grid-template-columns:64px 1fr auto}.level-record-487>strong,.level-record-487>small,.level-record-487>span{grid-column:2}.level-record-487>.grade-487{grid-column:3}
+
+.family-filter-492{display:flex;align-items:center;gap:10px;margin:8px 0}.family-filter-492 select{flex:1;padding:9px;border-radius:10px;background:#091323;color:#fff;border:1px solid #385270}.maze-preview-491{width:96px!important;height:96px!important}.level-record-487{grid-template-columns:104px 1fr auto!important;min-height:108px}.level-record-grid-487{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))!important}

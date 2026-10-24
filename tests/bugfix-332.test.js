@@ -7,3 +7,6 @@ const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..');co
 'level completion map sync':all.includes('if(syncRemaining()<=0)'),
 'dynamic configure sync':all.includes('syncRemaining();game.initial=game.remaining'),
 'fire door sync':all.includes("c.open=true;if(typeof syncRemaining==='function')syncRemaining()")};let bad=0;for(const[k,v]of Object.entries(checks)){console.log((v?'PASS':'FAIL')+' '+k);bad+=!v}process.exit(bad?1:0);
+
+
+

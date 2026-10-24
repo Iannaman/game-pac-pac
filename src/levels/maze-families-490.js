@@ -12,7 +12,10 @@ function decorateBoard(ctx,T,level){const f=familyOf(level),w=N*T;ctx.save();ctx
 
 const raw=window.generateLevel;window.generateLevel=function(l){const base=raw(l);window.PacPacMazeFamily490.current=familyOf(l);if(!isMap(base))return base;try{const candidate=base.map(row=>row.slice());vary(candidate,l);const check=validateMapRaw(candidate);if(check.valid)return candidate}catch(e){console.warn('[PAC PAC Maze Family] fallback',l,e)}return base};
 const load0=window.loadLevel;window.loadLevel=function(...a){const v=load0.apply(this,a);if(game)game.labyrinthFamily=familyOf(game.level);return v};
-const hud0=window.hudSolo;window.hudSolo=function(...a){const v=hud0.apply(this,a),f=game?.labyrinthFamily||familyOf(game?.level||1),el=document.getElementById('status');if(el&&game&&!el.textContent.includes(f.name))el.textContent+=` · ${f.name} · Difficoltà ${f.difficulty}/10`;return v};
+const hud0=window.hudSolo;window.hudSolo=function(...a){const v=hud0.apply(this,a),f=game?.labyrinthFamily||familyOf(game?.level||1),el=document.getElementById('status');if(el&&game&&!el.textContent.includes(f.name))el.textContent+=` Â· ${f.name} Â· DifficoltÃ  ${f.difficulty}/10`;return v};
 const spawn0=window.spawnActors;window.spawnActors=function(...a){const v=spawn0.apply(this,a),level=game?.level||1,bonus=Math.max(0,6-level)*.45;if(bonus&&game?.ghosts)game.ghosts.forEach((g,i)=>g.wait+=bonus+i*.08);return v};
 window.PacPacMazeFamily490={FAMILIES,PALETTES,familyOf,preview,decorateBoard,current:familyOf(1)};
 })();
+
+
+

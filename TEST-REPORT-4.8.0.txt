@@ -10,3 +10,6 @@ PASS floating glowing balls in main menu
 PASS particles do not intercept pointer events
 PASS reduced-motion support
 PASS 4.7.7 gameplay fixes preserved
+
+
+

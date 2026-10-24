@@ -3,3 +3,6 @@ for(const x of ['pacPacLevelRecords487','Livelli, record e voti','startAt','PACP
 for(const x of ['cumulativeTotal','levelGrades','overallGrade','RECORD TOTALE'])assert(s.includes(x),x);
 assert(h.includes('level-records-487.js?v=487'));assert(h.includes('v4.8.7'));
 console.log('PASS 4.8.7 unlocked levels menu');console.log('PASS 4.8.7 start from unlocked level');console.log('PASS 4.8.7 cheat code');console.log('PASS 4.8.7 cumulative signed card data');
+
+
+

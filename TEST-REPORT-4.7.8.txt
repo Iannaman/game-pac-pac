@@ -9,3 +9,6 @@ PASS pausa rendering con pagina non visibile
 PASS supporto prefers-reduced-motion
 PASS versione menu 4.7.8
 PASS funzioni 4.7.7 preservate
+
+
+

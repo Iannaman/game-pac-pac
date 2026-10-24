@@ -12,3 +12,6 @@ $('introSplash').addEventListener('click',()=>{
 let progress=readStore('pacPacProgressV2',{max:1,completed:[]});
 if(!progress||!Number.isInteger(progress.max)||progress.max<1)progress={max:1,completed:[]};
 progress.max=Math.min(progress.max,100000);if(!Array.isArray(progress.completed))progress.completed=[];progress.completed=[...new Set(progress.completed.filter(n=>Number.isInteger(n)&&n>=1&&n<=100000))].slice(-10000);
+
+
+

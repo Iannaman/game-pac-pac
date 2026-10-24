@@ -1,1 +1,4 @@
 (()=>{'use strict';const hud0=window.hud;window.hud=function(...a){const v=hud0.apply(this,a);let s=$('gameplayStrip');if(!s){s=document.createElement('div');s.id='gameplayStrip';s.className='gameplay-strip';document.querySelector('.hud')?.appendChild(s)}if(game){const r=Math.max(0,game.remaining||0),door=game.customRuntime?.fireDoors?.find(d=>!d.open&&Math.hypot(d.x-game.player.x,d.y-game.player.y)<1.6);s.innerHTML=`<span>RESTANO <b>${r}</b></span><span>MUNIZIONI <b>${game.ammo}</b></span><span>${door?'FIRE: APRI PORTA':'ESPLORA IL LABIRINTO'}</span>`;s.classList.toggle('last-five',r>0&&r<=5)}return v};window.PacPacFeedback400={};})();
+
+
+

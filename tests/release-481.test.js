@@ -10,3 +10,6 @@ assert(fallback.includes('function emblem'));
 console.log('PASS 4.8.1 boss fallback loaded');
 console.log('PASS 4.8.1 static boss guaranteed');
 console.log('PASS 4.8.1 chase boss guaranteed');
+
+
+

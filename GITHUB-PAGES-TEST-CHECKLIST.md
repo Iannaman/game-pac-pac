@@ -18,7 +18,7 @@
 - [ ] Controllare assenza di errori rossi in Console.
 
 ## Menu
-- [ ] Verificare Modalità Storia come prima card in evidenza.
+- [ ] Verificare ModalitÃ  Storia come prima card in evidenza.
 - [ ] Verificare Arcade classico.
 - [ ] Verificare Campagna livelli.
 - [ ] Verificare Sfida giornaliera.
@@ -28,7 +28,7 @@
 - [ ] Verificare Tutorial, Manuale e Impostazioni.
 - [ ] Controllare caratteri accentati e assenza di simboli corrotti.
 
-## Modalità Storia
+## ModalitÃ  Storia
 - [ ] Selezionare Giovanni e avviare Atto 1.
 - [ ] Selezionare Bruno e avviare Atto 1.
 - [ ] Avviare almeno una volta tutti gli otto atti.
@@ -50,3 +50,6 @@
 - [ ] Multiplayer.
 - [ ] Level Studio: crea, rinomina, duplica, salva e ricarica.
 - [ ] Manuale e QR offline.
+
+
+

@@ -1,1 +1,1 @@
-feat: release PAC PAC 4.9.5 music playlist controls
+fix: release PAC PAC 4.9.6 mobile viewport gameplay layout

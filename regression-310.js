@@ -4,3 +4,6 @@ function audit(){const missing=[];for(const [group,names] of Object.entries(REQU
 window.PacPacRegression310={audit,required:REQUIRED};addEventListener('load',()=>queueMicrotask(audit),{once:true});
 })();
 // Complete gate: tests/feature-contract.test.js
+
+
+

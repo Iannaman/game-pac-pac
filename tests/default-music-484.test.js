@@ -8,3 +8,6 @@ assert(html.includes('v4.8.6'));
 console.log('PASS 4.8.4 project MP3 plays before analyser attach');
 console.log('PASS 4.8.4 local file direct playback');
 console.log('PASS 4.8.4 project source reset');
+
+
+

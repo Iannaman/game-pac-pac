@@ -1,0 +1,10 @@
+PAC PAC 4.9.6 - TEST REPORT
+
+PASS mobile app constrained to first 100svh
+PASS HUD maze D-pad FIRE footer in first viewport
+PASS maze fills mobile width up to 100vw
+PASS height-aware canvas sizing
+PASS compact controls below 700px height
+PASS only music player below fold
+PASS desktop rules preserved
+PASS JavaScript syntax

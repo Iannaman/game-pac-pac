@@ -10,3 +10,6 @@ assert(html.includes('v4.8.3'));
 console.log('PASS 4.8.2 Story safe audio contract');
 console.log('PASS 4.8.2 visualizer cache bust');
 console.log('PASS 4.8.2 real background audio analyser');
+
+
+

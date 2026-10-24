@@ -2,3 +2,6 @@ const fs=require('fs'),assert=require('assert');const player=fs.readFileSync('sr
 for(const id of ['musicPrev495','musicStop495','musicNext495','musicTitle495','musicState495'])assert(player.includes(id),id);
 for(const effect of ['hee-hee.mp3','gun.wav','giovanni-start.mp3','bruno-start.mp3','pac-pac-start.mp3','missione-compiuta.mp3','grido-battaglia.mp3','gameover.mp3']){assert(player.includes(effect));assert(builder.includes(effect));assert(!manifest.tracks.some(t=>t.file===effect))}
 assert(player.includes("projectMusic.loop=false"));assert(player.includes("addEventListener('ended',()=>activate(1))"));assert(html.includes('PacPacMusicPlayer495?.playlistMode'));assert(html.includes('PacPacMusicPlayer495.stopped'));assert(css.includes('position:fixed'));assert(css.includes('@media(max-width:600px)'));assert(css.includes('position:relative'));assert(html.includes('music-player-495.js?v=495'));assert(html.includes('v4.9.5'));console.log('PASS desktop bottom-right music player');console.log('PASS smartphone low-flow music player');console.log('PASS previous next stop controls');console.log('PASS effects excluded from playlist');console.log('PASS default loop hands over to playlist');console.log('PASS stop remains stopped');
+
+
+

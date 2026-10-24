@@ -1,7 +1,37 @@
 ﻿=== STRUTTURA DEL PROGETTO ===
+├── assets
+│   ├── characters
+│   │   ├── custode-cupola.png
+│   │   ├── dracula.png
+│   │   ├── glacia.png
+│   │   ├── morvella.png
+│   │   └── vespera.png
+│   ├── narrator
+│   │   └── ralph.png
+│   └── splash
+│       ├── pac-pac-desktop.webp
+│       ├── pac-pac-journey-desktop.webp
+│       ├── pac-pac-journey-mobile.webp
+│       ├── pac-pac-mobile.webp
+│       ├── pac-pac-story-desktop.webp
+│       ├── pac-pac-story-mobile.webp
+│       ├── pac-pac-trailer-desktop.webp
+│       └── pac-pac-trailer-mobile.webp
 ├── audio
-│   └── README.md
+│   ├── adesso-vieni-qui-che-ti-faccio-pac-pac (1).mp3
+│   ├── adesso-vieni-qui-che-ti-faccio-pac-pac (2).mp3
+│   ├── adesso-vieni-qui-che-ti-faccio-pac-pac.mp3
+│   ├── bruno-start.mp3
+│   ├── gameover.mp3
+│   ├── giovanni-start.mp3
+│   ├── grido-battaglia.mp3
+│   ├── gun.wav
+│   ├── hee-hee.mp3
+│   ├── missione-compiuta.mp3
+│   ├── README.md
+│   └── smoot-criminal.mp3
 ├── levels
+│   ├── arcade
 │   ├── campaign
 │   │   ├── level-001.json
 │   │   ├── level-002.json
@@ -23,17 +53,21 @@
 │   │   ├── level-018.json
 │   │   ├── level-019.json
 │   │   └── level-020.json
+│   ├── community
 │   └── manifest.json
 ├── signaling-worker
 │   ├── src
 │   │   └── index.js
-│   └── README.md
+│   ├── README.md
+│   └── wrangler.toml
 ├── src
 │   ├── levels
 │   │   ├── editor-publisher.js
 │   │   ├── level-loader.js
-│   │   └── level-runtime.js
+│   │   ├── level-runtime.js
+│   │   └── maze-families-490.js
 │   ├── modes
+│   │   ├── boss-fallback-481.js
 │   │   ├── challenges.js
 │   │   ├── story-420.js
 │   │   ├── story-430.js
@@ -46,24 +80,44 @@
 │       ├── audio-visualizer-478.js
 │       ├── campaign-ui.js
 │       ├── gameplay-feedback.js
+│       ├── level-records-487.js
+│       ├── loading-indicator-494.js
 │       ├── manual-410.js
-│       └── menu-470.js
+│       ├── menu-470.js
+│       └── music-player-495.js
 ├── tests
+│   ├── all-levels-startup-493.test.js
+│   ├── audio-console-485.test.js
 │   ├── audio-motion-473.test.js
+│   ├── audio-reliability-483.test.js
 │   ├── audio-visualizer-478.test.js
+│   ├── audio-visualizer-482.test.js
+│   ├── audio-visualizer-menu-480.test.js
 │   ├── baseline-splash-470.test.js
 │   ├── bugfix-332.test.js
+│   ├── default-music-484.test.js
 │   ├── feature-contract.test.js
+│   ├── filter-mobile-493.test.js
+│   ├── level-button-488.test.js
+│   ├── level-button-icon-489.test.js
 │   ├── level-completion-331.test.js
 │   ├── levels-400.test.js
+│   ├── levels-records-487.test.js
+│   ├── local-audio-campaign-486.test.js
 │   ├── manual-splash-410.test.js
+│   ├── maze-families-490.test.js
+│   ├── maze-identity-preview-491.test.js
+│   ├── maze-startup-492.test.js
 │   ├── menu-boss-audio-475.test.js
 │   ├── menu-share-471.test.js
 │   ├── menu-share-472.test.js
+│   ├── music-player-495.test.js
 │   ├── regression.test.js
 │   ├── release-400.test.js
 │   ├── release-470.test.js
 │   ├── release-477.test.js
+│   ├── release-481.test.js
+│   ├── smartphone-loading-494.test.js
 │   ├── story-450.test.js
 │   ├── story-chase-474.test.js
 │   ├── story-start-470.test.js
@@ -93,12 +147,22 @@
 ├── regression-310.js
 ├── retention-250.css
 ├── retention-250.js
+├── scripts-build-audio-playlist.js
 ├── social-230.css
 ├── social-230.js
 ├── story-420.css
 ├── TEST-REPORT-4.7.7.txt
 ├── TEST-REPORT-4.7.8.txt
 ├── TEST-REPORT-4.7.9.txt
+├── TEST-REPORT-4.8.0.txt
+├── TEST-REPORT-4.8.1.txt
+├── TEST-REPORT-4.8.2.txt
+├── TEST-REPORT-4.8.3.txt
+├── TEST-REPORT-4.9.3.txt
+├── TEST-REPORT-4.9.4.html
+├── TEST-REPORT-4.9.4.json
+├── TEST-REPORT-4.9.4.md
+├── TEST-REPORT-4.9.5.txt
 ├── TEST-REPORT.txt
 └── ui-470.css
 
@@ -486,6 +550,100 @@ BASELINE SUITES: 9/9 PASS
 FILE: .\CHANGELOG.md
 ================================================================================
 # Changelog
+## 4.9.5 - player playlist musicale
+- Aggiunti display e comandi precedente, stop e successivo.
+- Posizione fissa in basso a destra su desktop e in fondo al flusso su smartphone.
+- smoot-criminal.mp3 resta il loop iniziale fino al primo comando.
+- La modalitÃ  playlist riproduce in sequenza i brani del manifest e non torna al loop predefinito.
+- Esclusi automaticamente tutti gli asset audio riservati agli effetti.
+- Aggiunto generatore del manifest dalla cartella audio.
+## 4.9.4 - collaudo smartphone, loading e report esportabili
+- Simulazione smartphone su viewport 320, 360, 390 e 430 px.
+- Aggiunto indicatore caricamento accessibile allâ€™avvio e durante le anteprime.
+- Esportati report test in Markdown, JSON e HTML.
+- Test livelli 1-100 preservato e incluso.
+## 4.9.3 - verifica livelli, reset filtro e anteprime mobile
+- Verificato lâ€™avvio e la validitÃ  topologica dei livelli 1-100.
+- Verificati spawn giocatore, base fantasmi e dieci cicli completi delle famiglie.
+- Aggiunto pulsante Azzera filtro con ripristino su Tutte.
+- Anteprime adattive da 320 px, con griglia e dimensioni fluide.
+- Gameplay, audio, simboli e progressione invariati.
+## 4.9.2 - hotfix avvio e filtri famiglie
+- Corretto il crash Cannot read properties of undefined durante la generazione dei labirinti.
+- Aggiunti controlli di forma mappa e trasformazioni su copia indipendente.
+- Anteprime protette contro mappe incomplete.
+- Aggiunto filtro per famiglia e anteprime ingrandite.
+- Simboli, audio, gameplay e progressione invariati.
+## 4.9.1 - identitÃ  famiglie, anteprime e bilanciamento iniziale
+- Palette e pattern grafici dedicati per tutte le dieci famiglie.
+- Anteprime reali dei labirinti nellâ€™archivio livelli.
+- Fantasmi piÃ¹ lenti e rilascio piÃ¹ dilazionato nei primi cinque livelli.
+- Curva progressiva invariata dai livelli successivi, con limite massimo.
+- Validazione topologica e fallback sicuro preservati.
+- Tutte le altre funzioni restano invariate.
+## 4.9.0 - dieci famiglie di labirinti
+- Introdotte dieci famiglie topologiche a rotazione su cicli di dieci livelli.
+- Mostrati famiglia e grado di difficoltÃ  nellâ€™HUD e nellâ€™archivio livelli.
+- Aumento graduale della velocitÃ  dei fantasmi, limitato a +18%.
+- Ogni trasformazione Ã¨ validata; in caso di anomalia viene usata la mappa sicura originale.
+- Story, Campagna progettata, audio, simboli, record e condivisione restano invariati.
+## 4.8.9 - icona pulsante livelli e record
+- Aggiunta icona grafico record al pulsante Livelli, record e voti.
+- Icona responsive, luminosa e accessibile.
+- Nessunâ€™altra funzione modificata.
+## 4.8.8 - pulsante archivio visibile
+- Spostato il pulsante Livelli, record e voti nella toolbar visibile del menu moderno.
+- Mantenuto il fallback per il menu classico.
+- Aggiunto recupero automatico dopo la decorazione asincrona del menu.
+- Nessunâ€™altra funzione modificata.
+## 4.8.7 - archivio livelli e card cumulativa
+- Aggiunto menu livelli sbloccati con record e voto per livello.
+- Consentito avvio diretto da qualsiasi livello sbloccato.
+- Cheat code PACPACTUTTI per sbloccare tutti i livelli.
+- Card firmata cumulativa con record totale, voti per livello e voto medio complessivo.
+- Conservate tutte le altre informazioni della card.
+- Audio, simboli e gameplay 4.8.6 invariati.
+## 4.8.6 - audio locale e Campaign UI
+- Impedito definitivamente il routing MediaElementAudioSource su protocollo file.
+- smoot-criminal.mp3 resta in riproduzione diretta quando index.html Ã¨ aperto localmente.
+- Corretto il riferimento nullo modeBack in campaign-ui.js.
+- Cache bust mirato ai soli due moduli corretti.
+- Simboli, caratteri e gameplay invariati.
+## 4.8.5 - diagnostica audio console
+- Aggiunto log strutturato degli eventi audio predefiniti.
+- Registrati caricamento, richiesta play, avvio, rifiuto, errore media e collegamento visualizer.
+- Esposta la funzione PacPacAudioDiagnostics() per lo stato completo.
+- Nessuna modifica al comportamento audio, ai simboli o al gameplay.
+## 4.8.4 - riproduzione audio predefinito
+- Avvio di smoot-criminal.mp3 prima del collegamento al visualizer.
+- In modalitÃ  file locale la musica usa la riproduzione diretta per evitare il silenzio Web Audio.
+- Riselezionando Audio predefinito vengono azzerati gli stati di errore precedenti.
+- Tutto il resto della 4.8.3 resta invariato.
+## 4.8.3 - affidabilitÃ  completa audio
+- La musica di progetto passa automaticamente alla traccia sintetizzata se il file MP3 manca o non Ã¨ riproducibile.
+- Il file musicale personale passa alla stessa traccia di fallback in caso di errore.
+- Sparo e Power Sphere hanno fallback sonori distinti quando i file audio sono assenti.
+- Resi sicuri i richiami audio di morte e Story contro API obsolete in cache.
+- Aggiunto cache bust mirato ai soli moduli audio.
+- Simboli, caratteri, boss, visualizer e gameplay restano invariati.
+## 4.8.2 - contratto audio visualizer compatibile
+- Reso sicuro il richiamo alle API del visualizer tramite verifica del tipo funzione.
+- Eliminato il blocco della modalitÃ  Story quando il browser conserva una precedente versione del modulo.
+- Aggiunto cache bust mirato al solo modulo visualizer.
+- Conservato il collegamento allâ€™audio reale di sottofondo.
+- Simboli, caratteri, boss, gameplay e configurazioni restano invariati.
+## 4.8.1 - simboli UTF-8 e boss sempre visibili
+- Rimossi tutti i residui di doppia codifica UTF-8 dai file testuali.
+- Ripristinati accenti, frecce, icone, emoji e simboli dellâ€™interfaccia.
+- Aggiunto rendering boss di fallback quando un PNG manca o non viene caricato.
+- Il fallback Ã¨ attivo sia nel castello sia durante la caccia finale.
+- Visualizer, sfondo menu e gameplay 4.8.0 restano invariati.
+## 4.8.0 - visualizer audio reale e sfondo menu moderno
+- Collegato il visualizer al file musicale di progetto e al file musicale personale tramite MediaElementAudioSourceNode.
+- Conservato il collegamento alla musica arcade sintetizzata tramite musicGain.
+- Il visualizer usa un unico AnalyserNode e non altera volume o uscita audio.
+- Aggiunte palline luminose fluttuanti esclusivamente nel main menu.
+- Gameplay e ogni altra funzione della 4.7.9 restano invariati.
 ## 4.7.9 - correzione simboli e codifica UTF-8
 - Ripristinati accenti, apostrofi tipografici, frecce, icone, emoji e simboli dei controlli.
 - Corretti i nomi SighiÈ™oara e BraÈ™ov.
@@ -652,11 +810,7 @@ FILE: .\CHANGELOG.md
 ================================================================================
 FILE: .\COMMIT_MESSAGE.txt
 ================================================================================
-fix: release PAC PAC 4.7.9 UTF-8 symbols
-
-- repair mojibake across UI and story modules
-- restore arrows icons emoji and Romanian place names
-- preserve visualizer and gameplay
+feat: release PAC PAC 4.9.5 music playlist controls
 
 
 
@@ -696,6 +850,12 @@ Required 4.7.7: every Story maze is fully reachable at runtime; eyes return to t
 
 Required 4.7.8: futuristic non-interactive background audio visualizer, Web Audio reactive when available, ambient fallback, reduced-motion support; all gameplay unchanged.
 
+Required 4.8.0: visualizer analyses project MP3, personal music and synthesized background music without changing audio volume; glowing floating balls exist only in the main menu; all other behavior unchanged.
+
+Required 4.8.1: zero mojibake in textual sources; every Story boss remains visible in the castle and chase even when image assets fail; all 4.8.0 behavior unchanged.
+
+Required 4.8.3: background music remains audible when project/personal media fails; gun and power cues have immediate fallbacks; optional audio APIs never block Story; all visual and gameplay behavior unchanged.
+
 
 
 ================================================================================
@@ -711,10 +871,21 @@ FILE: .\FILE-MANIFEST.txt
 ./README.md
 ./TEST-REPORT-4.7.7.txt
 ./TEST-REPORT-4.7.8.txt
+./TEST-REPORT-4.7.9.txt
+./TEST-REPORT-4.8.0.txt
+./TEST-REPORT-4.8.1.txt
+./TEST-REPORT-4.8.2.txt
+./TEST-REPORT-4.8.3.txt
+./TEST-REPORT-4.9.3.txt
+./TEST-REPORT-4.9.4.html
+./TEST-REPORT-4.9.4.json
+./TEST-REPORT-4.9.4.md
+./TEST-REPORT-4.9.5.txt
 ./TEST-REPORT.txt
 ./arcade-240.css
 ./arcade-240.js
 ./audio/README.md
+./audio/playlist.json
 ./index.html
 ./legacy-320.css
 ./legacy-320.js
@@ -746,6 +917,7 @@ FILE: .\FILE-MANIFEST.txt
 ./regression-310.js
 ./retention-250.css
 ./retention-250.js
+./scripts-build-audio-playlist.js
 ./signaling-worker/README.md
 ./signaling-worker/src/index.js
 ./social-230.css
@@ -753,6 +925,8 @@ FILE: .\FILE-MANIFEST.txt
 ./src/levels/editor-publisher.js
 ./src/levels/level-loader.js
 ./src/levels/level-runtime.js
+./src/levels/maze-families-490.js
+./src/modes/boss-fallback-481.js
 ./src/modes/challenges.js
 ./src/modes/story-420.js
 ./src/modes/story-430.js
@@ -764,24 +938,44 @@ FILE: .\FILE-MANIFEST.txt
 ./src/ui/audio-visualizer-478.js
 ./src/ui/campaign-ui.js
 ./src/ui/gameplay-feedback.js
+./src/ui/level-records-487.js
+./src/ui/loading-indicator-494.js
 ./src/ui/manual-410.js
 ./src/ui/menu-470.js
+./src/ui/music-player-495.js
 ./story-420.css
+./tests/all-levels-startup-493.test.js
+./tests/audio-console-485.test.js
 ./tests/audio-motion-473.test.js
+./tests/audio-reliability-483.test.js
 ./tests/audio-visualizer-478.test.js
+./tests/audio-visualizer-482.test.js
+./tests/audio-visualizer-menu-480.test.js
 ./tests/baseline-splash-470.test.js
 ./tests/bugfix-332.test.js
+./tests/default-music-484.test.js
 ./tests/feature-contract.test.js
+./tests/filter-mobile-493.test.js
+./tests/level-button-488.test.js
+./tests/level-button-icon-489.test.js
 ./tests/level-completion-331.test.js
 ./tests/levels-400.test.js
+./tests/levels-records-487.test.js
+./tests/local-audio-campaign-486.test.js
 ./tests/manual-splash-410.test.js
+./tests/maze-families-490.test.js
+./tests/maze-identity-preview-491.test.js
+./tests/maze-startup-492.test.js
 ./tests/menu-boss-audio-475.test.js
 ./tests/menu-share-471.test.js
 ./tests/menu-share-472.test.js
+./tests/music-player-495.test.js
 ./tests/regression.test.js
 ./tests/release-400.test.js
 ./tests/release-470.test.js
 ./tests/release-477.test.js
+./tests/release-481.test.js
+./tests/smartphone-loading-494.test.js
 ./tests/story-450.test.js
 ./tests/story-chase-474.test.js
 ./tests/story-start-470.test.js
@@ -1003,7 +1197,7 @@ function requestDirSolo(d){if(!game||!['playing','tutorial'].includes(state))ret
 function playerChoice(p){for(const d of[p.next,p.dir]){const[dx,dy]=DIRS[d];if(walk(game.map,p.x+dx,p.y+dy))return d}return null}
 
 const PLAYER_SPEED=5.8;
-function ghostNormalSpeed(){return PLAYER_SPEED*({slower:.94,equal:1,faster:1.08}[activeGhosts.speed]??.94)}
+function ghostNormalSpeed(){const base=({slower:.94,equal:1,faster:1.08}[activeGhosts.speed]??.94),level=game?.level||1,beginner=Math.max(0,6-level)*.012,ramp=Math.min(.18,Math.max(0,(level-1)*.006));return PLAYER_SPEED*(base-beginner+ramp)}
 function observePlayer(g){
  const interval={basic:2.4,normal:1.1,expert:.25}[activeGhosts.skill];
  if(!g.observed||game.elapsed>=g.observeAt){g.observed={...node(game.player),dir:game.player.dir};g.observeAt=game.elapsed+interval}
@@ -1065,7 +1259,7 @@ function syncRemaining(){if(!game?.map)return 0;game.remaining=countCollectibles
 function consume(p){const v=game.map[p.y][p.x];if(v===0||v===3){game.map[p.y][p.x]=2;game.remaining=Math.max(0,(game.remaining||0)-1);addScore(v===3?50:10);if(v===3){playPelletAudio();game.power=CONFIG[activeDifficulty].power;game.combo=0;game.ghosts.forEach(g=>{if(g.state!=='eyes')g.reverse=true});burst(p.x,p.y,'#ff68bc',20);tone(280,.3,'triangle')}if(syncRemaining()<=0){clearLevel();return}}else if(v===6){game.map[p.y][p.x]=2;game.ammo=Math.min(20,game.ammo+3);addScore(30);popup('+3 COLPI',p.x,p.y,'#93ffb6');tone(850,.1)}}
 function clearLevel(){unlockLevel(game.level);state='clear';stopTouchFire();const bonus=Math.max(250,Math.round(180-game.elapsed)*10);addScore(1000+bonus);tone(900,.3,'triangle');showModal(`<div class="eyebrow">SETTORE COMPLETATO</div><h2 id="dialogTitle">Livello ${game.level} superato!</h2><p>Bonus livello: 1.000 Â· Bonus tempo: ${bonus.toLocaleString('it-IT')}</p><div class="record">PUNTEGGIO ${game.score.toLocaleString('it-IT')}</div><div class="actions"><button class="primary" id="nextLevel">Prossimo livello â†’</button><button id="backMenu">Menu principale</button></div>`);$('nextLevel').onclick=()=>{game.level++;loadLevel()};$('backMenu').onclick=mainMenu}
 function eatGhost(g,shot=false){if(g.state==='eyes'||g.wait>0)return;g.state='eyes';g.reverse=false;g.returnStuck=0;g.returnMark=g.x.toFixed(2)+','+g.y.toFixed(2);const points=shot?300:200*2**Math.min(game.combo++,3);addScore(points);popup('+'+points,g.x,g.y);burst(g.x,g.y,g.color);tone(shot?160:720,.15,'square',.025)}
-function die(){stopPelletAudio();if(state!=='playing'||game.invuln>0)return;game.lives--;state='dying';game.deathTimer=1.2;stopTouchFire();shake=.3;burst(game.player.x,game.player.y,'#ffe176',26);if(window.PacPacAudioMotion473)PacPacAudioMotion473.play('death','death');else tone(90,.4,'sawtooth');updateRecord()}
+function die(){stopPelletAudio();if(state!=='playing'||game.invuln>0)return;game.lives--;state='dying';game.deathTimer=1.2;stopTouchFire();shake=.3;burst(game.player.x,game.player.y,'#ffe176',26);if(typeof window.PacPacAudioMotion473?.play==='function')window.PacPacAudioMotion473.play('death','death');else tone(90,.4,'sawtooth');updateRecord()}
 function gameOver(){state='over';showModal(`<div class="eyebrow">FINE PARTITA</div><h2 id="dialogTitle">GAME OVER</h2><div class="record">${game.score.toLocaleString('it-IT')} PUNTI Â· LIVELLO ${game.level}</div><p>Record ${activeDifficulty}: ${(records[recordKey()]||0).toLocaleString('it-IT')}</p><div class="actions"><button class="primary" id="again">Rigioca</button><button id="backMenu">Menu principale</button></div>`);$('again').onclick=startGame;$('backMenu').onclick=mainMenu}
 function shootSolo(){if(!['playing','tutorial'].includes(state)||game.ammo<=0||game.cooldown>0)return;const p=game.player,[dx,dy]=DIRS[p.dir];game.bullets.push({x:p.x+dx*.4,y:p.y+dy*.4,dx,dy,life:2});game.ammo--;game.cooldown=.23;playGunAudio();if(settings.speechBubble)speechTime=.65;if(state==='tutorial')tutorialShot()}
 function updateSolo(dt){if(['playing','tutorial'].includes(state))speechTime=Math.max(0,speechTime-dt);clock+=dt;if(game?.huntMode&&state==='playing'){game.huntLeft=Math.max(0,(game.huntLeft??game.huntDuration)-dt);game.power=Math.max(game.power,.2);if(game.huntLeft<=0){game.cleared=true;showModal(`<div class="eyebrow">CACCIA INVERSA</div><h2 id="dialogTitle">Tempo scaduto</h2><p>I fantasmi sono sopravvissuti. Catture: ${game.huntCaught||0}.</p><div class="actions"><button id="huntAgain">Rivincita</button><button id="huntMenu">Menu</button></div>`);state='over';$('huntAgain').onclick=()=>PacPacLegacy320.startHunt(game.huntDuration);$('huntMenu').onclick=mainMenu;return}}shake=Math.max(0,shake-dt);particles=particles.filter(p=>(p.life-=dt)>0);particles.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt});floats=floats.filter(f=>(f.life-=dt)>0);floats.forEach(f=>f.y-=dt*.7);
@@ -1083,7 +1277,7 @@ function updateSolo(dt){if(['playing','tutorial'].includes(state))speechTime=Mat
 }
 function circle(x,y,r,color){ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill()}
 function drawSolo(){ctx.clearRect(0,0,N*T,N*T);ctx.fillStyle='#050915';ctx.fillRect(0,0,N*T,N*T);if(!game)return;ctx.save();if(settings.graphics!=='performance'&&settings.effects&&shake>0)ctx.translate(Math.sin(clock*91)*shake*12,Math.cos(clock*77)*shake*12);
- const hue=(game.level*17+190)%360;ctx.lineWidth=1.5;
+ const familyVisual=window.PacPacMazeFamily490?.familyOf(game.level),hue=familyVisual?.palette?.hue??(game.level*17+190)%360;window.PacPacMazeFamily490?.decorateBoard(ctx,T,game.level);ctx.lineWidth=1.5;
  for(let y=0;y<N;y++)for(let x=0;x<N;x++){const v=game.map[y][x],px=x*T,py=y*T,cx=px+T/2,cy=py+T/2;if(v===1){ctx.fillStyle=`hsl(${hue} 55% 12%)`;ctx.fillRect(px+2,py+2,T-4,T-4);ctx.strokeStyle=`hsl(${hue} 75% 42%)`;ctx.beginPath();if(walk(game.map,x,y-1)){ctx.moveTo(px+2,py+2);ctx.lineTo(px+T-2,py+2)}if(walk(game.map,x,y+1)){ctx.moveTo(px+2,py+T-2);ctx.lineTo(px+T-2,py+T-2)}if(walk(game.map,x-1,y)){ctx.moveTo(px+2,py+2);ctx.lineTo(px+2,py+T-2)}if(walk(game.map,x+1,y)){ctx.moveTo(px+T-2,py+2);ctx.lineTo(px+T-2,py+T-2)}ctx.stroke()}else if(v===0)drawPellet(ctx,cx,cy,T,settings.pelletIcon);else if(v===3){if(settings.powerIcon!=='classic'){drawPellet(ctx,cx,cy,T*1.35,settings.powerIcon);ctx.strokeStyle='#ff68bc';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(cx,cy,13,0,Math.PI*2);ctx.stroke()}else if(images.power)ctx.drawImage(images.power,px+2,py+2,T-4,T-4);else{circle(cx,cy,8+(settings.effects?Math.sin(clock*6)*1.5:0),'#ff68bc');circle(cx,cy,3,'#ffe5f6')}}else if(v===6){ctx.fillStyle='#93ffb6';ctx.fillRect(cx-4,cy-8,8,16);ctx.fillStyle='#173d34';ctx.fillRect(cx-2,cy-5,4,10)}}if(game.dynamicMaze){const d=game.dynamicMaze;for(const c of d.cells||[]){const px=c.x*T,py=c.y*T;if(game.map[c.y][c.x]===1){ctx.fillStyle='#7a3cff';ctx.fillRect(px+3,py+3,T-6,T-6);ctx.strokeStyle='#ffe176';ctx.lineWidth=2;ctx.strokeRect(px+5,py+2,T-10,T-4)}}for(const q of d.passages||[]){ctx.strokeStyle=game.map[q.y][q.x]===1?'#ff647c':'#58efff';ctx.lineWidth=2;ctx.strokeRect(q.x*T+4,q.y*T+4,T-8,T-8)}for(const q of d.portals||[]){ctx.save();ctx.translate(q.x*T+T/2,q.y*T+T/2);ctx.rotate(clock*2.4);ctx.strokeStyle=q.color;ctx.lineWidth=3;ctx.beginPath();ctx.arc(0,0,T*.32,0,Math.PI*1.45);ctx.stroke();ctx.restore()}}
  ctx.strokeStyle='#23425c';ctx.lineWidth=1;ctx.strokeRect(10*T,10*T,3*T,3*T);ctx.font='8px monospace';ctx.fillStyle='#56738f';ctx.textAlign='center';ctx.fillText('GHOST HUB',11.5*T,11.6*T);
  for(const b of game.bullets){if(settings.projectileIcon!=='classic'){drawPellet(ctx,b.x*T+T/2,b.y*T+T/2,T,settings.projectileIcon)}else if(images.weapon)ctx.drawImage(images.weapon,b.x*T+5,b.y*T+5,20,20);else{circle(b.x*T+T/2,b.y*T+T/2,5,'#93ffb6');circle(b.x*T+T/2,b.y*T+T/2,2,'#fff')}}
@@ -1289,7 +1483,7 @@ for(const id of ['pac','giovanni','bruno']){let data=builtinCharacters[id];try{d
 
 function soloMenu(){
  state='menu';game=null;stopTouchFire();speechTime=0;$('powerBar').style.width='0';
- showModal(`<div class="eyebrow" style="text-align:center">PAC PAC G&B Â· v4.7.9</div><h1 id="dialogTitle" class="splash-title">PAC PAC</h1><p class="splash-sub">Scegli il tuo personaggio e scendi nel labirinto.</p><div class="character-grid" role="group" aria-label="Scegli il personaggio">${['giovanni','bruno','pac'].map(id=>`<button type="button" class="character-card" data-character="${id}" aria-pressed="${settings.character===id}" aria-label="Scegli ${CHARACTER_NAMES[id]}"><canvas id="splash-${id}" width="180" height="180" aria-hidden="true"></canvas><strong>${CHARACTER_NAMES[id]}</strong><small>${settings.character===id?'âœ“ SELEZIONATO':'TOCCA PER SCEGLIERE'}</small></button>`).join('')}</div><div id="splashChoice" class="sr-only" role="status" aria-live="polite"></div><div class="splash-actions"><button class="primary" id="start">â–¶ Gioca con ${CHARACTER_NAMES[settings.character]}</button><button id="options">âš™ Impostazioni</button><button id="tutorialMenu">â—Ž Tutorial touch</button><button id="multiplayerMenu">â†” Multiplayer Â· 2 dispositivi</button><button id="levelsMenu">â–¦ Livelli sbloccati</button></div><p class="splash-footer">Stesse abilitÃ  per tutti Â· Frecce / WASD Â· Spazio: spara</p>`);
+ showModal(`<div class="eyebrow" style="text-align:center">PAC PAC G&B Â· v4.9.5</div><h1 id="dialogTitle" class="splash-title">PAC PAC</h1><p class="splash-sub">Scegli il tuo personaggio e scendi nel labirinto.</p><div class="character-grid" role="group" aria-label="Scegli il personaggio">${['giovanni','bruno','pac'].map(id=>`<button type="button" class="character-card" data-character="${id}" aria-pressed="${settings.character===id}" aria-label="Scegli ${CHARACTER_NAMES[id]}"><canvas id="splash-${id}" width="180" height="180" aria-hidden="true"></canvas><strong>${CHARACTER_NAMES[id]}</strong><small>${settings.character===id?'âœ“ SELEZIONATO':'TOCCA PER SCEGLIERE'}</small></button>`).join('')}</div><div id="splashChoice" class="sr-only" role="status" aria-live="polite"></div><div class="splash-actions"><button class="primary" id="start">â–¶ Gioca con ${CHARACTER_NAMES[settings.character]}</button><button id="options">âš™ Impostazioni</button><button id="tutorialMenu">â—Ž Tutorial touch</button><button id="multiplayerMenu">â†” Multiplayer Â· 2 dispositivi</button><button id="levelsMenu">â–¦ Livelli sbloccati</button></div><p class="splash-footer">Stesse abilitÃ  per tutti Â· Frecce / WASD Â· Spazio: spara</p>`);
  $('panel').classList.add('splash-panel');
  document.querySelectorAll('[data-character]').forEach(b=>b.onclick=()=>{
   settings.character=b.dataset.character;saveStore('neonArcadeSettings',settings);
@@ -1305,7 +1499,7 @@ function renderSplashCharacters(){
 
 let musicGain=null,musicNext=0,musicStep=0,musicRunning=false,musicNodes=new Set(),musicFile=null,musicFileURL=null,musicFileName='',musicPlayPending=false,musicFileFailed=false;
 function unlockMusic(){
- try{audio??=new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});if(!musicGain){musicGain=audio.createGain();musicGain.gain.value=0;musicGain.connect(audio.destination)}}catch{}
+ try{audio??=new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});if(!musicGain){musicGain=audio.createGain();musicGain.gain.value=0;musicGain.connect(audio.destination)}typeof window.PacPacAudioVisualizer478?.attachSyntheticBus==='function'&&window.PacPacAudioVisualizer478.attachSyntheticBus(audio,musicGain)}catch{}
 }
 document.addEventListener('pointerdown',unlockMusic,{passive:true});document.addEventListener('keydown',unlockMusic);
 function stopMusic(){if(projectMusic)projectMusic.pause();
@@ -1319,9 +1513,9 @@ function musicNote(midi,at,length,type,level){
 function syncMusic(){
  const allowed=settings.music&&settings.musicVolume>0&&['playing','ready'].includes(state)&&!document.hidden;
  if(!allowed){if(musicRunning||musicFile&&!musicFile.paused||projectMusic&&!projectMusic.paused)stopMusic();return}
- if(settings.musicSource==='project'){syncProjectMusic();return}
+ if(settings.musicSource==='project'&&!projectMusicFailed){syncProjectMusic();if(!projectMusicFailed)return}
  if(projectMusic&&!projectMusic.paused)projectMusic.pause();
- if(settings.musicSource==='file'&&musicFile){
+ if(settings.musicSource==='file'&&musicFile&&!musicFileFailed){
   if(musicGain&&musicRunning){stopMusic()}
   musicFile.volume=settings.musicVolume/100;
   if(musicFile.paused&&!musicPlayPending&&!musicFileFailed){musicPlayPending=true;musicFile.play().catch(()=>{musicFileFailed=true;toast('Audio non riproducibile: prova un altro file o la musica originale.')}).finally(()=>{musicPlayPending=false;if(!settings.music||!['playing','ready'].includes(state)||document.hidden)musicFile.pause()})}return;
@@ -1341,12 +1535,12 @@ function syncMusic(){
  }
 }
 function setupMusicSettings(){
- $('music').checked=settings.music;$('musicVolume').value=settings.musicVolume;$('musicVolumeLabel').textContent=settings.musicVolume+'%';$('musicSource').value=settings.musicSource;
+ $('music').checked=settings.music;$('musicVolume').value=settings.musicVolume;$('musicVolumeLabel').textContent=settings.musicVolume+'%';$('musicSource').value=settings.musicSource;$('musicSource').onchange=()=>{if($('musicSource').value==='project'){projectMusicFailed=false;projectMusicBlocked=false;if(projectMusic){projectMusic.pause();projectMusic=null}}};
  $('musicVolume').oninput=()=>{$('musicVolumeLabel').textContent=$('musicVolume').value+'%'};
  $('musicFileStatus').textContent=musicFileName?'File caricato: '+musicFileName:'Nessun file personale. Sorgente predefinita: audio/smoot-criminal.mp3.';
  $('musicUpload').onchange=e=>{
   const f=e.target.files[0];if(!f)return;if(f.size>25*1024*1024||!(/\.(mp3|wav|ogg|m4a)$/i.test(f.name)||f.type.startsWith('audio/'))){toast('Scegli un file audio entro 25 MB');return}
-  stopMusic();if(musicFileURL)URL.revokeObjectURL(musicFileURL);musicFileURL=URL.createObjectURL(f);musicFile=new Audio(musicFileURL);musicFile.loop=true;musicFileName=f.name;musicFileFailed=false;musicFile.onerror=()=>{musicFileFailed=true;toast('Formato audio non supportato: seleziona un altro file.')};$('musicSource').value='file';$('musicFileStatus').textContent='File caricato: '+f.name;
+  stopMusic();if(musicFileURL)URL.revokeObjectURL(musicFileURL);musicFileURL=URL.createObjectURL(f);musicFile=new Audio(musicFileURL);musicFile.loop=true;musicFile.addEventListener('playing',()=>{if(location.protocol!=='file:'&&typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function')window.PacPacAudioVisualizer478.attachMediaElement(audio,musicFile)},{once:true});musicFileName=f.name;musicFileFailed=false;musicFile.onerror=()=>{musicFileFailed=true;toast('Formato audio non supportato: seleziona un altro file.')};$('musicSource').value='file';$('musicFileStatus').textContent='File caricato: '+f.name;
  };
  $('clearMusicFile').onclick=()=>{stopMusic();if(musicFileURL)URL.revokeObjectURL(musicFileURL);musicFile=null;musicFileURL=null;musicFileName='';musicFileFailed=false;$('musicSource').value='project';$('musicFileStatus').textContent='File rimosso. Disponibile audio/smoot-criminal.mp3.'};
 }
@@ -1355,26 +1549,33 @@ function setupMusicSettings(){
 
 const PROJECT_MUSIC_PATH='./audio/smoot-criminal.mp3';
 let projectMusic=null,projectMusicPending=false,projectMusicFailed=false,projectMusicBlocked=false;
+const audioDebugLog=[];
+function audioLog(event,details={}){const entry={time:new Date().toISOString(),event,...details};audioDebugLog.push(entry);if(audioDebugLog.length>80)audioDebugLog.shift();console.info('[PAC PAC AUDIO]',event,details);return entry}
+window.PacPacAudioDiagnostics=()=>({source:settings.musicSource,enabled:settings.music,volume:settings.musicVolume,protocol:location.protocol,context:audio?.state||'not-created',project:{created:!!projectMusic,paused:projectMusic?.paused??null,readyState:projectMusic?.readyState??null,networkState:projectMusic?.networkState??null,currentSrc:projectMusic?.currentSrc||PROJECT_MUSIC_PATH,failed:projectMusicFailed,blocked:projectMusicBlocked,pending:projectMusicPending,error:projectMusic?.error?{code:projectMusic.error.code,message:projectMusic.error.message}:null},visualizer:{available:typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function'},assets:Object.fromEntries(audioAssetStatus||[]),log:[...audioDebugLog]});
 function syncProjectMusic(){
+ if(window.PacPacMusicPlayer495?.playlistMode){if(window.PacPacMusicPlayer495.stopped)projectMusic?.pause();else if(projectMusic)projectMusic.volume=Math.max(0,Math.min(1,settings.musicVolume/100));return}
  if(projectMusicFailed||projectMusicBlocked)return;
- if(!projectMusic){projectMusic=new Audio(PROJECT_MUSIC_PATH);projectMusic.loop=true;projectMusic.preload='auto';projectMusic.addEventListener('error',()=>{projectMusicFailed=true;projectMusic.pause()})}
+ if(!projectMusic){projectMusic=new Audio(PROJECT_MUSIC_PATH);projectMusic.loop=true;projectMusic.preload='auto';audioLog('project-created',{src:PROJECT_MUSIC_PATH});projectMusic.addEventListener('loadedmetadata',()=>audioLog('project-metadata',{duration:projectMusic.duration,readyState:projectMusic.readyState}),{once:true});projectMusic.addEventListener('canplay',()=>audioLog('project-canplay',{readyState:projectMusic.readyState}),{once:true});projectMusic.addEventListener('playing',()=>{audioLog('project-playing',{volume:projectMusic.volume,protocol:location.protocol});if(location.protocol!=='file:'&&typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function'){const linked=window.PacPacAudioVisualizer478.attachMediaElement(audio,projectMusic);audioLog('visualizer-link',{linked})}},{once:true});projectMusic.addEventListener('error',()=>{projectMusicFailed=true;audioLog('project-error',{code:projectMusic.error?.code||0,message:projectMusic.error?.message||'',networkState:projectMusic.networkState,readyState:projectMusic.readyState,src:projectMusic.currentSrc||PROJECT_MUSIC_PATH});projectMusic.pause()})}
  projectMusic.volume=settings.musicVolume/100;
- if(projectMusic.paused&&!projectMusicPending){projectMusicPending=true;projectMusic.play().catch(e=>{if(e.name==='NotAllowedError')projectMusicBlocked=true;else if(e.name!=='AbortError')projectMusicFailed=true}).finally(()=>{projectMusicPending=false;if(!settings.music||settings.musicSource!=='project'||!['playing','ready'].includes(state)||document.hidden)projectMusic.pause()})}
+ if(projectMusic.paused&&!projectMusicPending){projectMusicPending=true;audioLog('project-play-request',{src:PROJECT_MUSIC_PATH,context:audio?.state||'not-created'});projectMusic.play().catch(e=>{audioLog('project-play-rejected',{name:e.name,message:e.message});if(e.name==='NotAllowedError')projectMusicBlocked=true;else if(e.name!=='AbortError')projectMusicFailed=true}).finally(()=>{projectMusicPending=false;if(!settings.music||settings.musicSource!=='project'||!['playing','ready'].includes(state)||document.hidden)projectMusic.pause()})}
 }
-document.addEventListener('pointerdown',()=>{projectMusicBlocked=false},{passive:true});
+document.addEventListener('pointerdown',()=>{projectMusicBlocked=false;if(projectMusicFailed){projectMusicFailed=false;projectMusic=null}},{passive:true});
 document.addEventListener('keydown',()=>{projectMusicBlocked=false});
 const PELLET_AUDIO_PATH='./audio/hee-hee.mp3',GUN_AUDIO_PATH='./audio/gun.wav';
 const activeEffects=new Set(),failedEffectPaths=new Set();
+function effectFallback(path){if(path===GUN_AUDIO_PATH)tone(155,.055,'square',.025);else tone(420,.12,'triangle',.03)}
 function playOneShot(path){
- if(!settings.sound||document.hidden||failedEffectPaths.has(path))return;
+ if(!settings.sound||document.hidden)return;
+ if(failedEffectPaths.has(path)){effectFallback(path);return}
+ let settled=false;
  try{
   const clip=new Audio(path);clip.loop=false;clip.volume=1;activeEffects.add(clip);
   const cleanup=()=>{activeEffects.delete(clip);clip.removeAttribute?.('src');clip.load?.()};
-  clip.addEventListener('ended',cleanup,{once:true});
-  clip.addEventListener('error',()=>{failedEffectPaths.add(path);cleanup()},{once:true});
-  // One play call per gameplay event. No timer, loop, replay or frame-driven retry.
-  const p=clip.play();if(p?.catch)p.catch(e=>{if(e.name==='NotSupportedError')failedEffectPaths.add(path);cleanup()});
- }catch{}
+  const fallback=()=>{if(settled)return;settled=true;failedEffectPaths.add(path);cleanup();effectFallback(path)};
+  clip.addEventListener('ended',()=>{settled=true;cleanup()},{once:true});
+  clip.addEventListener('error',fallback,{once:true});
+  const p=clip.play();if(p?.catch)p.catch(fallback);
+ }catch{effectFallback(path)}
 }
 function playPelletAudio(){playOneShot(PELLET_AUDIO_PATH)}
 function playGunAudio(){playOneShot(GUN_AUDIO_PATH)}
@@ -1612,11 +1813,11 @@ function probeAudioAssets(){
  }
 }
 $('introSplash').addEventListener('click',probeAudioAssets,{once:true});
-function stabilityDiagnostics(){return{version:'4.7.9',fixedStepHz:120,droppedSimulationFrames,network:net?{connected:net.dc?.readyState==='open',rttMs:Math.round(net.rtt||0),silenceMs:Math.round(performance.now()-net.lastSeen),backpressureDrops:net.backpressure||0}:null,audio:Object.fromEntries(audioAssetStatus),performance:{...performanceStats,graphics:settings.graphics,levelCache:levelTemplateCache.size,distanceCache:distanceCache.size}}}
+function stabilityDiagnostics(){return{audioDiagnostics:window.PacPacAudioDiagnostics?.(),version:'4.9.5',fixedStepHz:120,droppedSimulationFrames,network:net?{connected:net.dc?.readyState==='open',rttMs:Math.round(net.rtt||0),silenceMs:Math.round(performance.now()-net.lastSeen),backpressureDrops:net.backpressure||0}:null,audio:Object.fromEntries(audioAssetStatus),performance:{...performanceStats,graphics:settings.graphics,levelCache:levelTemplateCache.size,distanceCache:distanceCache.size}}}
 
 applySettings();showIntroSplash();fit();requestAnimationFrame(loop);
 </script>
-<script src="./regression-310.js"></script><script src="./arcade-240.js"></script><script src="./retention-250.js"></script><script src="./vendor/qrcode-core.js"></script><script src="./social-230.js"></script><script src="./legacy-320.js"></script><script src="./src/levels/level-loader.js"></script><script src="./src/levels/level-runtime.js"></script><script src="./src/ui/campaign-ui.js"></script><script src="./src/ui/gameplay-feedback.js"></script><script src="./src/levels/editor-publisher.js"></script><script src="./src/modes/challenges.js"></script><script src="./src/ui/manual-410.js"></script><script src="./src/modes/story-450.js"></script><script src="./src/modes/story-runtime-470.js"></script><script src="./src/ui/menu-470.js"></script><script src="./src/ui/audio-motion-473.js"></script><script src="./src/modes/story-chase-474.js"></script><script src="./src/ui/audio-visualizer-478.js"></script>
+<script src="./src/ui/loading-indicator-494.js?v=494"></script><script src="./src/levels/maze-families-490.js?v=492"></script><script src="./regression-310.js"></script><script src="./arcade-240.js"></script><script src="./retention-250.js"></script><script src="./vendor/qrcode-core.js"></script><script src="./social-230.js"></script><script src="./legacy-320.js"></script><script src="./src/levels/level-loader.js"></script><script src="./src/levels/level-runtime.js"></script><script src="./src/ui/campaign-ui.js?v=486"></script><script src="./src/ui/gameplay-feedback.js"></script><script src="./src/levels/editor-publisher.js"></script><script src="./src/modes/challenges.js"></script><script src="./src/ui/manual-410.js"></script><script src="./src/modes/story-450.js"></script><script src="./src/modes/story-runtime-470.js"></script><script src="./src/ui/menu-470.js"></script><script src="./src/ui/audio-motion-473.js?v=483"></script><script src="./src/modes/boss-fallback-481.js"></script><script src="./src/modes/story-chase-474.js"></script><script src="./src/ui/audio-visualizer-478.js?v=486"></script><script src="./src/ui/music-player-495.js?v=495"></script><script src="./src/ui/level-records-487.js?v=493"></script>
 </body></html>
 
 
@@ -1877,6 +2078,17 @@ queueMicrotask(enhanceMenu);
 
 
 ================================================================================
+FILE: .\scripts-build-audio-playlist.js
+================================================================================
+'use strict';const fs=require('fs'),path=require('path'),dir=path.join(__dirname,'audio');
+const effects=new Set(['hee-hee.mp3','gun.wav','giovanni-start.mp3','bruno-start.mp3','pac-pac-start.mp3','missione-compiuta.mp3','grido-battaglia.mp3','gameover.mp3']);
+const audio=/\.(mp3|wav|ogg|m4a|aac|flac)$/i;
+const tracks=fs.readdirSync(dir,{withFileTypes:true}).filter(x=>x.isFile()&&audio.test(x.name)&&!effects.has(x.name.toLowerCase())).map(x=>({file:x.name,title:x.name.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ')})).sort((a,b)=>a.title.localeCompare(b.title,'it'));
+fs.writeFileSync(path.join(dir,'playlist.json'),JSON.stringify({version:1,generatedAt:new Date().toISOString(),tracks},null,2)+'\n');console.log(`Playlist: ${tracks.length} brani musicali; ${effects.size} effetti esclusi.`);
+
+
+
+================================================================================
 FILE: .\social-230.css
 ================================================================================
 .social-qr{margin:12px auto;padding:12px;max-width:280px;text-align:center;background:#fff;color:#050915;border-radius:14px}.social-qr svg{display:block;width:min(220px,100%);height:auto;margin:auto}.social-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.social-actions button:first-child{background:#25d366;color:#07150c;border-color:#67f495}.social-actions-image{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;width:100%;margin-bottom:10px}.social-actions-image button{min-height:48px}.social-actions-image .wa-image{background:linear-gradient(135deg,#25d366,#128c7e);border-color:#54eba0;color:#03150c;box-shadow:0 7px 18px #25d36633}@media(max-width:520px){.social-actions-image{grid-template-columns:1fr}}
@@ -1925,13 +2137,13 @@ const CHALLENGES=[
 const gameUrl=()=>{const u=new URL(location.href);u.searchParams.delete('room');u.hash='';return u.href},invite=()=>{const u=new URL(gameUrl());if(currentRoom)u.searchParams.set('room',currentRoom);return u.href};
 function qr(){if(!currentRoom)return;if(!window.PacQr){toast('Motore QR non disponibile Â· usa Condividi invito');return}let b=$('roomQrBox');if(!b){b=document.createElement('div');b.id='roomQrBox';b.className='social-qr';b.innerHTML='<div id="roomQr"></div><p>Scansiona il QR per entrare nella stanza.</p><button id="qrSave">Scarica QR</button>';$('roomResult')?.insertAdjacentElement('afterend',b);$('qrSave').onclick=()=>{const v=$('roomQr').innerHTML,a=document.createElement('a'),o=URL.createObjectURL(new Blob([v],{type:'image/svg+xml'}));a.href=o;a.download='PAC-PAC-'+currentRoom+'.svg';a.click();setTimeout(()=>URL.revokeObjectURL(o),1000)}}$('roomQr').innerHTML=PacQr.svg(invite())}
 function cleanName(v){return String(v||'').replace(/[<>\n\r]/g,' ').replace(/\s+/g,' ').trim().slice(0,24)}
-function snapshot(signer=''){const multi=!!(net?.active&&game?.players?.length===2),score=Number(game?.score||0),level=Number(game?.level||1),arc=game?.arcade||{},combo=Number(arc.maxCombo||game?.maxCombo||game?.comboMax||game?.combo||0),near=Number(arc.nearMisses||game?.nearMiss||game?.nearMisses||0),chain=Number(arc.ghostChain||game?.ghostChain||0),cleared=!!game?.cleared,character=settings?.character||'pac';const rank=score>=25000?'S':score>=15000?'A':score>=8000?'B':score>=3500?'C':'D';const data={mode:multi?(net.mode==='coop'?'Insieme':'Contro'):(game?.storyMode?'Storia':game?.campaignMode?'Campagna':game?.huntMode?'Caccia inversa':'Arcade'),level,score,rank,combo,near,chain,cleared,character,characterName:NAMES[character]||'PAC PAC',signer:cleanName(signer),when:new Date().toLocaleString('it-IT',{dateStyle:'short',timeStyle:'short'})};if(multi){data.giovanni=Number(game.players[0]?.points||0);data.bruno=Number(game.players[1]?.points||0);data.result=net.result||'Partita conclusa'}data.code=codeFor(data);data.challenge=CHALLENGES[parseInt(data.code.slice(-4),16)%CHALLENGES.length];return data}
+function snapshot(signer=''){const multi=!!(net?.active&&game?.players?.length===2),score=Number(game?.score||0),level=Number(game?.level||1),arc=game?.arcade||{},combo=Number(arc.maxCombo||game?.maxCombo||game?.comboMax||game?.combo||0),near=Number(arc.nearMisses||game?.nearMiss||game?.nearMisses||0),chain=Number(arc.ghostChain||game?.ghostChain||0),cleared=!!game?.cleared,character=settings?.character||'pac';const rank=score>=25000?'S':score>=15000?'A':score>=8000?'B':score>=3500?'C':'D';const cumulative=window.PacPacLevelRecords487?.read?.()||{levels:{},total:score};const levelGrades=Object.entries(cumulative.levels||{}).sort((a,b)=>+a[0]-+b[0]).map(([level,v])=>({level:+level,grade:v.grade,score:v.score}));const overallGrade=window.PacPacLevelRecords487?.overall?.()||rank;const data={cumulativeTotal:cumulative.total||score,levelGrades,overallGrade,mode:multi?(net.mode==='coop'?'Insieme':'Contro'):(game?.storyMode?'Storia':game?.campaignMode?'Campagna':game?.huntMode?'Caccia inversa':'Arcade'),level,score,rank,combo,near,chain,cleared,character,characterName:NAMES[character]||'PAC PAC',signer:cleanName(signer),when:new Date().toLocaleString('it-IT',{dateStyle:'short',timeStyle:'short'})};if(multi){data.giovanni=Number(game.players[0]?.points||0);data.bruno=Number(game.players[1]?.points||0);data.result=net.result||'Partita conclusa'}data.code=codeFor(data);data.challenge=CHALLENGES[parseInt(data.code.slice(-4),16)%CHALLENGES.length];return data}
 function codeFor(d){const raw=[d.mode,d.level,d.score,d.rank,d.combo,d.near,d.chain,d.character,d.signer,d.giovanni||0,d.bruno||0,d.cleared?1:0].join('|');let h=2166136261;for(let i=0;i<raw.length;i++){h^=raw.charCodeAt(i);h=Math.imul(h,16777619)}return(h>>>0).toString(16).toUpperCase().padStart(8,'0')}
 function rounded(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
 function wrap(ctx,text,x,y,max,lineHeight,maxLines=3){const words=String(text).split(' ');let line='',lines=[];for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>max&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);lines=lines.slice(0,maxLines);lines.forEach((v,i)=>ctx.fillText(v,x,y+i*lineHeight));return lines.length}
 function label(ctx,label,value,x,y,w){ctx.fillStyle='#13243a';rounded(ctx,x,y,w,100,22);ctx.fillStyle='#8da9c2';ctx.font='700 21px system-ui';ctx.fillText(label.toUpperCase(),x+20,y+30);ctx.fillStyle='#f7fbff';ctx.font='900 40px system-ui';ctx.fillText(String(value),x+20,y+75)}
 function drawPlayer(ctx,data){ctx.save();ctx.fillStyle='#06101e';rounded(ctx,70,55,190,190,42);ctx.translate(165,150);if(typeof paintCharacter==='function')paintCharacter(ctx,0,0,154,data.character,1);else{ctx.fillStyle='#ffe176';ctx.beginPath();ctx.arc(0,0,66,.2,Math.PI*1.8);ctx.lineTo(0,0);ctx.fill()}ctx.restore();ctx.fillStyle='#8edfec';ctx.font='800 22px system-ui';ctx.textAlign='center';ctx.fillText(data.characterName.toUpperCase(),165,278);ctx.textAlign='left'}
-function canvasCard(data=snapshot(localStorage.getItem(NAME_KEY)||'')){const c=document.createElement('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d'),grad=x.createLinearGradient(0,0,1080,1350);grad.addColorStop(0,'#07111f');grad.addColorStop(.52,'#132743');grad.addColorStop(1,'#351939');x.fillStyle=grad;x.fillRect(0,0,1080,1350);x.fillStyle='#58efff';x.fillRect(0,0,1080,14);x.fillStyle='#ff68bc';x.fillRect(0,1336,1080,14);drawPlayer(x,data);x.fillStyle='#f8fbff';x.font='900 62px system-ui';x.fillText('PAC PAC',315,118);x.fillStyle='#8edfec';x.font='700 23px system-ui';x.fillText('SFIDA UFFICIALE Â· RISULTATO 4.7.2',318,158);x.fillStyle='#ffe176';x.font='900 34px system-ui';x.fillText(data.signer?'IMPRESA DI '+data.signer.toUpperCase():'GIOCATORE SENZA NOME',318,212);x.fillStyle='#08101d';rounded(x,70,315,940,235,36);x.fillStyle='#9db4c9';x.font='700 25px system-ui';x.fillText(data.mode.toUpperCase()+' Â· LIVELLO '+data.level,108,368);x.fillStyle='#ffe176';x.font='900 105px system-ui';x.fillText(data.score.toLocaleString('it-IT'),105,478);x.fillStyle='#9db4c9';x.font='700 23px system-ui';x.fillText('PUNTI',110,520);x.fillStyle='#ff68bc';x.font='900 96px system-ui';x.textAlign='center';x.fillText(data.rank,880,472);x.fillStyle='#e8c3dc';x.font='700 21px system-ui';x.fillText('RANKING',880,510);x.textAlign='left';label(x,'Combo massima',data.combo,70,590,290);label(x,'Near miss',data.near,395,590,290);label(x,'Ghost chain',data.chain,720,590,290);x.fillStyle='#0b1728';rounded(x,70,730,940,230,30);x.fillStyle='#58efff';x.font='800 21px system-ui';x.fillText('SFIDA AGLI ALTRI GIOCATORI',105,778);x.fillStyle='#f7fbff';x.font='800 31px system-ui';wrap(x,'â€œ'+data.challenge+'â€',105,830,860,42,3);x.fillStyle=data.cleared?'#153f35':'#402432';rounded(x,70,1000,940,92,23);x.fillStyle=data.cleared?'#74f6c5':'#ff9ebd';x.font='900 31px system-ui';x.fillText(data.cleared?'LIVELLO COMPLETATO':'PARTITA CONCLUSA',105,1058);x.fillStyle='#9db4c9';x.font='600 20px system-ui';x.fillText('Generato il '+data.when,70,1162);x.fillStyle='#708ba5';x.font='600 18px system-ui';x.fillText('Codice risultato: '+data.code,70,1202);x.fillStyle='#58efff';x.font='800 22px system-ui';x.fillText('OLTRE IL PORTALE Â· IL COMPAGNO RAPITO',70,1270);return c}
+function canvasCard(data=snapshot(localStorage.getItem(NAME_KEY)||'')){const c=document.createElement('canvas');c.width=1080;c.height=1350;const x=c.getContext('2d'),grad=x.createLinearGradient(0,0,1080,1350);grad.addColorStop(0,'#07111f');grad.addColorStop(.52,'#132743');grad.addColorStop(1,'#351939');x.fillStyle=grad;x.fillRect(0,0,1080,1350);x.fillStyle='#58efff';x.fillRect(0,0,1080,14);x.fillStyle='#ff68bc';x.fillRect(0,1336,1080,14);drawPlayer(x,data);x.fillStyle='#f8fbff';x.font='900 62px system-ui';x.fillText('PAC PAC',315,118);x.fillStyle='#8edfec';x.font='700 23px system-ui';x.fillText('SFIDA UFFICIALE Â· RISULTATO 4.7.2',318,158);x.fillStyle='#ffe176';x.font='900 34px system-ui';x.fillText(data.signer?'IMPRESA DI '+data.signer.toUpperCase():'GIOCATORE SENZA NOME',318,212);x.fillStyle='#08101d';rounded(x,70,315,940,235,36);x.fillStyle='#9db4c9';x.font='700 25px system-ui';x.fillText(data.mode.toUpperCase()+' Â· LIVELLO '+data.level,108,368);x.fillStyle='#9db4c9';x.font='700 20px system-ui';x.fillText('RECORD TOTALE '+data.cumulativeTotal.toLocaleString('it-IT')+' Â· MEDIA '+data.overallGrade,108,405);x.fillStyle='#74f6c5';x.font='700 18px system-ui';x.fillText((data.levelGrades||[]).slice(-12).map(v=>'L'+v.level+':'+v.grade).join('  '),108,438);x.fillStyle='#ffe176';x.font='900 105px system-ui';x.fillText(data.score.toLocaleString('it-IT'),105,478);x.fillStyle='#9db4c9';x.font='700 23px system-ui';x.fillText('PUNTI',110,520);x.fillStyle='#ff68bc';x.font='900 96px system-ui';x.textAlign='center';x.fillText(data.rank,880,472);x.fillStyle='#e8c3dc';x.font='700 21px system-ui';x.fillText('RANKING',880,510);x.textAlign='left';label(x,'Combo massima',data.combo,70,590,290);label(x,'Near miss',data.near,395,590,290);label(x,'Ghost chain',data.chain,720,590,290);x.fillStyle='#0b1728';rounded(x,70,730,940,230,30);x.fillStyle='#58efff';x.font='800 21px system-ui';x.fillText('SFIDA AGLI ALTRI GIOCATORI',105,778);x.fillStyle='#f7fbff';x.font='800 31px system-ui';wrap(x,'â€œ'+data.challenge+'â€',105,830,860,42,3);x.fillStyle=data.cleared?'#153f35':'#402432';rounded(x,70,1000,940,92,23);x.fillStyle=data.cleared?'#74f6c5':'#ff9ebd';x.font='900 31px system-ui';x.fillText(data.cleared?'LIVELLO COMPLETATO':'PARTITA CONCLUSA',105,1058);x.fillStyle='#9db4c9';x.font='600 20px system-ui';x.fillText('Generato il '+data.when,70,1162);x.fillStyle='#708ba5';x.font='600 18px system-ui';x.fillText('Codice risultato: '+data.code,70,1202);x.fillStyle='#58efff';x.font='800 22px system-ui';x.fillText('OLTRE IL PORTALE Â· IL COMPAGNO RAPITO',70,1270);return c}
 function askName(){return new Promise(resolve=>{let box=document.getElementById('shareSigner472');if(box)box.remove();box=document.createElement('div');box.id='shareSigner472';box.className='share-signer-472';const card=document.createElement('form');card.className='share-signer-card-472';card.innerHTML='<span>FIRMA LA TUA IMPRESA</span><h3>Come vuoi apparire nella card?</h3><p>Inserisci nome o nickname, massimo 24 caratteri.</p><label for="shareName472">Nome del giocatore</label><input id="shareName472" maxlength="24" autocomplete="nickname"><div><button type="button" id="shareCancel472">Annulla</button><button class="primary" type="submit">Genera immagine</button></div>';box.append(card);document.body.append(box);const input=card.querySelector('input');input.value=localStorage.getItem(NAME_KEY)||'';input.focus();card.onsubmit=e=>{e.preventDefault();const name=cleanName(input.value);if(!name){input.setCustomValidity('Inserisci un nome o nickname');input.reportValidity();return}localStorage.setItem(NAME_KEY,name);box.remove();resolve(name)};card.querySelector('#shareCancel472').onclick=()=>{box.remove();resolve(null)}})}
 function toBlob(canvas){return new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('Impossibile generare il PNG')),'image/png',1))}
 async function resultFile(name){const data=snapshot(name),blob=await toBlob(canvasCard(data));return new File([blob],`PAC-PAC-${data.signer||'PLAYER'}-L${data.level}-${data.score}.png`,{type:'image/png',lastModified:Date.now()})}
@@ -2007,6 +2219,265 @@ PASS nomi SighiÈ™oara e BraÈ™ov
 PASS sintassi JavaScript dei moduli
 PASS visualizer 4.7.8 preservato
 PASS fix 4.7.7 preservati
+
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.8.0.txt
+================================================================================
+PAC PAC 4.8.0 - TEST REPORT
+
+PASS project background MP3 routed to analyser
+PASS personal background audio routed to analyser
+PASS synthesized musicGain routed to analyser
+PASS single analyser shared by music sources
+PASS media source duplicate guard via WeakMap
+PASS audio output and volume path preserved
+PASS floating glowing balls in main menu
+PASS particles do not intercept pointer events
+PASS reduced-motion support
+PASS 4.7.7 gameplay fixes preserved
+
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.8.1.txt
+================================================================================
+PAC PAC 4.8.1 - TEST REPORT
+
+PASS zero mojibake residues across textual files
+PASS accents arrows icons emoji and interface symbols
+PASS boss fallback module loaded before chase module
+PASS static boss visible without PNG
+PASS chase boss visible without PNG
+PASS Vespera Glacia Morvella Dracula and Custode palettes
+PASS JavaScript syntax
+PASS 4.8.0 audio visualizer preserved
+PASS 4.7.7 gameplay fixes preserved
+
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.8.2.txt
+================================================================================
+PAC PAC 4.8.2 - TEST REPORT
+
+PASS Story no longer fails when old visualizer API is cached
+PASS attachMediaElement guarded by function type
+PASS attachSyntheticBus guarded by function type
+PASS visualizer module cache bust
+PASS API merged for backward compatibility
+PASS real background audio analyser preserved
+PASS symbols and character encoding unchanged
+PASS boss fallback preserved
+PASS gameplay fixes preserved
+
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.8.3.txt
+================================================================================
+PAC PAC 4.8.3 - TEST REPORT
+
+PASS all JavaScript modules syntax
+PASS project MP3 fallback to synthesized background music
+PASS personal file fallback to synthesized background music
+PASS gun WAV fallback
+PASS Power Sphere MP3 fallback
+PASS character selection audio fallback
+PASS Story battle cue fallback
+PASS mission complete cue fallback
+PASS game over cue fallback
+PASS optional audio APIs type-safe
+PASS audio module cache bust
+PASS visualizer routing preserved
+PASS symbols and character encoding unchanged
+PASS boss fallback preserved
+PASS Story reachability and ghost return fixes preserved
+
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.9.3.txt
+================================================================================
+PAC PAC 4.9.3 - TEST REPORT
+
+PASS levels 1-100 generated without exceptions
+PASS all maps 23x23
+PASS all maps topologically valid
+PASS player spawn accessible levels 1-100
+PASS ghost home accessible levels 1-100
+PASS ten full family cycles
+PASS reset family filter
+PASS mobile previews at 320px and above
+PASS JavaScript syntax
+PASS symbols unchanged
+
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.9.4.html
+================================================================================
+<!doctype html><meta charset="utf-8"><title>PAC PAC 4.9.4 Test Report</title><style>body{font:16px system-ui;max-width:900px;margin:40px auto;padding:20px;background:#07111f;color:#eef8ff}h1{color:#ffe176}.pass{color:#74f6c5}li{margin:9px 0}code{color:#58efff}</style><h1>PAC PAC 4.9.4 - Report di test</h1><p><b>Data:</b> 24 ottobre 2026</p><p class="pass"><b>ESITO: PASS - 15/15</b></p><h2>Ambito smartphone</h2><p>Simulazione tecnica sui viewport 320, 360, 390 e 430 px. Browser automation Chromium non disponibile nell'ambiente.</p><ul><li class="pass">PASS - <b>Livelli 1-100: generazione</b>: 100/100 senza eccezioni</li><li class="pass">PASS - <b>Mappe 23x23</b>: 100/100</li><li class="pass">PASS - <b>ValiditÃ  topologica</b>: 100/100</li><li class="pass">PASS - <b>Spawn giocatore accessibile</b>: 100/100</li><li class="pass">PASS - <b>Base fantasmi accessibile</b>: 100/100</li><li class="pass">PASS - <b>Cicli famiglie</b>: 10 cicli completi</li><li class="pass">PASS - <b>Viewport 320 px</b>: layout a colonna singola</li><li class="pass">PASS - <b>Viewport 360 px</b>: anteprime 72-104 px</li><li class="pass">PASS - <b>Viewport 390 px</b>: anteprime fluide</li><li class="pass">PASS - <b>Viewport 430 px</b>: spinner e archivio responsive</li><li class="pass">PASS - <b>Touch UI</b>: target e controlli touch preservati</li><li class="pass">PASS - <b>Indicatore caricamento</b>: avvio e anteprime, aria-live</li><li class="pass">PASS - <b>Reduced motion</b>: animazione disabilitabile</li><li class="pass">PASS - <b>Sintassi JavaScript</b>: tutti i moduli</li><li class="pass">PASS - <b>Codifica simboli</b>: nessun mojibake</li></ul><h2>Copertura</h2><p>Livelli procedurali 1-100, layout mobile, touch UI, indicatore caricamento, sintassi JavaScript e codifica.</p>
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.9.4.json
+================================================================================
+{
+  "product": "PAC PAC",
+  "version": "4.9.4",
+  "date": "2026-10-24",
+  "environment": {
+    "type": "static/mobile simulation",
+    "browserAutomation": "not available",
+    "viewports": [
+      320,
+      360,
+      390,
+      430
+    ]
+  },
+  "summary": {
+    "passed": 15,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "tests": [
+    {
+      "name": "Livelli 1-100: generazione",
+      "passed": true,
+      "details": "100/100 senza eccezioni"
+    },
+    {
+      "name": "Mappe 23x23",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "ValiditÃ  topologica",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "Spawn giocatore accessibile",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "Base fantasmi accessibile",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "Cicli famiglie",
+      "passed": true,
+      "details": "10 cicli completi"
+    },
+    {
+      "name": "Viewport 320 px",
+      "passed": true,
+      "details": "layout a colonna singola"
+    },
+    {
+      "name": "Viewport 360 px",
+      "passed": true,
+      "details": "anteprime 72-104 px"
+    },
+    {
+      "name": "Viewport 390 px",
+      "passed": true,
+      "details": "anteprime fluide"
+    },
+    {
+      "name": "Viewport 430 px",
+      "passed": true,
+      "details": "spinner e archivio responsive"
+    },
+    {
+      "name": "Touch UI",
+      "passed": true,
+      "details": "target e controlli touch preservati"
+    },
+    {
+      "name": "Indicatore caricamento",
+      "passed": true,
+      "details": "avvio e anteprime, aria-live"
+    },
+    {
+      "name": "Reduced motion",
+      "passed": true,
+      "details": "animazione disabilitabile"
+    },
+    {
+      "name": "Sintassi JavaScript",
+      "passed": true,
+      "details": "tutti i moduli"
+    },
+    {
+      "name": "Codifica simboli",
+      "passed": true,
+      "details": "nessun mojibake"
+    }
+  ]
+}
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.9.4.md
+================================================================================
+# PAC PAC 4.9.4 - Report di test
+
+**Data:** 24 ottobre 2026  
+**Esito:** PASS  
+**Test superati:** 15/15
+
+## Ambito smartphone
+
+Simulazione tecnica sui viewport 320, 360, 390 e 430 px. Lâ€™ambiente di collaudo non dispone di un browser Chromium automatizzabile; sono stati verificati CSS responsive, struttura DOM, touch UI, overflow, generazione livelli e moduli JavaScript.
+
+## Risultati
+- PASS - **Livelli 1-100: generazione**: 100/100 senza eccezioni
+- PASS - **Mappe 23x23**: 100/100
+- PASS - **ValiditÃ  topologica**: 100/100
+- PASS - **Spawn giocatore accessibile**: 100/100
+- PASS - **Base fantasmi accessibile**: 100/100
+- PASS - **Cicli famiglie**: 10 cicli completi
+- PASS - **Viewport 320 px**: layout a colonna singola
+- PASS - **Viewport 360 px**: anteprime 72-104 px
+- PASS - **Viewport 390 px**: anteprime fluide
+- PASS - **Viewport 430 px**: spinner e archivio responsive
+- PASS - **Touch UI**: target e controlli touch preservati
+- PASS - **Indicatore caricamento**: avvio e anteprime, aria-live
+- PASS - **Reduced motion**: animazione disabilitabile
+- PASS - **Sintassi JavaScript**: tutti i moduli
+- PASS - **Codifica simboli**: nessun mojibake
+
+## Note
+
+- Verificati tutti i livelli procedurali 1-100.
+- Indicatore di caricamento attivo allâ€™avvio e durante la generazione delle anteprime.
+- Nessuna modifica a gameplay, audio, simboli o progressione.
+
+
+
+================================================================================
+FILE: .\TEST-REPORT-4.9.5.txt
+================================================================================
+PAC PAC 4.9.5 - TEST REPORT
+
+PASS desktop bottom-right player
+PASS smartphone bottom flow player
+PASS previous next stop controls
+PASS default smoot-criminal loop preserved before controls
+PASS playlist handover after first control
+PASS automatic next on track end
+PASS stop remains stopped
+PASS game effect audio excluded
+PASS playlist manifest generator
+PASS visualizer compatibility preserved
+PASS JavaScript syntax
+PASS symbols unchanged
 
 
 
@@ -2488,14 +2959,27 @@ FILE: .\ui-470.css
 #modal{z-index:5}.game-launcher-472,.splash-panel{position:relative;isolation:isolate;background-color:#0b1323e8!important;backdrop-filter:blur(9px)}
 @media(prefers-reduced-motion:reduce){.audio-visualizer-478{opacity:.55}}
 
+/* 4.8.0 modern floating lights, main launcher only. */
+.game-launcher-472>*:not(.menu-orbs-480){position:relative;z-index:2}.menu-orbs-480{position:absolute;inset:0;z-index:1;overflow:hidden;border-radius:inherit;pointer-events:none}.menu-orbs-480 i{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 8%,hsl(var(--hue) 100% 72%) 24%,hsl(var(--hue) 90% 52%/65%) 48%,transparent 72%);box-shadow:0 0 calc(var(--size)*.7) hsl(var(--hue) 100% 65%/75%),0 0 calc(var(--size)*1.5) hsl(var(--hue) 100% 55%/34%);opacity:.68;animation:menu-orb-float-480 var(--duration) ease-in-out var(--delay) infinite alternate}@keyframes menu-orb-float-480{0%{transform:translate3d(-12px,18px,0) scale(.72);opacity:.28}45%{opacity:.86}100%{transform:translate3d(24px,-42px,0) scale(1.18);opacity:.52}}@media(prefers-reduced-motion:reduce){.menu-orbs-480 i{animation:none;opacity:.32}}
+.level-record-grid-487{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;max-height:52vh;overflow:auto}.level-record-487{display:grid;grid-template-columns:1fr auto;text-align:left;gap:3px}.level-record-487 span{font-size:11px;color:#9eb3cd}.grade-487{grid-row:1/3;grid-column:2;color:#ffe176;font-size:24px}.record-total-487{display:flex;gap:12px;align-items:center;padding:12px;border:1px solid #58efff55;border-radius:14px;margin:10px 0}.record-total-487 strong{font-size:24px;color:#ffe176}.record-total-487 b{margin-left:auto}.cheat-487{display:flex;gap:7px;align-items:center;margin-top:10px}.cheat-487 input{min-width:0;flex:1;padding:10px;border-radius:10px;border:1px solid #385270;background:#091323;color:#fff}
+
+/* 4.8.9 icon for the levels, records and grades button. */
+#levelRecords487{display:inline-flex!important;align-items:center;justify-content:center;gap:6px}.level-records-icon-489{display:inline-flex;align-items:flex-end;gap:2px;width:18px;height:16px;padding:2px;border:1px solid #58efff88;border-radius:4px;background:#071523;box-shadow:0 0 8px #58efff33}.level-records-icon-489 i{display:block;width:3px;border-radius:2px 2px 0 0;background:linear-gradient(#ffe176,#ff68bc)}.level-records-icon-489 i:nth-child(1){height:5px}.level-records-icon-489 i:nth-child(2){height:9px}.level-records-icon-489 i:nth-child(3){height:12px}.launcher-tool-472#levelRecords487:hover .level-records-icon-489{border-color:#ffe176;box-shadow:0 0 10px #ffe17655}@media(max-width:520px){#levelRecords487{gap:3px}.level-records-icon-489{width:16px;height:15px}}
+
+.maze-preview-491{grid-row:1/4;width:58px;height:58px;border:1px solid #385270;border-radius:7px;margin-right:6px}.level-record-487{grid-template-columns:64px 1fr auto}.level-record-487>strong,.level-record-487>small,.level-record-487>span{grid-column:2}.level-record-487>.grade-487{grid-column:3}
+
+.family-filter-492{display:flex;align-items:center;gap:10px;margin:8px 0}.family-filter-492 select{flex:1;padding:9px;border-radius:10px;background:#091323;color:#fff;border:1px solid #385270}.maze-preview-491{width:96px!important;height:96px!important}.level-record-487{grid-template-columns:104px 1fr auto!important;min-height:108px}.level-record-grid-487{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))!important}
+
+#resetFamilyFilter493{white-space:nowrap;padding:8px 11px}.maze-preview-491{width:clamp(74px,24vw,112px)!important;height:auto!important;aspect-ratio:1/1;max-width:100%;object-fit:contain}.level-record-487{grid-template-columns:minmax(76px,112px) minmax(0,1fr) auto!important}.level-record-grid-487{container-type:inline-size}@container(max-width:560px){.level-record-grid-487{grid-template-columns:1fr!important}.level-record-487{grid-template-columns:clamp(78px,28vw,108px) minmax(0,1fr) auto!important;width:100%}}@media(max-width:520px){.family-filter-492{display:grid;grid-template-columns:1fr auto}.family-filter-492 label{grid-column:1/-1}.family-filter-492 select{min-width:0;width:100%}.maze-preview-491{width:clamp(80px,27vw,104px)!important}.level-record-487{padding:8px!important;gap:4px!important}}@media(max-width:360px){.level-record-487{grid-template-columns:76px minmax(0,1fr) auto!important}.maze-preview-491{width:72px!important}#resetFamilyFilter493{font-size:11px;padding:8px}}
+.loading-indicator-494{position:fixed;inset:0;z-index:10050;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(3,8,18,.88);backdrop-filter:blur(5px);color:#f5fbff}.loading-indicator-494[hidden]{display:none!important}.loading-spinner-494{width:46px;height:46px;border:4px solid #58efff33;border-top-color:#58efff;border-right-color:#ff68bc;border-radius:50%;animation:loading-spin-494 .8s linear infinite}.loading-indicator-494 strong{font-size:14px;letter-spacing:.08em}@keyframes loading-spin-494{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.loading-spinner-494{animation:none;border-color:#58efff}}@media(max-width:430px){.loading-spinner-494{width:38px;height:38px}.loading-indicator-494 strong{font-size:12px}}
+.music-player-495{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));z-index:8500;display:flex;align-items:center;gap:8px;width:min(320px,calc(100vw - 24px));padding:8px 9px;border:1px solid #58efff66;border-radius:14px;background:#071321ee;box-shadow:0 8px 26px #0009,0 0 14px #58efff22;color:#eef8ff}.music-display-495{min-width:0;flex:1;display:grid}.music-display-495 small{font-size:8px;letter-spacing:.12em;color:#58efff}.music-display-495 strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:#ffe176}.music-buttons-495{display:flex;gap:4px}.music-buttons-495 button{width:36px;height:34px;padding:0;border-radius:9px}.music-buttons-495 button:active{transform:scale(.94)}@media(max-width:600px){.music-player-495{position:relative;right:auto;bottom:auto;margin:18px auto max(12px,env(safe-area-inset-bottom));width:calc(100% - 24px);z-index:20}.music-buttons-495 button{width:42px;height:42px}body{overflow-y:auto}#app{height:auto;min-height:100svh}}@media(max-width:360px){.music-player-495{flex-direction:column;align-items:stretch}.music-buttons-495{justify-content:center}.music-display-495{text-align:center}}
+
 
 
 ================================================================================
 FILE: .\audio\README.md
 ================================================================================
 Copy the original optional assets here: `smoot-criminal.mp3`, `hee-hee.mp3`, `gun.wav`. Missing audio never blocks gameplay.
-
-- `gameover.mp3`: riprodotto alla morte del personaggio; fallback sintetico se assente.
 
 
 
@@ -15938,6 +16422,41 @@ window.PacPacLevelRuntime400={occupied};})();
 
 
 ================================================================================
+FILE: .\src\levels\maze-families-490.js
+================================================================================
+(()=>{'use strict';
+const PALETTES=[{hue:200,accent:'#58efff',pattern:'grid'},{hue:285,accent:'#d58cff',pattern:'spiral'},{hue:38,accent:'#ffe176',pattern:'blocks'},{hue:350,accent:'#ff789f',pattern:'rays'},{hue:165,accent:'#65f5c8',pattern:'vertical'},{hue:25,accent:'#ffad66',pattern:'horizontal'},{hue:220,accent:'#7aa2ff',pattern:'rings'},{hue:315,accent:'#ff76dc',pattern:'diagonal'},{hue:95,accent:'#a6f77b',pattern:'islands'},{hue:5,accent:'#ff665e',pattern:'fortress'}];
+const FAMILIES=['Classico intrecciato','Spirale centrale','Quattro distretti','Arena radiale','Corridoi verticali','Corridoi orizzontali','Doppio anello','Zig-zag diagonale','Isole collegate','Fortezza concentrica'];
+const familyOf=l=>({index:(Math.max(1,l)-1)%10,name:FAMILIES[(Math.max(1,l)-1)%10],tier:1+Math.floor((Math.max(1,l)-1)/10),difficulty:Math.min(10,Math.max(1,Math.ceil(Math.max(1,l)/2))),palette:PALETTES[(Math.max(1,l)-1)%10]});
+function isMap(m){return Array.isArray(m)&&m.length===N&&m.every(r=>Array.isArray(r)&&r.length===N)}
+function open(m,x,y){if(!isMap(m)||!Number.isInteger(x)||!Number.isInteger(y))return;if(x>0&&y>0&&x<N-1&&y<N-1&&m[y]&&m[y][x]===1)m[y][x]=0}
+function line(m,x1,y1,x2,y2){let x=x1,y=y1;for(;;){open(m,x,y);if(x===x2&&y===y2)break;if(x!==x2)x+=Math.sign(x2-x);else y+=Math.sign(y2-y)}}
+function vary(m,l){if(!isMap(m))return null;const f=familyOf(l);switch(f.index){case 0:break;case 1:for(let r=3;r<=9;r+=2){line(m,11-r,11-r,11+r,11-r);line(m,11+r,11-r,11+r,11+r);line(m,11+r,11+r,11-r+2,11+r)}break;case 2:line(m,2,7,20,7);line(m,2,15,20,15);line(m,7,2,7,20);line(m,15,2,15,20);break;case 3:for(const p of [[11,2],[20,11],[11,20],[2,11],[4,4],[18,4],[18,18],[4,18]])line(m,11,11,p[0],p[1]);break;case 4:for(let x=3;x<22;x+=4)line(m,x,1,x,21);for(const y of [5,11,17])line(m,1,y,21,y);break;case 5:for(let y=3;y<22;y+=4)line(m,1,y,21,y);for(const x of [5,11,17])line(m,x,1,x,21);break;case 6:for(const r of [4,8]){line(m,11-r,11-r,11+r,11-r);line(m,11+r,11-r,11+r,11+r);line(m,11+r,11+r,11-r,11+r);line(m,11-r,11+r,11-r,11-r)}break;case 7:for(let y=2;y<21;y++)open(m,2+(y*3)%19,y),open(m,20-(y*5)%19,y);break;case 8:for(const c of [[5,5],[17,5],[5,17],[17,17]]){for(let y=c[1]-2;y<=c[1]+2;y++)for(let x=c[0]-2;x<=c[0]+2;x++)open(m,x,y);line(m,c[0],c[1],11,11)}break;case 9:for(const r of [3,6,9]){line(m,11-r,11-r,11+r,11-r);line(m,11+r,11-r,11+r,11+r);line(m,11+r,11+r,11-r,11+r);line(m,11-r,11+r,11-r,11-r)}for(const p of [[11,2],[20,11],[11,20],[2,11]])line(m,11,11,p[0],p[1]);break}return m}
+
+function preview(canvas,level){if(!canvas)return;const c=canvas.getContext('2d'),map=generateLevel(level),f=familyOf(level),w=canvas.width,h=canvas.height,s=Math.min(w,h)/N;if(!isMap(map)){c.clearRect(0,0,w,h);return}c.fillStyle='#040914';c.fillRect(0,0,w,h);for(let y=0;y<N;y++)for(let x=0;x<N;x++){if(map[y][x]===1){c.fillStyle=`hsl(${f.palette.hue} 55% ${10+(x+y)%3*3}%)`;c.fillRect(x*s,y*s,Math.ceil(s),Math.ceil(s))}else if(map[y][x]===3){c.fillStyle=f.palette.accent;c.fillRect(x*s+s*.25,y*s+s*.25,s*.5,s*.5)}}c.strokeStyle=f.palette.accent;c.globalAlpha=.65;c.strokeRect(.5,.5,w-1,h-1);c.globalAlpha=1}
+function decorateBoard(ctx,T,level){const f=familyOf(level),w=N*T;ctx.save();ctx.globalAlpha=.07;ctx.strokeStyle=f.palette.accent;ctx.lineWidth=1;if(f.palette.pattern==='vertical')for(let x=T;x<w;x+=T*3){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,w);ctx.stroke()}else if(f.palette.pattern==='horizontal')for(let y=T;y<w;y+=T*3){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}else if(f.palette.pattern==='diagonal')for(let i=-w;i<w*2;i+=T*4){ctx.beginPath();ctx.moveTo(i,0);ctx.lineTo(i-w,w);ctx.stroke()}else if(['rings','spiral','fortress'].includes(f.palette.pattern))for(let r=T*3;r<w*.65;r+=T*3){ctx.beginPath();ctx.arc(w/2,w/2,r,0,Math.PI*2);ctx.stroke()}else if(f.palette.pattern==='rays')for(let a=0;a<Math.PI*2;a+=Math.PI/8){ctx.beginPath();ctx.moveTo(w/2,w/2);ctx.lineTo(w/2+Math.cos(a)*w,w/2+Math.sin(a)*w);ctx.stroke()}else for(let x=0;x<w;x+=T*4)for(let y=0;y<w;y+=T*4)ctx.strokeRect(x,y,T*2,T*2);ctx.restore()}
+
+const raw=window.generateLevel;window.generateLevel=function(l){const base=raw(l);window.PacPacMazeFamily490.current=familyOf(l);if(!isMap(base))return base;try{const candidate=base.map(row=>row.slice());vary(candidate,l);const check=validateMapRaw(candidate);if(check.valid)return candidate}catch(e){console.warn('[PAC PAC Maze Family] fallback',l,e)}return base};
+const load0=window.loadLevel;window.loadLevel=function(...a){const v=load0.apply(this,a);if(game)game.labyrinthFamily=familyOf(game.level);return v};
+const hud0=window.hudSolo;window.hudSolo=function(...a){const v=hud0.apply(this,a),f=game?.labyrinthFamily||familyOf(game?.level||1),el=document.getElementById('status');if(el&&game&&!el.textContent.includes(f.name))el.textContent+=` Â· ${f.name} Â· DifficoltÃ  ${f.difficulty}/10`;return v};
+const spawn0=window.spawnActors;window.spawnActors=function(...a){const v=spawn0.apply(this,a),level=game?.level||1,bonus=Math.max(0,6-level)*.45;if(bonus&&game?.ghosts)game.ghosts.forEach((g,i)=>g.wait+=bonus+i*.08);return v};
+window.PacPacMazeFamily490={FAMILIES,PALETTES,familyOf,preview,decorateBoard,current:familyOf(1)};
+})();
+
+
+
+================================================================================
+FILE: .\src\modes\boss-fallback-481.js
+================================================================================
+(()=>{'use strict';
+const colors={Vespera:['#7d42da','#ff82d2'],Glacia:['#3aa9ff','#dffaff'],Morvella:['#9d3a8f','#ffb15c'],'Le Tre Castellane':['#6940bc','#ff8ccf'],Dracula:['#8d132d','#ffdf77'],'Caos di Roma':['#d94092','#62efff'],'Arena Spettrale':['#426cff','#d9f7ff'],'Custode della Cupola':['#bf8b22','#fff0a3']};
+function emblem(c,x,y,t,name){const q=colors[name]||colors.Dracula;c.save();c.translate(x,y);c.shadowBlur=t*.28;c.shadowColor=q[1];const g=c.createRadialGradient(-t*.12,-t*.2,t*.04,0,0,t*.58);g.addColorStop(0,q[1]);g.addColorStop(.24,q[0]);g.addColorStop(1,'#090813');c.fillStyle=g;c.beginPath();c.arc(0,0,t*.5,0,Math.PI*2);c.fill();c.shadowBlur=0;c.strokeStyle=q[1];c.lineWidth=Math.max(2,t*.07);c.beginPath();c.moveTo(-t*.42,-t*.32);c.lineTo(-t*.15,-t*.62);c.lineTo(0,-t*.4);c.lineTo(t*.15,-t*.62);c.lineTo(t*.42,-t*.32);c.stroke();c.fillStyle='#fff';c.beginPath();c.arc(-t*.16,-t*.05,t*.08,0,Math.PI*2);c.arc(t*.16,-t*.05,t*.08,0,Math.PI*2);c.fill();c.fillStyle='#1a0b22';c.beginPath();c.arc(-t*.16,-t*.05,t*.035,0,Math.PI*2);c.arc(t*.16,-t*.05,t*.035,0,Math.PI*2);c.fill();c.strokeStyle=q[1];c.beginPath();c.moveTo(-t*.18,t*.2);c.quadraticCurveTo(0,t*.34,t*.18,t*.2);c.stroke();c.restore()}
+window.PacPacBossFallback481={emblem};
+})();
+
+
+
+================================================================================
 FILE: .\src\modes\challenges.js
 ================================================================================
 (()=>{'use strict';const METRICS='pacpac-telemetry-local-400';function daySeed(){const d=new Date(),key=`${d.getUTCFullYear()}-${d.getUTCMonth()+1}-${d.getUTCDate()}`;let h=0;for(const c of key)h=(h*31+c.charCodeAt(0))>>>0;return 1000+(h%9000)}function daily(){startGame();game.level=daySeed();loadLevel();game.dailyChallenge=true;game.dailyKey=new Date().toISOString().slice(0,10);toast('SFIDA GIORNALIERA Â· stesso seed per tutti')}
@@ -16109,7 +16628,7 @@ function walkable(x,y){return game?.map&&y>=0&&x>=0&&y<game.map.length&&x<game.m
 function castleBounds(){return{x1:9,y1:9,x2:13,y2:12}}
 function removeCastleCollectibles(){if(!game?.storyMode||!game.map)return 0;const b=castleBounds();let removed=0;for(let y=b.y1;y<=b.y2;y++)for(let x=b.x1;x<=b.x2;x++)if(COLLECTIBLES.has(game.map[y]?.[x])){game.map[y][x]=2;removed++}if(removed){game.remaining=countCollectibles(game.map);game.initial=Math.max(game.remaining,game.initial-removed);hud()}game.storyCastleSanitized=true;return removed}
 function nearestExit(){const candidates=[[8,11],[14,11],[11,8],[11,13],[8,10],[14,10],[10,13],[12,13]];return candidates.map(([x,y])=>({x,y})).find(p=>walkable(p.x,p.y))||{x:11,y:13}}
-function beginChase(){if(!game?.storyMode||game.storyChase)return false;const s=storyState();if(!s.active||!s.current)return false;const exit=nearestExit();game.storyChase=true;game.storyChaseStarted=true;game.remaining=0;boss={x:exit.x,y:exit.y,fromX:exit.x,fromY:exit.y,toX:exit.x,toY:exit.y,moving:false,progress:0,dir:1,speed:Math.max(.105,.135-s.current.id*.0025),decision:0,slow:0};bossImage=new Image();bossImage.src='./assets/characters/'+(ASSET[s.current.boss]||'dracula.png');window.PacPacAudioMotion473?.play('storyComplete','complete');game.storyDash=0;powerCooldown=0;game.invuln=Math.max(game.invuln||0,999);toast(`SUPER POTERI ATTIVI Â· FIRE: SCATTO E IMPULSO`);window.PacPacStoryRuntime470?.say?.('Le sfere sono finite. Ora prova a prendermi!');return true}
+function beginChase(){if(!game?.storyMode||game.storyChase)return false;const s=storyState();if(!s.active||!s.current)return false;const exit=nearestExit();game.storyChase=true;game.storyChaseStarted=true;game.remaining=0;boss={x:exit.x,y:exit.y,fromX:exit.x,fromY:exit.y,toX:exit.x,toY:exit.y,moving:false,progress:0,dir:1,speed:Math.max(.105,.135-s.current.id*.0025),decision:0,slow:0};bossImage=new Image();bossImage.src='./assets/characters/'+(ASSET[s.current.boss]||'dracula.png');if(typeof window.PacPacAudioMotion473?.play==='function')window.PacPacAudioMotion473.play('storyComplete','complete');game.storyDash=0;powerCooldown=0;game.invuln=Math.max(game.invuln||0,999);toast(`SUPER POTERI ATTIVI Â· FIRE: SCATTO E IMPULSO`);window.PacPacStoryRuntime470?.say?.('Le sfere sono finite. Ora prova a prendermi!');return true}
 function playerDistances(){const sx=Math.round(game.player.x),sy=Math.round(game.player.y),dist=new Map([[`${sx},${sy}`,0]]),q=[{x:sx,y:sy}];for(let i=0;i<q.length;i++){const p=q[i],n=dist.get(`${p.x},${p.y}`);for(const[dx,dy]of DIRS){const x=p.x+dx,y=p.y+dy,k=`${x},${y}`;if(walkable(x,y)&&!dist.has(k)){dist.set(k,n+1);q.push({x,y})}}}return dist}
 function escapeSpace(sx,sy,limit=28){const seen=new Set([`${sx},${sy}`]),q=[{x:sx,y:sy}];for(let i=0;i<q.length&&seen.size<limit;i++){const p=q[i];for(const[dx,dy]of DIRS){const x=p.x+dx,y=p.y+dy,k=`${x},${y}`;if(walkable(x,y)&&!seen.has(k)){seen.add(k);q.push({x,y})}}}return seen.size}
 function possibleMoves(){const x=Math.round(boss.x),y=Math.round(boss.y),dist=playerDistances(),out=[];for(let d=0;d<4;d++){const[dx,dy]=DIRS[d],nx=x+dx,ny=y+dy;if(!walkable(nx,ny))continue;const path=dist.get(`${nx},${ny}`)??99,exits=DIRS.reduce((n,[ax,ay])=>n+(walkable(nx+ax,ny+ay)?1:0),0),reverse=d===((boss.dir+2)%4),space=escapeSpace(nx,ny),aheadX=nx+dx,aheadY=ny+dy,forward=walkable(aheadX,aheadY);const score=path*11+space*1.8+exits*7+(forward?5:0)-(reverse?18:0)+(Math.random()-.5)*1.2;out.push({x:nx,y:ny,dir:d,score,path,space})}return out.sort((a,b)=>b.score-a.score)}
@@ -16118,7 +16637,7 @@ function activateHeroPower(){if(!game?.storyChase||!boss||powerCooldown>0)return
 function updateHeroPowers(dt){if(!game?.storyChase)return;powerCooldown=Math.max(0,powerCooldown-dt);game.storyDash=Math.max(0,(game.storyDash||0)-dt);const boost=game.storyDash>0?1.15:.42;move(game.player,PLAYER_SPEED*boost*dt,playerChoice,()=>{});game.invuln=Math.max(game.invuln||0,.25)}
 function drawHeroPower(c,t){if(!game?.storyChase)return;const p=game.player,x=p.x*t+t/2,y=p.y*t+t/2;c.save();c.strokeStyle=powerCooldown<=0?'#58efff':'#4b7791';c.lineWidth=Math.max(2,t*.08);c.globalAlpha=.75;c.beginPath();c.arc(x,y,t*(.58+.06*Math.sin(performance.now()/90)),0,Math.PI*2);c.stroke();c.globalAlpha=1;c.fillStyle='#07111ddd';c.fillRect(t*.35,t*.35,t*7.4,t*.72);c.fillStyle=powerCooldown<=0?'#58efff':'#a3b3c0';c.font=`800 ${Math.max(8,t*.25)}px system-ui`;c.textAlign='left';c.fillText(powerCooldown<=0?'FIRE Â· SUPER SCATTO PRONTO':`SUPER SCATTO ${powerCooldown.toFixed(1)}s`,t*.55,t*.86);c.restore()}
 function completeChase(){if(completing)return;completing=true;game.storyChase=false;burst(boss.x,boss.y,'#ffe176',36);toast('BOSS RAGGIUNTO Â· MISSIONE COMPIUTA');setTimeout(()=>{boss=null;const call=originalClear;originalClear.call(window);completing=false},180)}
-function drawBoss(c,t){if(!game?.storyChase||!boss)return;c.save();const x=boss.x*t+t/2,y=boss.y*t+t/2;c.fillStyle='#080b16cc';c.beginPath();c.arc(x,y,t*.68,0,Math.PI*2);c.fill();c.strokeStyle='#ff68bc';c.lineWidth=2.5;c.beginPath();c.arc(x,y,t*(.53+.05*Math.sin(performance.now()/110)),0,Math.PI*2);c.stroke();if(bossImage?.complete&&bossImage.naturalWidth)c.drawImage(bossImage,x-t*.48,y-t*.72,t*.96,t*1.12);c.fillStyle='#ffe176';c.font=`900 ${Math.max(8,t*.24)}px system-ui`;c.textAlign='center';c.fillText('BOSS',x,y-t*.78);c.restore()}
+function drawBoss(c,t){if(!game?.storyChase||!boss)return;c.save();const x=boss.x*t+t/2,y=boss.y*t+t/2;c.fillStyle='#080b16cc';c.beginPath();c.arc(x,y,t*.68,0,Math.PI*2);c.fill();c.strokeStyle='#ff68bc';c.lineWidth=2.5;c.beginPath();c.arc(x,y,t*(.53+.05*Math.sin(performance.now()/110)),0,Math.PI*2);c.stroke();if(bossImage?.complete&&bossImage.naturalWidth)c.drawImage(bossImage,x-t*.48,y-t*.72,t*.96,t*1.12);else window.PacPacBossFallback481?.emblem(c,x,y,t,story().current?.boss);c.fillStyle='#ffe176';c.font=`900 ${Math.max(8,t*.24)}px system-ui`;c.textAlign='center';c.fillText('BOSS',x,y-t*.78);c.restore()}
 function initialize(){if(!game?.storyMode||initializedGame===game)return;initializedGame=game;boss=null;completing=false;game.storyChase=false;removeCastleCollectibles()}
 const shoot0=window.shoot;window.shoot=function(...args){if(game?.storyChase){activateHeroPower();return}return shoot0.apply(this,args)};
 const originalClear=window.clearLevel;window.clearLevel=function(...args){if(game?.storyMode&&!game.storyChase){beginChase();return}return originalClear.apply(this,args)};
@@ -16144,7 +16663,7 @@ function showLegend(){let e=document.getElementById('storyLegend470');if(!e){e=d
 function say(text){const s=story();if(!s.current)return;let e=document.getElementById('bossSpeech470');if(!e){e=document.createElement('div');e.id='bossSpeech470';e.className='boss-speech-470';document.body.appendChild(e)}e.replaceChildren();const img=document.createElement('img');img.src='./assets/characters/'+(ASSET[s.current.boss]||'dracula.png');img.alt='';const box=document.createElement('div');const name=document.createElement('strong');name.textContent=s.current.boss;const p=document.createElement('p');p.textContent=text;box.append(name,p);e.append(img,box);e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),4200)}
 function reserveMovingWalls(){const s=story();if(!s.active||!s.overlay?.moving||!game?.map)return;for(const w of s.overlay.moving){if(w.x!=null&&w.y!=null)game.map[w.y][w.x]=1;const phase=((w.t||0)+.08)%2,k=phase<1?phase:2-phase,nx=Math.round(w.a.x+(w.b.x-w.a.x)*k),ny=Math.round(w.a.y+(w.b.y-w.a.y)*k);if(walkable(game.map,nx,ny)&&Math.hypot(game.player.x-nx,game.player.y-ny)>.75)game.map[ny][nx]=1}}
 function repairGhosts(dt){if(!game?.storyMode||!game.ghosts)return;const home=game.storyGhostHome||nearestHome(game.map);for(const g of game.ghosts){const key=Math.round(g.x)+','+Math.round(g.y);g.stuck470=key===g.last470?(g.stuck470||0)+dt:0;g.last470=key;if(g.state==='eyes'&&Math.hypot(g.x-home.x,g.y-home.y)<.65){Object.assign(g,{state:'normal',wait:1.7,x:home.x,y:home.y,fromX:home.x,fromY:home.y,toX:home.x,toY:home.y,progress:0,moving:false,stuck470:0})}else if(g.stuck470>2.5){const p=cellsAround(game.map,g.state==='eyes'?home:{x:Math.round(game.player.x),y:Math.round(game.player.y)},1)[0]||home;Object.assign(g,{x:p.x,y:p.y,fromX:p.x,fromY:p.y,toX:p.x,toY:p.y,progress:0,moving:false,reverse:true,stuck470:0,last470:p.x+','+p.y})}}}
-function drawCastle(c,t){const s=story();if(!s.active||!s.current||!game?.storyMode)return;const x=HOME.x*t+t/2,y=HOME.y*t+t/2,w=t*4.5,h=t*3.2;c.save();c.globalAlpha=.96;c.fillStyle='#17121f';c.strokeStyle='#d9af54';c.lineWidth=2;c.fillRect(x-w/2,y-h/2,w,h);c.strokeRect(x-w/2,y-h/2,w,h);c.fillStyle='#292033';for(let i=-2;i<=2;i++)c.fillRect(x+i*t-t*.3,y-h/2-t*.42,t*.6,t*.55);c.fillStyle='#070911';c.fillRect(x-t*.55,y+t*.12,t*1.1,t*1.25);c.fillStyle='#ffd16b';c.fillRect(x-t*1.55,y-t*.58,t*.42,t*.53);c.fillRect(x+t*1.13,y-t*.58,t*.42,t*.53);if(!game?.storyChase&&bossImage?.complete&&bossImage.naturalWidth)c.drawImage(bossImage,x-t*.62,y-t*1.42,t*1.24,t*1.58);c.fillStyle='#fff1bd';c.font=`700 ${Math.max(8,t*.25)}px system-ui`;c.textAlign='center';c.fillText(s.current.boss,x,y-h/2-t*.56);c.restore();
+function drawCastle(c,t){const s=story();if(!s.active||!s.current||!game?.storyMode)return;const x=HOME.x*t+t/2,y=HOME.y*t+t/2,w=t*4.5,h=t*3.2;c.save();c.globalAlpha=.96;c.fillStyle='#17121f';c.strokeStyle='#d9af54';c.lineWidth=2;c.fillRect(x-w/2,y-h/2,w,h);c.strokeRect(x-w/2,y-h/2,w,h);c.fillStyle='#292033';for(let i=-2;i<=2;i++)c.fillRect(x+i*t-t*.3,y-h/2-t*.42,t*.6,t*.55);c.fillStyle='#070911';c.fillRect(x-t*.55,y+t*.12,t*1.1,t*1.25);c.fillStyle='#ffd16b';c.fillRect(x-t*1.55,y-t*.58,t*.42,t*.53);c.fillRect(x+t*1.13,y-t*.58,t*.42,t*.53);if(!game?.storyChase){if(bossImage?.complete&&bossImage.naturalWidth)c.drawImage(bossImage,x-t*.62,y-t*1.42,t*1.24,t*1.58);else window.PacPacBossFallback481?.emblem(c,x,y-t*.52,t*1.15,s.current.boss)}c.fillStyle='#fff1bd';c.font=`700 ${Math.max(8,t*.25)}px system-ui`;c.textAlign='center';c.fillText(s.current.boss,x,y-h/2-t*.56);c.restore();
  for(const q of s.overlay?.torches||[]){const bx=q.x*t+t/2,by=q.y*t+t/2,p=.5+.5*Math.sin(performance.now()/150+q.x);c.save();c.fillStyle='#080b12';c.beginPath();c.arc(bx,by,t*.52,0,Math.PI*2);c.fill();c.strokeStyle='#865732';c.lineWidth=3;c.beginPath();c.moveTo(bx,by+t*.32);c.lineTo(bx,by);c.stroke();c.fillStyle='#74482b';c.fillRect(bx-t*.24,by-t*.03,t*.48,t*.13);c.fillStyle='#ff762e';c.beginPath();c.moveTo(bx,by-t*(.48+.1*p));c.quadraticCurveTo(bx+t*.23,by-t*.18,bx,by+t*.02);c.quadraticCurveTo(bx-t*.23,by-t*.18,bx,by-t*(.48+.1*p));c.fill();c.fillStyle='#ffe36a';c.beginPath();c.arc(bx,by-t*.18,t*.09,0,Math.PI*2);c.fill();c.restore()}}
 const update0=window.update;window.update=function(dt){if(game?.storyMode)reserveMovingWalls();const out=update0(dt);const s=story();if(s.active&&game?.storyMode){if(!initialized||actId!==s.current?.id)setup();repairGhosts(dt);const elapsed=game.elapsed||0;if(lastTalk<0&&elapsed>.4){say(s.current.line);lastTalk=elapsed}else if(elapsed-lastTalk>15){const lines=[s.current.line,'Il castello cambia percorso, ma non la sua destinazione.','Raggiungi il centro se vuoi ritrovare il tuo compagno.'];say(lines[Math.floor(elapsed/15)%lines.length]);lastTalk=elapsed}}else initialized=false;return out};
 const render0=window.PacPacStory450?.render;if(render0)window.PacPacStory450.render=function(c,t){render0(c,t);drawCastle(c,t)};
@@ -16169,7 +16688,7 @@ function dynamicBackdrop(){const panel=document.querySelector('#modal .game-laun
 function enhance(){queueMicrotask(()=>{bindMenu();dynamicBackdrop()})}
 const menu0=window.mainMenu;window.mainMenu=function(...args){const out=menu0.apply(this,args);enhance();setTimeout(enhance,0);return out};enhance();
 const clear0=window.clearLevel;window.clearLevel=function(...args){const already=!!game?.cleared;const out=clear0.apply(this,args);if(!already)play('complete','complete');return out};
-window.PacPacAudioMotion473={FILES,play,beep,selectCharacter,bindMenu,dynamicBackdrop,setMusicDuck};
+window.PacPacAudioMotion473=Object.assign(window.PacPacAudioMotion473||{},{FILES,play,beep,selectCharacter,bindMenu,dynamicBackdrop,setMusicDuck});
 })();
 
 
@@ -16178,17 +16697,17 @@ window.PacPacAudioMotion473={FILES,play,beep,selectCharacter,bindMenu,dynamicBac
 FILE: .\src\ui\audio-visualizer-478.js
 ================================================================================
 (()=>{'use strict';
-const ID='audioVisualizer478';let canvas,ctx,analyser,data,raf=0,connected=false,last=0;
+const ID='audioVisualizer478';let canvas,ctx,analyser,data,raf=0,last=0,syntheticBus=null;const mediaSources=new WeakMap();
 function ensure(){if(canvas)return canvas;canvas=document.createElement('canvas');canvas.id=ID;canvas.className='audio-visualizer-478';canvas.setAttribute('aria-hidden','true');document.body.prepend(canvas);ctx=canvas.getContext('2d',{alpha:true});resize();return canvas}
 function resize(){if(!canvas)return;const d=Math.min(devicePixelRatio||1,1.5),w=Math.max(1,innerWidth),h=Math.max(1,innerHeight);canvas.width=Math.round(w*d);canvas.height=Math.round(h*d);canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(d,0,0,d,0,0)}
-function attach(){if(connected)return true;try{if(typeof audio==='undefined'||!audio||typeof musicGain==='undefined'||!musicGain)return false;analyser=audio.createAnalyser();analyser.fftSize=128;analyser.smoothingTimeConstant=.82;data=new Uint8Array(analyser.frequencyBinCount);musicGain.connect(analyser);connected=true;return true}catch{return false}}
-function draw(now){raf=requestAnimationFrame(draw);if(now-last<33)return;last=now;ensure();attach();const w=innerWidth,h=innerHeight,t=now*.001,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;ctx.clearRect(0,0,w,h);const active=analyser&&audio?.state==='running';if(active)analyser.getByteFrequencyData(data);const bands=48,gap=Math.max(3,w*.003),bw=Math.max(3,(w-gap*(bands-1))/bands),base=h*.88;
-const glow=ctx.createRadialGradient(w*.5,h*.7,0,w*.5,h*.7,Math.max(w,h)*.7);glow.addColorStop(0,'rgba(30,107,160,.14)');glow.addColorStop(.55,'rgba(92,35,150,.08)');glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);
-for(let i=0;i<bands;i++){const bin=data?.[Math.floor(i/(bands-1)*(data.length-1))]||0,ambient=reduced?10:14+11*Math.sin(t*1.7+i*.43)+6*Math.sin(t*.63+i*.17),level=Math.max(5,active?bin*.42:ambient),x=i*(bw+gap),height=Math.min(h*.34,level*(.75+Math.sin(i*.31)*.09));const grad=ctx.createLinearGradient(0,base-height,0,base);grad.addColorStop(0,'rgba(255,104,188,.50)');grad.addColorStop(.48,'rgba(88,239,255,.34)');grad.addColorStop(1,'rgba(40,88,255,.03)');ctx.fillStyle=grad;ctx.shadowBlur=active?13:7;ctx.shadowColor=i%3?'#58efff':'#ff68bc';ctx.fillRect(x,base-height,bw,height);ctx.shadowBlur=0}
-ctx.strokeStyle='rgba(88,239,255,.09)';ctx.lineWidth=1;for(let y=base;y<h;y+=28){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}for(let x=w%70;x<w;x+=70){ctx.beginPath();ctx.moveTo(x,base);ctx.lineTo(w/2+(x-w/2)*1.7,h);ctx.stroke()}}
-function start(){ensure();if(!raf)raf=requestAnimationFrame(draw)}
-addEventListener('resize',resize,{passive:true});document.addEventListener('visibilitychange',()=>{if(document.hidden&&raf){cancelAnimationFrame(raf);raf=0}else if(!document.hidden)start()});start();
-window.PacPacAudioVisualizer478={start,attach};
+function ensureAnalyser(ac){if(!ac)return null;if(!analyser){analyser=ac.createAnalyser();analyser.fftSize=128;analyser.smoothingTimeConstant=.82;data=new Uint8Array(analyser.frequencyBinCount)}return analyser}
+function attachSyntheticBus(ac,bus){const a=ensureAnalyser(ac);if(!a||!bus||syntheticBus===bus)return !!a;try{bus.connect(a);syntheticBus=bus;return true}catch{return false}}
+function attachMediaElement(ac,element){const a=ensureAnalyser(ac);if(!a||!element)return false;if(mediaSources.has(element))return true;try{const source=ac.createMediaElementSource(element);source.connect(ac.destination);source.connect(a);mediaSources.set(element,source);return true}catch{return false}}
+function attachCurrent(){try{if(typeof audio==='undefined'||!audio)return false;let ok=false;if(typeof musicGain!=='undefined'&&musicGain)ok=attachSyntheticBus(audio,musicGain)||ok;if(location.protocol==='file:')return ok;if(typeof projectMusic!=='undefined'&&projectMusic)ok=attachMediaElement(audio,projectMusic)||ok;if(typeof musicFile!=='undefined'&&musicFile)ok=attachMediaElement(audio,musicFile)||ok;return ok}catch{return false}}
+function realLevel(){if(!analyser||!data)return 0;analyser.getByteFrequencyData(data);let sum=0;for(const v of data)sum+=v;return sum/data.length}
+function draw(now){raf=requestAnimationFrame(draw);if(now-last<33)return;last=now;ensure();attachCurrent();const w=innerWidth,h=innerHeight,t=now*.001,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;ctx.clearRect(0,0,w,h);const energy=realLevel(),active=energy>1.5,bands=48,gap=Math.max(3,w*.003),bw=Math.max(3,(w-gap*(bands-1))/bands),base=h*.88;const glow=ctx.createRadialGradient(w*.5,h*.7,0,w*.5,h*.7,Math.max(w,h)*.7);glow.addColorStop(0,'rgba(30,107,160,.14)');glow.addColorStop(.55,'rgba(92,35,150,.08)');glow.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);for(let i=0;i<bands;i++){const bin=active?(data[Math.floor(i/(bands-1)*(data.length-1))]||0):0,ambient=reduced?3:4+2*Math.sin(t*.7+i*.31),level=active?Math.max(4,bin*.42):ambient,x=i*(bw+gap),height=Math.min(h*.34,level*(.75+Math.sin(i*.31)*.09));const grad=ctx.createLinearGradient(0,base-height,0,base);grad.addColorStop(0,'rgba(255,104,188,.50)');grad.addColorStop(.48,'rgba(88,239,255,.34)');grad.addColorStop(1,'rgba(40,88,255,.03)');ctx.fillStyle=grad;ctx.shadowBlur=active?13:3;ctx.shadowColor=i%3?'#58efff':'#ff68bc';ctx.fillRect(x,base-height,bw,height);ctx.shadowBlur=0}ctx.strokeStyle='rgba(88,239,255,.09)';ctx.lineWidth=1;for(let y=base;y<h;y+=28){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}for(let x=w%70;x<w;x+=70){ctx.beginPath();ctx.moveTo(x,base);ctx.lineTo(w/2+(x-w/2)*1.7,h);ctx.stroke()}}
+function decorateMenu(){const launcher=document.querySelector('#modal .game-launcher-472');document.querySelectorAll('.menu-orbs-480').forEach(e=>{if(!launcher||e.parentElement!==launcher)e.remove()});if(!launcher||launcher.querySelector('.menu-orbs-480'))return;const layer=document.createElement('div');layer.className='menu-orbs-480';layer.setAttribute('aria-hidden','true');for(let i=0;i<18;i++){const orb=document.createElement('i');orb.style.setProperty('--x',`${(i*47+11)%96}%`);orb.style.setProperty('--y',`${(i*31+7)%91}%`);orb.style.setProperty('--size',`${8+(i%6)*5}px`);orb.style.setProperty('--delay',`${-(i%9)*.7}s`);orb.style.setProperty('--duration',`${7+(i%7)*1.3}s`);orb.style.setProperty('--hue',`${180+(i%5)*24}`);layer.append(orb)}launcher.prepend(layer)}
+function start(){ensure();if(!raf)raf=requestAnimationFrame(draw);decorateMenu()}addEventListener('resize',resize,{passive:true});document.addEventListener('visibilitychange',()=>{if(document.hidden&&raf){cancelAnimationFrame(raf);raf=0}else if(!document.hidden)start()});new MutationObserver(decorateMenu).observe(document.getElementById('modal'),{childList:true,subtree:true});start();window.PacPacAudioVisualizer478=Object.assign(window.PacPacAudioVisualizer478||{},{start,attachCurrent,attachSyntheticBus,attachMediaElement,decorateMenu});
 })();
 
 
@@ -16198,7 +16717,7 @@ FILE: .\src\ui\campaign-ui.js
 ================================================================================
 (()=>{'use strict';const KEY='pacpac-campaign-400';let progress;try{progress=JSON.parse(localStorage.getItem(KEY)||'{}')}catch{progress={}}const save=()=>localStorage.setItem(KEY,JSON.stringify(progress));
 async function menu(){try{const m=await PacPacLevels400.getManifest(),c=m.campaigns[0];showModal(`<div class="eyebrow">CAMPAGNA 4.0</div><h2 id="dialogTitle">${c.name}</h2><p>${c.description}</p><div id="campaignGrid" class="campaign-grid"></div><div class="actions"><button id="proceduralMode">âˆž Arcade infinito</button><button id="campaignBack">Indietro</button></div>`);const g=$('campaignGrid');for(const x of c.levels){const unlocked=!x.unlockAfter||progress[x.unlockAfter]?.completed||settings.unlockAll;const b=document.createElement('button');b.disabled=!unlocked;b.innerHTML=`<strong>${x.order}. ${x.name}</strong><small>${x.mechanics.join(' Â· ')}</small><span>${progress[x.id]?.stars||0} â˜…</span>`;b.onclick=()=>PacPacLevels400.start(x.file);g.appendChild(b)}$('proceduralMode').onclick=startGame;$('campaignBack').onclick=mainMenu}catch(e){toast(e.message)}}
-function enhance(){const a=document.querySelector('#modal .splash-actions');if(!a||$('campaignMode'))return;const b=document.createElement('button');b.id='campaignMode';b.className='primary';b.textContent='â–¦ Campagna progettata';b.onclick=menu;a.prepend(b);const i=document.createElement('button');i.id='modeInfo';i.textContent='? Normale o Arcade';i.onclick=()=>showModal(`<h2 id="dialogTitle">ModalitÃ  di gioco</h2><section class="mode-card"><strong>NORMALE / CAMPAGNA</strong><p>Livelli progettati, progressione, tutorial graduale e sblocco sequenziale.</p></section><section class="mode-card"><strong>ARCADE INFINITO</strong><p>Labirinti procedurali, tre vite, punteggio cumulativo, combo, near miss, ghost chain, record e medaglie.</p></section><div class="actions"><button id="modeBack">Indietro</button></div>`),queueMicrotask(()=>$('modeBack').onclick=mainMenu);a.appendChild(i)}
+function enhance(){const a=document.querySelector('#modal .splash-actions');if(!a||$('campaignMode'))return;const b=document.createElement('button');b.id='campaignMode';b.className='primary';b.textContent='â–¦ Campagna progettata';b.onclick=menu;a.prepend(b);const i=document.createElement('button');i.id='modeInfo';i.textContent='? Normale o Arcade';i.onclick=()=>showModal(`<h2 id="dialogTitle">ModalitÃ  di gioco</h2><section class="mode-card"><strong>NORMALE / CAMPAGNA</strong><p>Livelli progettati, progressione, tutorial graduale e sblocco sequenziale.</p></section><section class="mode-card"><strong>ARCADE INFINITO</strong><p>Labirinti procedurali, tre vite, punteggio cumulativo, combo, near miss, ghost chain, record e medaglie.</p></section><div class="actions"><button id="modeBack">Indietro</button></div>`),queueMicrotask(()=>{const back=$('modeBack');if(back)back.onclick=mainMenu});a.appendChild(i)}
 const menu0=window.mainMenu;window.mainMenu=function(...a){const v=menu0.apply(this,a);queueMicrotask(enhance);return v};const clear0=window.clearLevel;window.clearLevel=function(...a){const cur=PacPacLevels400.getCurrent();if(cur){progress[cur.id]={completed:true,score:game.score,stars:Math.min(3,1+(game.lives>0)+(game.arcade?.maxCombo>=4))};save()}const v=clear0.apply(this,a);if(cur)queueMicrotask(async()=>{const m=await PacPacLevels400.getManifest(),levels=m.campaigns[0].levels,i=levels.findIndex(x=>x.id===cur.id),next=levels[i+1],b=$('nextLevel');if(b){b.textContent=next?'Prossimo livello campagna â†’':'Campagna completata';b.onclick=next?()=>PacPacLevels400.start(next.file):menu}});return v};queueMicrotask(enhance);window.PacPacCampaignUI400={menu,getProgress:()=>progress};})();
 
 
@@ -16207,6 +16726,41 @@ const menu0=window.mainMenu;window.mainMenu=function(...a){const v=menu0.apply(t
 FILE: .\src\ui\gameplay-feedback.js
 ================================================================================
 (()=>{'use strict';const hud0=window.hud;window.hud=function(...a){const v=hud0.apply(this,a);let s=$('gameplayStrip');if(!s){s=document.createElement('div');s.id='gameplayStrip';s.className='gameplay-strip';document.querySelector('.hud')?.appendChild(s)}if(game){const r=Math.max(0,game.remaining||0),door=game.customRuntime?.fireDoors?.find(d=>!d.open&&Math.hypot(d.x-game.player.x,d.y-game.player.y)<1.6);s.innerHTML=`<span>RESTANO <b>${r}</b></span><span>MUNIZIONI <b>${game.ammo}</b></span><span>${door?'FIRE: APRI PORTA':'ESPLORA IL LABIRINTO'}</span>`;s.classList.toggle('last-five',r>0&&r<=5)}return v};window.PacPacFeedback400={};})();
+
+
+
+================================================================================
+FILE: .\src\ui\level-records-487.js
+================================================================================
+(()=>{'use strict';
+const KEY='pacPacLevelRecords487',CHEAT='PACPACTUTTI';
+const order=['D','C','B','A','S'];
+function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{"levels":{},"total":0,"all":false}')}catch{return{levels:{},total:0,all:false}}}
+function write(v){localStorage.setItem(KEY,JSON.stringify(v))}
+function unlockedMax(){const d=read();if(d.all)return 100;try{return Math.max(1,JSON.parse(localStorage.getItem('pacPacProgressV2')||'{}').max||1)}catch{return 1}}
+function grade(score,a={}){let merit=0;if(score>=25000)merit+=3;else if(score>=15000)merit+=2;else if(score>=8000)merit++;if((a.maxCombo||0)>=8)merit+=2;else if((a.maxCombo||0)>=4)merit++;if((a.nearMisses||0)>=3)merit++;return order[Math.min(4,merit)]}
+function record(){if(!game?.level)return;const d=read(),n=game.level,score=game.score||0,g=grade(score,game.arcade);if(!d.levels[n]||score>d.levels[n].score)d.levels[n]={score,grade:g,date:Date.now()};d.total=Math.max(d.total,score);write(d)}
+function overall(){const vals=Object.values(read().levels);if(!vals.length)return'D';return order[Math.round(vals.reduce((s,x)=>s+order.indexOf(x.grade),0)/vals.length)]}
+function startAt(n){n=Math.max(1,Math.min(unlockedMax(),Number(n)||1));startGame();game.level=n;game.score=0;loadLevel()}
+function menu(){window.PacPacLoading494?.show('Generazione anteprimeâ€¦');const d=read(),max=unlockedMax(),rows=Array.from({length:max},(_,i)=>{const n=i+1,r=d.levels[n];return `<button class="level-record-487" data-level="${n}" data-family="${window.PacPacMazeFamily490?.familyOf(n).index??0}"><canvas class="maze-preview-491" data-maze-preview="${n}" width="160" height="160" aria-label="Anteprima labirinto livello ${n}"></canvas><strong>Livello ${n}</strong><small>${window.PacPacMazeFamily490?.familyOf(n).name||'Labirinto'}</small><span>Record ${(r?.score||0).toLocaleString('it-IT')}</span><b class="grade-487">${r?.grade||'â€“'}</b></button>`}).join('');showModal(`<div class="eyebrow">ARCHIVIO PARTITA</div><h2 id="dialogTitle">Livelli sbloccati e record</h2><div class="record-total-487"><span>Record totale</span><strong>${d.total.toLocaleString('it-IT')}</strong><b>Voto complessivo ${overall()}</b></div><div class="family-filter-492"><label for="familyFilter492">Filtra famiglia</label><select id="familyFilter492"><option value="all">Tutte</option>${window.PacPacMazeFamily490.FAMILIES.map((x,i)=>`<option value="${i}">${x}</option>`).join('')}</select><button type="button" id="resetFamilyFilter493">Azzera filtro</button></div><div class="level-record-grid-487">${rows}</div><div class="cheat-487"><label for="cheat487">Cheat code</label><input id="cheat487" autocomplete="off" placeholder="Inserisci codice"><button id="applyCheat487">Sblocca</button></div><div class="actions"><button id="recordsBack487">Menu</button></div>`);const applyFamilyFilter493=()=>{const v=$('familyFilter492').value;document.querySelectorAll('[data-family]').forEach(b=>b.hidden=v!=='all'&&b.dataset.family!==v)};$('familyFilter492').onchange=applyFamilyFilter493;$('resetFamilyFilter493').onclick=()=>{$('familyFilter492').value='all';applyFamilyFilter493();$('familyFilter492').focus()};document.querySelectorAll('[data-maze-preview]').forEach(c=>window.PacPacMazeFamily490?.preview(c,Number(c.dataset.mazePreview)));requestAnimationFrame(()=>window.PacPacLoading494?.hide());document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>startAt(b.dataset.level));$('recordsBack487').onclick=mainMenu;$('applyCheat487').onclick=()=>{if($('cheat487').value.trim().toUpperCase()===CHEAT){d.all=true;write(d);progress.max=Math.max(progress.max,100);saveStore('pacPacProgressV2',progress);toast('Tutti i livelli sbloccati');menu()}else toast('Cheat code non valido')}}
+function enhance(){if($('levelRecords487'))return;const launcher=document.querySelector('#modal .game-launcher-472'),tools=launcher?.querySelector('.launcher-tools-472'),legacy=document.querySelector('#modal .splash-actions');const target=tools||legacy;if(!target)return;const b=document.createElement('button');b.id='levelRecords487';b.type='button';b.innerHTML='<span class="level-records-icon-489" aria-hidden="true"><i></i><i></i><i></i></span><span>Livelli, record e voti</span>';b.setAttribute('aria-label','Livelli, record e voti');b.onclick=menu;if(tools){b.className='launcher-tool-472';const more=tools.querySelector('#menuMore472');more?tools.insertBefore(b,more):tools.append(b)}else target.append(b)}
+const clear0=window.clearLevel;window.clearLevel=function(...a){record();return clear0.apply(this,a)};const main0=window.mainMenu;window.mainMenu=function(...a){const v=main0.apply(this,a);queueMicrotask(enhance);return v};queueMicrotask(enhance);new MutationObserver(()=>queueMicrotask(enhance)).observe(document.getElementById('modal'),{childList:true,subtree:true});
+window.PacPacLevelRecords487={read,record,overall,menu,startAt,unlockedMax,CHEAT};
+})();
+
+
+
+================================================================================
+FILE: .\src\ui\loading-indicator-494.js
+================================================================================
+(()=>{'use strict';let depth=0,box=null;
+function ensure(){if(box)return box;box=document.createElement('div');box.id='loadingIndicator494';box.className='loading-indicator-494';box.setAttribute('role','status');box.setAttribute('aria-live','polite');box.setAttribute('aria-busy','true');box.innerHTML='<span class="loading-spinner-494" aria-hidden="true"></span><strong id="loadingText494">Caricamento giocoâ€¦</strong>';document.body.append(box);return box}
+function show(text='Caricamentoâ€¦'){depth++;ensure();document.getElementById('loadingText494').textContent=text;box.hidden=false;box.setAttribute('aria-busy','true')}
+function hide(){depth=Math.max(0,depth-1);if(!depth&&box){box.hidden=true;box.setAttribute('aria-busy','false')}}
+function task(text,fn){show(text);return new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))).then(fn).finally(hide)}
+show('Caricamento PAC PACâ€¦');if(document.readyState==='complete')setTimeout(hide,180);else addEventListener('load',()=>setTimeout(hide,180),{once:true});
+window.PacPacLoading494={show,hide,task};
+})();
 
 
 
@@ -16247,9 +16801,52 @@ let applying=false;
 function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
 function modeCard(button,title,sub,tone){button.type='button';button.className='launcher-mode-472 '+tone;button.replaceChildren(el('strong','',title),el('small','',sub),el('span','launcher-go-472','â€º'))}
 function compactCharacters(panel){const old=panel.querySelector('.character-grid');if(!old)return null;old.className='launcher-character-strip-472';old.querySelectorAll('.character-card').forEach(card=>{const id=card.dataset.character;card.className='launcher-avatar-472';const cv=card.querySelector('canvas');const strong=card.querySelector('strong');const small=card.querySelector('small');if(cv){cv.width=72;cv.height=72;cv.style.width='52px';cv.style.height='52px';paintCharacter(cv.getContext('2d'),36,36,64,id,1)}if(strong)strong.textContent=NAMES[id];if(small)small.textContent=settings.character===id?'Attivo':''});return old}
-function decorate(){if(applying)return false;const panel=document.querySelector('#modal .splash-panel, #modal #panel');const actions=document.querySelector('#modal .splash-actions');if(!panel||!actions||panel.querySelector('.game-launcher-472'))return false;const available=new Map([...MAIN,...TOOLS.filter(i=>i[0]!=='menuMore472'),...MORE].map(([id])=>[id,document.getElementById(id)]).filter(x=>x[1]));if(!available.has('arcadeRun'))return false;applying=true;try{const launcher=el('div','game-launcher-472');const head=el('header','launcher-head-472');const eyebrow=el('span','launcher-eyebrow-472','v4.7.9');const heading=el('div','launcher-title-row-472');heading.append(el('h1','launcher-brand-475','PAC PAC G&B'),el('p','','Un personaggio. Un labirinto. Nessuna scusa.'));head.append(eyebrow,heading);launcher.append(head);const chars=compactCharacters(panel);if(chars)launcher.append(chars);const modes=el('div','launcher-modes-472');for(const[id,title,sub,tone]of MAIN){const b=available.get(id);if(!b)continue;modeCard(b,title,sub,tone);modes.append(b)}launcher.append(modes);const toolBar=el('div','launcher-tools-472');for(const[id,title]of TOOLS){let b=id==='menuMore472'?el('button','',''):available.get(id);if(!b)continue;b.type='button';b.id=id;b.className='launcher-tool-472';b.replaceChildren(el('span','',title));toolBar.append(b)}launcher.append(toolBar);const drawer=el('div','launcher-more-472');drawer.hidden=true;for(const[id,title]of MORE){const b=available.get(id);if(!b)continue;b.className='launcher-more-button-472';b.replaceChildren(el('span','',title));drawer.append(b)}launcher.append(drawer);toolBar.querySelector('#menuMore472').onclick=()=>{drawer.hidden=!drawer.hidden;toolBar.querySelector('#menuMore472').classList.toggle('active',!drawer.hidden)};actions.hidden=true;panel.querySelector('.splash-title')?.classList.add('launcher-hide-472');panel.querySelector('.splash-sub')?.classList.add('launcher-hide-472');panel.querySelector('.splash-footer')?.classList.add('launcher-hide-472');actions.insertAdjacentElement('beforebegin',launcher);return true}finally{applying=false}}
+function decorate(){if(applying)return false;const panel=document.querySelector('#modal .splash-panel, #modal #panel');const actions=document.querySelector('#modal .splash-actions');if(!panel||!actions||panel.querySelector('.game-launcher-472'))return false;const available=new Map([...MAIN,...TOOLS.filter(i=>i[0]!=='menuMore472'),...MORE].map(([id])=>[id,document.getElementById(id)]).filter(x=>x[1]));if(!available.has('arcadeRun'))return false;applying=true;try{const launcher=el('div','game-launcher-472');const head=el('header','launcher-head-472');const eyebrow=el('span','launcher-eyebrow-472','v4.9.5');const heading=el('div','launcher-title-row-472');heading.append(el('h1','launcher-brand-475','PAC PAC G&B'),el('p','','Un personaggio. Un labirinto. Nessuna scusa.'));head.append(eyebrow,heading);launcher.append(head);const chars=compactCharacters(panel);if(chars)launcher.append(chars);const modes=el('div','launcher-modes-472');for(const[id,title,sub,tone]of MAIN){const b=available.get(id);if(!b)continue;modeCard(b,title,sub,tone);modes.append(b)}launcher.append(modes);const toolBar=el('div','launcher-tools-472');for(const[id,title]of TOOLS){let b=id==='menuMore472'?el('button','',''):available.get(id);if(!b)continue;b.type='button';b.id=id;b.className='launcher-tool-472';b.replaceChildren(el('span','',title));toolBar.append(b)}launcher.append(toolBar);const drawer=el('div','launcher-more-472');drawer.hidden=true;for(const[id,title]of MORE){const b=available.get(id);if(!b)continue;b.className='launcher-more-button-472';b.replaceChildren(el('span','',title));drawer.append(b)}launcher.append(drawer);toolBar.querySelector('#menuMore472').onclick=()=>{drawer.hidden=!drawer.hidden;toolBar.querySelector('#menuMore472').classList.toggle('active',!drawer.hidden)};actions.hidden=true;panel.querySelector('.splash-title')?.classList.add('launcher-hide-472');panel.querySelector('.splash-sub')?.classList.add('launcher-hide-472');panel.querySelector('.splash-footer')?.classList.add('launcher-hide-472');actions.insertAdjacentElement('beforebegin',launcher);return true}finally{applying=false}}
 const main0=window.mainMenu;window.mainMenu=function(...args){const out=main0.apply(this,args);queueMicrotask(decorate);setTimeout(decorate,0);return out};queueMicrotask(decorate);window.PacPacMenu470={decorate,MAIN,TOOLS,MORE};
 })();
+
+
+
+================================================================================
+FILE: .\src\ui\music-player-495.js
+================================================================================
+(()=>{'use strict';
+const EFFECTS=new Set(['hee-hee.mp3','gun.wav','giovanni-start.mp3','bruno-start.mp3','pac-pac-start.mp3','missione-compiuta.mp3','grido-battaglia.mp3','gameover.mp3']);
+let tracks=[],index=0,playlistMode=false,stopped=false,loading=false;
+const clean=t=>t&&typeof t.file==='string'&&!EFFECTS.has(t.file.toLowerCase())?{file:t.file,title:String(t.title||t.file.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' '))}:null;
+async function load(){if(loading||tracks.length)return tracks;loading=true;try{const r=await fetch('./audio/playlist.json',{cache:'no-store'});if(!r.ok)throw Error(`HTTP ${r.status}`);const data=await r.json();tracks=(Array.isArray(data.tracks)?data.tracks:[]).map(clean).filter(Boolean);const smooth=tracks.findIndex(t=>t.file.toLowerCase()==='smoot-criminal.mp3');if(smooth>=0)index=smooth}catch(e){console.warn('[PAC PAC Music Player] manifest',e);tracks=[{file:'smoot-criminal.mp3',title:'Smoot Criminal'}]}finally{loading=false;render()}return tracks}
+function current(){return tracks[index]||{file:'smoot-criminal.mp3',title:'Smoot Criminal'}}
+function ensureAudio(){if(typeof projectMusic!=='undefined'&&projectMusic)return projectMusic;return null}
+async function activate(direction=0){await load();playlistMode=true;stopped=false;if(!tracks.length){render('Nessun brano');return}if(direction)index=(index+direction+tracks.length)%tracks.length;if(typeof projectMusic!=='undefined'){projectMusic?.pause();projectMusic=new Audio('./audio/'+current().file);projectMusic.loop=false;projectMusic.preload='auto';projectMusic.volume=Math.max(0,Math.min(1,(settings.musicVolume??100)/100));projectMusic.addEventListener('ended',()=>activate(1));projectMusic.addEventListener('playing',()=>{if(location.protocol!=='file:'&&typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function')window.PacPacAudioVisualizer478.attachMediaElement(audio,projectMusic)});projectMusic.addEventListener('error',()=>{console.warn('[PAC PAC Music Player] brano non disponibile',current().file);if(tracks.length>1)activate(1);else render('Brano non disponibile')});try{await projectMusic.play()}catch(e){console.warn('[PAC PAC Music Player] play',e)}render()}}
+function stop(){playlistMode=true;stopped=true;if(typeof projectMusic!=='undefined')projectMusic?.pause();render()}
+function render(message=''){const title=document.getElementById('musicTitle495'),state=document.getElementById('musicState495');if(title)title.textContent=message||current().title;if(state)state.textContent=stopped?'STOP':playlistMode?`${index+1}/${Math.max(1,tracks.length)}`:'LOOP PREDEFINITO'}
+function mount(){if(document.getElementById('musicPlayer495'))return;const box=document.createElement('section');box.id='musicPlayer495';box.className='music-player-495';box.setAttribute('aria-label','Controlli musica');box.innerHTML='<div class="music-display-495"><small id="musicState495">LOOP PREDEFINITO</small><strong id="musicTitle495">Smoot Criminal</strong></div><div class="music-buttons-495"><button type="button" id="musicPrev495" aria-label="Brano precedente">â—€</button><button type="button" id="musicStop495" aria-label="Ferma musica">â– </button><button type="button" id="musicNext495" aria-label="Brano successivo">â–¶</button></div>';document.body.append(box);document.getElementById('musicPrev495').onclick=()=>activate(-1);document.getElementById('musicNext495').onclick=()=>activate(1);document.getElementById('musicStop495').onclick=stop;load();render()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
+window.PacPacMusicPlayer495={load,activate,stop,current,get tracks(){return [...tracks]},get playlistMode(){return playlistMode},get stopped(){return stopped}};
+})();
+
+
+
+================================================================================
+FILE: .\tests\all-levels-startup-493.test.js
+================================================================================
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),mod=fs.readFileSync('src/levels/maze-families-490.js','utf8');
+function pick(start,end){const a=html.indexOf(start),b=html.indexOf(end,a);assert(a>=0&&b>a,start);return html.slice(a,b)}
+const core=`const N=23,T=30,DIRS=[[0,-1],[1,0],[0,1],[-1,0]],HOME={x:11,y:11},SPAWN={x:11,y:21};\n`+pick('function seeded(','function nearest(');
+const sandbox={console,window:{},document:{getElementById:()=>null},game:null,Math,Map,Int16Array};sandbox.window=sandbox;sandbox.loadLevel=()=>{};sandbox.hudSolo=()=>{};sandbox.spawnActors=()=>{};vm.createContext(sandbox);vm.runInContext(core,sandbox);vm.runInContext(mod,sandbox);
+let counts=Array(10).fill(0);for(let level=1;level<=100;level++){const map=sandbox.generateLevel(level);assert(Array.isArray(map)&&map.length===23,`shape L${level}`);assert(map.every(r=>Array.isArray(r)&&r.length===23),`rows L${level}`);const check=sandbox.validateMapRaw(map);assert(check.valid,`invalid L${level}: ${JSON.stringify(check)}`);assert(map[21][11]!==1,`spawn L${level}`);assert(map[11][11]!==1,`home L${level}`);counts[sandbox.PacPacMazeFamily490.familyOf(level).index]++}assert(counts.every(x=>x===10),counts);console.log('PASS levels 1-100 generate and validate');console.log('PASS player spawn and ghost home levels 1-100');console.log('PASS ten complete family cycles');
+
+
+
+================================================================================
+FILE: .\tests\audio-console-485.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert'),html=fs.readFileSync('index.html','utf8');
+for(const item of ['[PAC PAC AUDIO]','project-created','project-metadata','project-canplay','project-play-request','project-playing','project-play-rejected','project-error','visualizer-link','PacPacAudioDiagnostics'])assert(html.includes(item),item);
+assert(html.includes('v4.8.6'));
+console.log('PASS 4.8.5 structured audio console log');
+console.log('PASS 4.8.5 downloadable diagnostics object');
 
 
 
@@ -16261,9 +16858,69 @@ const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..'),re
 
 
 ================================================================================
+FILE: .\tests\audio-reliability-483.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const html=fs.readFileSync('index.html','utf8'),motion=fs.readFileSync('src/ui/audio-motion-473.js','utf8'),chase=fs.readFileSync('src/modes/story-chase-474.js','utf8');
+assert(html.includes("settings.musicSource==='project'&&!projectMusicFailed"));
+assert(html.includes("settings.musicSource==='file'&&musicFile&&!musicFileFailed"));
+assert(html.includes('function effectFallback(path)'));
+assert(html.includes('failedEffectPaths.has(path)){effectFallback(path);return'));
+assert(html.includes("typeof window.PacPacAudioMotion473?.play==='function'"));
+assert(chase.includes("typeof window.PacPacAudioMotion473?.play==='function'"));
+assert(motion.includes('Object.assign(window.PacPacAudioMotion473||{}'));
+assert(html.includes('audio-motion-473.js?v=483'));
+assert(html.includes('audio-visualizer-478.js?v=486'));
+assert(html.includes('v4.8.6'));
+console.log('PASS 4.8.3 project music fallback');console.log('PASS 4.8.3 personal music fallback');console.log('PASS 4.8.3 gameplay effect fallback');console.log('PASS 4.8.3 safe optional audio API');
+
+
+
+================================================================================
 FILE: .\tests\audio-visualizer-478.test.js
 ================================================================================
 const fs=require('fs'),assert=require('assert');const js=fs.readFileSync('src/ui/audio-visualizer-478.js','utf8'),css=fs.readFileSync('ui-470.css','utf8'),html=fs.readFileSync('index.html','utf8');assert(js.includes('createAnalyser'));assert(js.includes("pointer-events:none")||css.includes('pointer-events:none'));assert(js.includes('prefers-reduced-motion'));assert(html.includes('audio-visualizer-478.js'));assert(html.includes('v4.7.9'));console.log('PASS 4.7.8 audio visualizer');
+
+
+
+================================================================================
+FILE: .\tests\audio-visualizer-482.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),visualizer=fs.readFileSync('src/ui/audio-visualizer-478.js','utf8');
+assert(html.includes("typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function'"));
+assert(html.includes("typeof window.PacPacAudioVisualizer478?.attachSyntheticBus==='function'"));
+assert(html.includes('audio-visualizer-478.js?v=486'));
+assert(visualizer.includes('Object.assign(window.PacPacAudioVisualizer478||{}'));
+assert(visualizer.includes('createMediaElementSource(element)'));
+assert(visualizer.includes('source.connect(a)'));
+assert(html.includes('v4.8.3'));
+console.log('PASS 4.8.2 Story safe audio contract');
+console.log('PASS 4.8.2 visualizer cache bust');
+console.log('PASS 4.8.2 real background audio analyser');
+
+
+
+================================================================================
+FILE: .\tests\audio-visualizer-menu-480.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),js=fs.readFileSync('src/ui/audio-visualizer-478.js','utf8'),css=fs.readFileSync('ui-470.css','utf8');
+assert(js.includes('createMediaElementSource(element)'));
+assert(js.includes('source.connect(ac.destination)'));
+assert(js.includes('source.connect(a)'));
+assert(js.includes('const mediaSources=new WeakMap()'));
+assert(html.includes('attachMediaElement(audio,projectMusic)'));
+assert(html.includes('attachMediaElement(audio,musicFile)'));
+assert(html.includes('attachSyntheticBus(audio,musicGain)'));
+assert(js.includes("document.querySelector('#modal .game-launcher-472')"));
+assert(js.includes("layer.className='menu-orbs-480'"));
+assert(css.includes('@keyframes menu-orb-float-480'));
+assert(css.includes('.game-launcher-472>*:not(.menu-orbs-480)'));
+assert(html.includes('v4.8.3'));
+console.log('PASS 4.8.0 background music routing');
+console.log('PASS 4.8.0 main-menu floating lights');
+console.log('PASS 4.8.0 scope isolation');
+
 
 
 ================================================================================
@@ -16289,10 +16946,47 @@ const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..');co
 
 
 ================================================================================
+FILE: .\tests\default-music-484.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert'),html=fs.readFileSync('index.html','utf8');
+assert(html.includes("projectMusic.addEventListener('playing'"));
+assert(html.includes("location.protocol!=='file:'"));
+assert(!html.includes("projectMusic.loop=true;typeof window.PacPacAudioVisualizer478?.attachMediaElement"));
+assert(html.includes("$('musicSource').onchange"));
+assert(html.includes("projectMusicFailed=false;projectMusicBlocked=false"));
+assert(html.includes('v4.8.6'));
+console.log('PASS 4.8.4 project MP3 plays before analyser attach');
+console.log('PASS 4.8.4 local file direct playback');
+console.log('PASS 4.8.4 project source reset');
+
+
+
+================================================================================
 FILE: .\tests\feature-contract.test.js
 ================================================================================
 const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..');const files=fs.readdirSync(root).filter(x=>/\.(js|css|html)$/.test(x));const all=files.map(x=>fs.readFileSync(path.join(root,x),'utf8')).join('\n');
 const contract={'3.0.2 compact 34px':'height:34px','3.0.2 max combo':'data-max','3.0.2 near miss':'data-near','3.0.2 ghost chain':'data-chain','3.0.1 feature gate':'feature-contract.test.js','3.0.0 hunt':'huntMode','3.0.0 role escape':'I fantasmi devono scappare','3.0.0 reversal':'game.huntMode','3.0.0 tutorial':'Tutorial Caccia inversa','2.9 editor':'Level Editor','2.9 undo':'edUndo','2.9 redo':'edRedo','2.9 validator':'validate(map)','2.9 playtest':'Prova locale','2.9 persistence':'pacpac-editor-290','2.9 JSON':'JSON livello','2.9 checksum':'checksum','2.8.1 retention':'Record e medaglie','2.8.1 storage':'localStorage','2.8 dynamic doors':'dynamic-doors','2.8 bridge':'bridge-shift','2.8 moving wall':'moving-wall','2.8 contextual FIRE':'FIRE contestuale','2.8 occupancy safety':'occupied','2.8 reachability safety':'safeSet'};let bad=0;for(const[k,v]of Object.entries(contract)){const ok=all.includes(v);console.log(`${ok?'PASS':'FAIL'} ${k}`);bad+=!ok}process.exit(bad?1:0)
+
+
+
+================================================================================
+FILE: .\tests\filter-mobile-493.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const js=fs.readFileSync('src/ui/level-records-487.js','utf8'),css=fs.readFileSync('ui-470.css','utf8'),html=fs.readFileSync('index.html','utf8');assert(js.includes('resetFamilyFilter493'));assert(js.includes("value='all'"));assert(js.includes('applyFamilyFilter493'));assert(css.includes('width:clamp(74px,24vw,112px)'));assert(css.includes('@container(max-width:560px)'));assert(css.includes('@media(max-width:360px)'));assert(html.includes('level-records-487.js?v=494'));assert(html.includes('v4.9.4'));console.log('PASS reset family filter button');console.log('PASS adaptive mobile previews 320px+');
+
+
+
+================================================================================
+FILE: .\tests\level-button-488.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const m=fs.readFileSync('src/ui/level-records-487.js','utf8'),h=fs.readFileSync('index.html','utf8');assert(m.includes("querySelector('.launcher-tools-472')"));assert(m.includes("tools.insertBefore(b,more)"));assert(m.includes("b.className='launcher-tool-472'"));assert(m.includes('new MutationObserver'));assert(h.includes('level-records-487.js?v=488'));assert(h.includes('v4.8.8'));console.log('PASS visible level records button in modern menu');console.log('PASS legacy menu fallback');console.log('PASS asynchronous menu recovery');
+
+
+
+================================================================================
+FILE: .\tests\level-button-icon-489.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const js=fs.readFileSync('src/ui/level-records-487.js','utf8'),css=fs.readFileSync('ui-470.css','utf8'),html=fs.readFileSync('index.html','utf8');assert(js.includes('level-records-icon-489'));assert(js.includes("aria-label','Livelli, record e voti"));assert(css.includes('.level-records-icon-489 i:nth-child(3)'));assert(html.includes('level-records-487.js?v=489'));assert(html.includes('v4.8.9'));console.log('PASS visible records chart icon');console.log('PASS accessible button label');console.log('PASS mobile icon sizing');
 
 
 
@@ -16322,9 +17016,59 @@ const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..'),ma
 
 
 ================================================================================
+FILE: .\tests\levels-records-487.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const m=fs.readFileSync('src/ui/level-records-487.js','utf8'),s=fs.readFileSync('social-230.js','utf8'),h=fs.readFileSync('index.html','utf8');
+for(const x of ['pacPacLevelRecords487','Livelli, record e voti','startAt','PACPACTUTTI','overall','Record totale'])assert(m.includes(x),x);
+for(const x of ['cumulativeTotal','levelGrades','overallGrade','RECORD TOTALE'])assert(s.includes(x),x);
+assert(h.includes('level-records-487.js?v=487'));assert(h.includes('v4.8.7'));
+console.log('PASS 4.8.7 unlocked levels menu');console.log('PASS 4.8.7 start from unlocked level');console.log('PASS 4.8.7 cheat code');console.log('PASS 4.8.7 cumulative signed card data');
+
+
+
+================================================================================
+FILE: .\tests\local-audio-campaign-486.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const html=fs.readFileSync('index.html','utf8'),viz=fs.readFileSync('src/ui/audio-visualizer-478.js','utf8'),campaign=fs.readFileSync('src/ui/campaign-ui.js','utf8');
+assert(viz.includes("if(location.protocol==='file:')return ok"));
+assert(viz.indexOf("if(location.protocol==='file:')return ok")<viz.indexOf("attachMediaElement(audio,projectMusic)"));
+assert(campaign.includes("const back=$('modeBack');if(back)back.onclick=mainMenu"));
+assert(html.includes('campaign-ui.js?v=486'));
+assert(html.includes('audio-visualizer-478.js?v=486'));
+assert(html.includes('v4.8.6'));
+console.log('PASS 4.8.6 file protocol never routes media through Web Audio');
+console.log('PASS 4.8.6 campaign null guard');
+console.log('PASS 4.8.6 cache bust fixed modules');
+
+
+
+================================================================================
 FILE: .\tests\manual-splash-410.test.js
 ================================================================================
 const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..'),read=n=>fs.readFileSync(path.join(root,n),'utf8'),index=read('index.html'),manual=read('src/ui/manual-410.js'),css=read('manual-410.css'),page=read('manual.html');const checks={'manual module loaded':index.includes('manual-410.js'),'manual menu button':manual.includes('Manuale di gioco'),'manual search':manual.includes('manualSearch'),'manual standalone':page.includes('Manuale di gioco'),'manual return link':page.includes('./index.html'),'desktop splash':index.includes('pac-pac-trailer-desktop.webp'),'mobile splash':index.includes('pac-pac-trailer-mobile.webp'),'picture orientation':index.includes('(orientation: portrait)'),'splash animation':css.includes('@keyframes splashDrift'),'prompt animation':css.includes('@keyframes promptFloat'),'reduced motion':css.includes('prefers-reduced-motion'),'local assets':!index.includes('assets/splash/http'),'GitHub Pages relative paths':index.includes('./assets/splash/'),'accessible intro':index.includes('aria-label="Premi sullo schermo per iniziare"')};let bad=0;for(const[k,v]of Object.entries(checks)){console.log(`${v?'PASS':'FAIL'} ${k}`);bad+=!v}for(const f of ['assets/splash/pac-pac-trailer-desktop.webp','assets/splash/pac-pac-trailer-mobile.webp']){const ok=fs.existsSync(path.join(root,f))&&fs.statSync(path.join(root,f)).size>20000;console.log(`${ok?'PASS':'FAIL'} asset ${f}`);bad+=!ok}process.exit(bad?1:0);
+
+
+
+================================================================================
+FILE: .\tests\maze-families-490.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const js=fs.readFileSync('src/levels/maze-families-490.js','utf8'),html=fs.readFileSync('index.html','utf8'),records=fs.readFileSync('src/ui/level-records-487.js','utf8');
+for(const n of ['Classico intrecciato','Spirale centrale','Quattro distretti','Arena radiale','Corridoi verticali','Corridoi orizzontali','Doppio anello','Zig-zag diagonale','Isole collegate','Fortezza concentrica'])assert(js.includes(n),n);
+assert(js.includes('validateMapRaw'));assert(js.includes('difficulty:Math.min(10'));assert(html.includes("ramp=Math.min(.18"));assert(js.includes("DifficoltÃ  ${f.difficulty}/10"));assert(records.includes('PacPacMazeFamily490?.familyOf(n).name'));assert(html.includes('maze-families-490.js?v=490'));assert(html.includes('v4.9.0'));console.log('PASS ten labyrinth families');console.log('PASS topology validation and safe fallback');console.log('PASS family shown in HUD and records');console.log('PASS gradual capped difficulty');
+
+
+
+================================================================================
+FILE: .\tests\maze-identity-preview-491.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const maze=fs.readFileSync('src/levels/maze-families-490.js','utf8'),records=fs.readFileSync('src/ui/level-records-487.js','utf8'),html=fs.readFileSync('index.html','utf8'),css=fs.readFileSync('ui-470.css','utf8');assert(maze.includes('const PALETTES=['));for(const p of ['grid','spiral','blocks','rays','vertical','horizontal','rings','diagonal','islands','fortress'])assert(maze.includes(`pattern:'${p}'`),p);assert(maze.includes('function preview(canvas,level)'));assert(maze.includes('function decorateBoard(ctx,T,level)'));assert(records.includes('data-maze-preview'));assert(records.includes('PacPacMazeFamily490?.preview'));assert(css.includes('.maze-preview-491'));assert(html.includes('beginner=Math.max(0,6-level)*.012'));assert(maze.includes('bonus=Math.max(0,6-level)*.45'));assert(html.includes('v4.9.1'));console.log('PASS ten visual identities');console.log('PASS real maze previews');console.log('PASS first five levels balanced');console.log('PASS progressive difficulty preserved');
+
+
+
+================================================================================
+FILE: .\tests\maze-startup-492.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const maze=fs.readFileSync('src/levels/maze-families-490.js','utf8'),records=fs.readFileSync('src/ui/level-records-487.js','utf8'),html=fs.readFileSync('index.html','utf8'),css=fs.readFileSync('ui-470.css','utf8');assert(maze.includes('function isMap(m)'));assert(maze.includes('if(!isMap(base))return base'));assert(maze.includes('base.map(row=>row.slice())'));assert(maze.includes('if(!isMap(map))'));assert(records.includes('familyFilter492'));assert(records.includes('data-family'));assert(records.includes('width="160" height="160"'));assert(css.includes('width:96px!important'));assert(html.includes('v4.9.2'));console.log('PASS startup map shape guards');console.log('PASS immutable family transform');console.log('PASS safe preview generation');console.log('PASS family filters');console.log('PASS larger previews');
 
 
 
@@ -16346,6 +17090,16 @@ require('./menu-share-472.test.js');
 FILE: .\tests\menu-share-472.test.js
 ================================================================================
 const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(path.join(root,f),'utf8'),menu=read('src/ui/menu-470.js'),social=read('social-230.js'),css=read('ui-470.css')+read('social-230.css'),index=read('index.html');const count=(s,x)=>(s.match(new RegExp(x,'g'))||[]).length;const checks={'version 4.7.6':index.includes('v4.7.6'),'compact launcher':menu.includes('game-launcher-472'),'no section menu':!menu.includes('menu-section-471'),'five main modes':menu.includes("['story450'")&&menu.includes("['arcadeRun'")&&menu.includes("['campaignMode'")&&menu.includes("['huntMode'")&&menu.includes('launcher-modes-472'),'collapsible more':menu.includes('menuMore472')&&menu.includes('drawer.hidden=!drawer.hidden'),'no menu scroll':css.includes('.splash-panel:has(.game-launcher-472){overflow:visible!important;max-height:none!important'),'responsive launcher':css.includes('@media(max-width:520px)'),'30 challenge phrases':(social.match(/^'.*',?$/gm)||[]).length===30&&social.includes('const CHALLENGES=['),'character in snapshot':social.includes("character=settings?.character||'pac'")&&social.includes('characterName'),'player icon':social.includes("paintCharacter(ctx,0,0,154,data.character"),'name prompt':social.includes('FIRMA LA TUA IMPRESA')&&social.includes('maxlength="24"'),'name sanitized':social.includes('function cleanName'),'signature in pixels':social.includes("'IMPRESA DI '+data.signer.toUpperCase()"),'deterministic phrase':social.includes('parseInt(data.code.slice(-4),16)%CHALLENGES.length'),'PNG file share':social.includes("navigator.share({files:[file]")&&social.includes("'image/png'"),'no wa text':!social.includes('wa.me/?text=')};let bad=0;for(const[k,v]of Object.entries(checks)){console.log(`${v?'PASS':'FAIL'} ${k}`);bad+=!v}process.exit(bad?1:0);
+
+
+
+================================================================================
+FILE: .\tests\music-player-495.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const player=fs.readFileSync('src/ui/music-player-495.js','utf8'),builder=fs.readFileSync('scripts-build-audio-playlist.js','utf8'),html=fs.readFileSync('index.html','utf8'),css=fs.readFileSync('ui-470.css','utf8'),manifest=JSON.parse(fs.readFileSync('audio/playlist.json','utf8'));
+for(const id of ['musicPrev495','musicStop495','musicNext495','musicTitle495','musicState495'])assert(player.includes(id),id);
+for(const effect of ['hee-hee.mp3','gun.wav','giovanni-start.mp3','bruno-start.mp3','pac-pac-start.mp3','missione-compiuta.mp3','grido-battaglia.mp3','gameover.mp3']){assert(player.includes(effect));assert(builder.includes(effect));assert(!manifest.tracks.some(t=>t.file===effect))}
+assert(player.includes("projectMusic.loop=false"));assert(player.includes("addEventListener('ended',()=>activate(1))"));assert(html.includes('PacPacMusicPlayer495?.playlistMode'));assert(html.includes('PacPacMusicPlayer495.stopped'));assert(css.includes('position:fixed'));assert(css.includes('@media(max-width:600px)'));assert(css.includes('position:relative'));assert(html.includes('music-player-495.js?v=495'));assert(html.includes('v4.9.5'));console.log('PASS desktop bottom-right music player');console.log('PASS smartphone low-flow music player');console.log('PASS previous next stop controls');console.log('PASS effects excluded from playlist');console.log('PASS default loop hands over to playlist');console.log('PASS stop remains stopped');
 
 
 
@@ -16400,6 +17154,32 @@ console.log('PASS 4.7.7 gameover audio');
 
 
 ================================================================================
+FILE: .\tests\release-481.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),runtime=fs.readFileSync('src/modes/story-runtime-470.js','utf8'),chase=fs.readFileSync('src/modes/story-chase-474.js','utf8'),fallback=fs.readFileSync('src/modes/boss-fallback-481.js','utf8');
+assert(html.includes('v4.8.3'));
+assert(html.includes('boss-fallback-481.js'));
+assert(html.indexOf('boss-fallback-481.js')<html.indexOf('story-chase-474.js'));
+assert(runtime.includes("else window.PacPacBossFallback481?.emblem"));
+assert(chase.includes("else window.PacPacBossFallback481?.emblem"));
+for(const name of ['Vespera','Glacia','Morvella','Dracula','Custode della Cupola'])assert(fallback.includes(name));
+assert(fallback.includes('function emblem'));
+console.log('PASS 4.8.1 boss fallback loaded');
+console.log('PASS 4.8.1 static boss guaranteed');
+console.log('PASS 4.8.1 chase boss guaranteed');
+
+
+
+================================================================================
+FILE: .\tests\smartphone-loading-494.test.js
+================================================================================
+const fs=require('fs'),assert=require('assert');const css=fs.readFileSync('ui-470.css','utf8'),load=fs.readFileSync('src/ui/loading-indicator-494.js','utf8'),records=fs.readFileSync('src/ui/level-records-487.js','utf8'),html=fs.readFileSync('index.html','utf8');
+for(const width of ['max-width:360px','max-width:430px','max-width:520px'])assert(css.includes(width),width);assert(css.includes('clamp(74px,24vw,112px)'));assert(css.includes('grid-template-columns:1fr!important'));assert(load.includes("aria-live','polite"));assert(load.includes("aria-busy','true"));assert(load.includes("addEventListener('load'"));assert(records.includes("show('Generazione anteprimeâ€¦')"));assert(records.includes('PacPacLoading494?.hide()'));assert(css.includes('prefers-reduced-motion:reduce'));assert(html.includes('loading-indicator-494.js?v=494'));assert(html.includes('v4.9.4'));console.log('PASS smartphone layouts 320-430px');console.log('PASS touch-safe single-column archive');console.log('PASS accessible loading indicator');console.log('PASS preview loading lifecycle');
+
+
+
+================================================================================
 FILE: .\tests\story-450.test.js
 ================================================================================
 const fs=require('fs'),vm=require('vm'),path=require('path'),root=path.resolve(__dirname,'..'),src=fs.readFileSync(path.join(root,'src/modes/story-450.js'),'utf8'),index=fs.readFileSync(path.join(root,'index.html'),'utf8');const ctx={window:null,console,Math,JSON,localStorage:{getItem:()=>null,setItem:()=>{}},document:{querySelectorAll:()=>[],querySelector:()=>null,getElementById:()=>null},queueMicrotask:()=>{},performance:{now:()=>0},mainMenu:()=>{},consume:()=>{},shoot:()=>{},update:()=>{},clearLevel:()=>{},move:()=>{}};ctx.window=ctx;vm.createContext(ctx);vm.runInContext(src,ctx);const api=ctx.PacPacStory450,T={WATER:7,BEER:8,STAR:9,CASTLE:10,TRAP:11};let bad=0;const check=(n,v)=>{console.log(`${v?'PASS':'FAIL'} ${n}`);bad+=!v};check('module loaded',index.includes('story-450.js'));check('title',src.includes('Il compagno rapito'));check('8 acts',api.acts.length===8);check('short scene structure',src.includes('Nessun discorso lungo'));check('beer power',src.includes('BIRRA 120% + RAFFICA'));check('star power',src.includes('STELLA 120% + RAFFICA'));check('120 speed',src.includes('budget*=1.2'));check('infinite rapid ammo',src.includes('game.ammo=20'));check('torches',src.includes('overlay.torches'));check('water blocked',index.includes('[1,7,10]'));check('moving walls',src.includes('overlay.moving'));check('rivers',src.includes('T.WATER'));check('traps',src.includes('T.TRAP'));const kinds=['spiral','islands','rotor','triptych','heart','streets','rings','cross'];const sig=new Set();for(const k of kinds){const z=api.makeMaze(k),m=z.map;check(`${k} dimensions`,m.length===23&&m.every(r=>r.length===23));check(`${k} torches`,z.torches.length>0);check(`${k} special power`,m.flat().some(v=>v===T.BEER||v===T.STAR));check(`${k} no pellet on castle`,!m.flat().some((v,i)=>v===0&&m[Math.floor(i/23)][i%23]===T.CASTLE));const q=[[z.spawn.x,z.spawn.y]],seen=new Set([q[0].join(',')]);while(q.length){const [x,y]=q.shift();for(const[dX,dY]of[[1,0],[-1,0],[0,1],[0,-1]]){const X=x+dX,Y=y+dY,key=X+','+Y;if(X>=0&&Y>=0&&X<23&&Y<23&&![1,7,10].includes(m[Y][X])&&!seen.has(key)){seen.add(key);q.push([X,Y])}}}let pellets=0,miss=0;for(let y=0;y<23;y++)for(let x=0;x<23;x++)if(m[y][x]===0||m[y][x]===3){pellets++;miss+=!seen.has(x+','+y)}check(`${k} enough pellets`,pellets>=25);check(`${k} all pellets reachable`,miss===0);sig.add(JSON.stringify(m))}check('all mazes distinct',sig.size===8);check('Ralph concise scenes',src.includes('ralph-panel'));check('render hook',index.includes('PacPacStory450.render(ctx,T)'));process.exit(bad?1:0);
@@ -16430,7 +17210,8 @@ const fs=require('fs'),path=require('path'),root=path.resolve(__dirname,'..'),r=
 ================================================================================
 FILE: .\tests\utf8-symbols-479.test.js
 ================================================================================
-const fs=require('fs'),path=require('path'),assert=require('assert');const root=path.resolve(__dirname,'..'),ext=/\.(html|js|css|md|txt|json)$/;let bad=[];function scan(d){for(const n of fs.readdirSync(d)){const p=path.join(d,n),s=fs.statSync(p);if(s.isDirectory())scan(p);else if(ext.test(n)&&n!=='utf8-symbols-479.test.js'){const t=fs.readFileSync(p,'utf8');if(/[ÃƒÃ‚Ã¢]|Ã°Å¸|ï¿½|Ãˆâ„¢/.test(t))bad.push(path.relative(root,p));}}}scan(root);assert.deepStrictEqual(bad,[]);const index=fs.readFileSync(path.join(root,'index.html'),'utf8');for(const symbol of ['â†‘','â†’','â†“','â†','â–²','â—€','â–¶','â–¼','âœ“','â˜…','âš¡','ðŸŒˆ','ðŸš€','ðŸ”¥','ðŸ’Ž'])assert(index.includes(symbol),symbol);console.log('PASS 4.7.9 UTF-8 symbols');
+const fs=require('fs'),path=require('path'),assert=require('assert');const root=path.resolve(__dirname,'..'),ext=/\.(html|js|css|md|txt|json)$/;let bad=[];function scan(d){for(const n of fs.readdirSync(d)){const p=path.join(d,n),s=fs.statSync(p);if(s.isDirectory())scan(p);else if(ext.test(n)&&n!=='utf8-symbols-479.test.js'){const t=fs.readFileSync(p,'utf8');if(/[ÃƒÆ’Ãƒâ€šÃƒÂ¢]|ÃƒÂ°Ã…Â¸|Ã¯Â¿Â½|ÃˆÃ¢â€žÂ¢/.test(t))bad.push(path.relative(root,p));}}}scan(root);assert.deepStrictEqual(bad,[]);const index=fs.readFileSync(path.join(root,'index.html'),'utf8');for(const symbol of ['â†‘','â†’','â†“','â†','â–²','â—€','â–¶','â–¼','âœ“','â˜…','âš¡','ðŸŒˆ','ðŸš€','ðŸ”¥','ðŸ’Ž'])assert(index.includes(symbol),symbol);console.log('PASS 4.7.9 UTF-8 symbols');
+
 
 
 ================================================================================

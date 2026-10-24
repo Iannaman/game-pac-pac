@@ -13,3 +13,6 @@ PASS test mirati release-477.test.js
 NOTA ASSET
 Il file unificato sorgente elenca ma non incorpora i file binari WebP/PNG/MP3.
 I percorsi e i riferimenti originali sono preservati; per una pubblicazione grafica identica, copiare le cartelle assets e audio binarie dalla 4.7.6 originale.
+
+
+

@@ -13,3 +13,6 @@ const menu0=window.mainMenu;window.mainMenu=function(...args){const out=menu0.ap
 const clear0=window.clearLevel;window.clearLevel=function(...args){const already=!!game?.cleared;const out=clear0.apply(this,args);if(!already)play('complete','complete');return out};
 window.PacPacAudioMotion473=Object.assign(window.PacPacAudioMotion473||{},{FILES,play,beep,selectCharacter,bindMenu,dynamicBackdrop,setMusicDuck});
 })();
+
+
+

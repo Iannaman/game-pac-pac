@@ -1,1 +1,4 @@
 const fs=require('fs'),assert=require('assert');const js=fs.readFileSync('src/ui/level-records-487.js','utf8'),css=fs.readFileSync('ui-470.css','utf8'),html=fs.readFileSync('index.html','utf8');assert(js.includes('resetFamilyFilter493'));assert(js.includes("value='all'"));assert(js.includes('applyFamilyFilter493'));assert(css.includes('width:clamp(74px,24vw,112px)'));assert(css.includes('@container(max-width:560px)'));assert(css.includes('@media(max-width:360px)'));assert(html.includes('level-records-487.js?v=494'));assert(html.includes('v4.9.4'));console.log('PASS reset family filter button');console.log('PASS adaptive mobile previews 320px+');
+
+
+

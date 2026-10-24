@@ -10,3 +10,6 @@ const checks={
  'diagnostic version 4.7.6':"version:'4.7.6'"
 };
 let bad=0;for(const [name,needle] of Object.entries(checks)){const ok=(index+'\n'+world).includes(needle);console.log((ok?'PASS':'FAIL')+' '+name);bad+=!ok}process.exit(bad?1:0);
+
+
+

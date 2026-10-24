@@ -1,1 +1,4 @@
 const fs=require('fs'),assert=require('assert');const maze=fs.readFileSync('src/levels/maze-families-490.js','utf8'),records=fs.readFileSync('src/ui/level-records-487.js','utf8'),html=fs.readFileSync('index.html','utf8'),css=fs.readFileSync('ui-470.css','utf8');assert(maze.includes('function isMap(m)'));assert(maze.includes('if(!isMap(base))return base'));assert(maze.includes('base.map(row=>row.slice())'));assert(maze.includes('if(!isMap(map))'));assert(records.includes('familyFilter492'));assert(records.includes('data-family'));assert(records.includes('width="160" height="160"'));assert(css.includes('width:96px!important'));assert(html.includes('v4.9.2'));console.log('PASS startup map shape guards');console.log('PASS immutable family transform');console.log('PASS safe preview generation');console.log('PASS family filters');console.log('PASS larger previews');
+
+
+

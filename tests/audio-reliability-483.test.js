@@ -10,3 +10,6 @@ assert(html.includes('audio-motion-473.js?v=483'));
 assert(html.includes('audio-visualizer-478.js?v=486'));
 assert(html.includes('v4.8.6'));
 console.log('PASS 4.8.3 project music fallback');console.log('PASS 4.8.3 personal music fallback');console.log('PASS 4.8.3 gameplay effect fallback');console.log('PASS 4.8.3 safe optional audio API');
+
+
+

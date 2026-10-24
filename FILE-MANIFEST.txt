@@ -18,11 +18,11 @@
 ./TEST-REPORT-4.9.4.json
 ./TEST-REPORT-4.9.4.md
 ./TEST-REPORT-4.9.5.txt
+./TEST-REPORT-4.9.6.txt
 ./TEST-REPORT.txt
 ./arcade-240.css
 ./arcade-240.js
 ./audio/README.md
-./audio/playlist.json
 ./index.html
 ./legacy-320.css
 ./legacy-320.js
@@ -106,6 +106,7 @@
 ./tests/menu-boss-audio-475.test.js
 ./tests/menu-share-471.test.js
 ./tests/menu-share-472.test.js
+./tests/mobile-viewport-496.test.js
 ./tests/music-player-495.test.js
 ./tests/regression.test.js
 ./tests/release-400.test.js

@@ -1,4 +1,15 @@
 # Changelog
+## 4.9.4 - collaudo smartphone, loading e report esportabili
+- Simulazione smartphone su viewport 320, 360, 390 e 430 px.
+- Aggiunto indicatore caricamento accessibile all’avvio e durante le anteprime.
+- Esportati report test in Markdown, JSON e HTML.
+- Test livelli 1-100 preservato e incluso.
+## 4.9.3 - verifica livelli, reset filtro e anteprime mobile
+- Verificato l’avvio e la validità topologica dei livelli 1-100.
+- Verificati spawn giocatore, base fantasmi e dieci cicli completi delle famiglie.
+- Aggiunto pulsante Azzera filtro con ripristino su Tutte.
+- Anteprime adattive da 320 px, con griglia e dimensioni fluide.
+- Gameplay, audio, simboli e progressione invariati.
 ## 4.9.2 - hotfix avvio e filtri famiglie
 - Corretto il crash Cannot read properties of undefined durante la generazione dei labirinti.
 - Aggiunti controlli di forma mappa e trasformazioni su copia indipendente.

@@ -13,6 +13,10 @@
 ./TEST-REPORT-4.8.1.txt
 ./TEST-REPORT-4.8.2.txt
 ./TEST-REPORT-4.8.3.txt
+./TEST-REPORT-4.9.3.txt
+./TEST-REPORT-4.9.4.html
+./TEST-REPORT-4.9.4.json
+./TEST-REPORT-4.9.4.md
 ./TEST-REPORT.txt
 ./arcade-240.css
 ./arcade-240.js
@@ -69,9 +73,11 @@
 ./src/ui/campaign-ui.js
 ./src/ui/gameplay-feedback.js
 ./src/ui/level-records-487.js
+./src/ui/loading-indicator-494.js
 ./src/ui/manual-410.js
 ./src/ui/menu-470.js
 ./story-420.css
+./tests/all-levels-startup-493.test.js
 ./tests/audio-console-485.test.js
 ./tests/audio-motion-473.test.js
 ./tests/audio-reliability-483.test.js
@@ -82,6 +88,7 @@
 ./tests/bugfix-332.test.js
 ./tests/default-music-484.test.js
 ./tests/feature-contract.test.js
+./tests/filter-mobile-493.test.js
 ./tests/level-button-488.test.js
 ./tests/level-button-icon-489.test.js
 ./tests/level-completion-331.test.js
@@ -100,6 +107,7 @@
 ./tests/release-470.test.js
 ./tests/release-477.test.js
 ./tests/release-481.test.js
+./tests/smartphone-loading-494.test.js
 ./tests/story-450.test.js
 ./tests/story-chase-474.test.js
 ./tests/story-start-470.test.js

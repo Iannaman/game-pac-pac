@@ -1,0 +1,97 @@
+{
+  "product": "PAC PAC",
+  "version": "4.9.4",
+  "date": "2026-10-24",
+  "environment": {
+    "type": "static/mobile simulation",
+    "browserAutomation": "not available",
+    "viewports": [
+      320,
+      360,
+      390,
+      430
+    ]
+  },
+  "summary": {
+    "passed": 15,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "tests": [
+    {
+      "name": "Livelli 1-100: generazione",
+      "passed": true,
+      "details": "100/100 senza eccezioni"
+    },
+    {
+      "name": "Mappe 23x23",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "Validità topologica",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "Spawn giocatore accessibile",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "Base fantasmi accessibile",
+      "passed": true,
+      "details": "100/100"
+    },
+    {
+      "name": "Cicli famiglie",
+      "passed": true,
+      "details": "10 cicli completi"
+    },
+    {
+      "name": "Viewport 320 px",
+      "passed": true,
+      "details": "layout a colonna singola"
+    },
+    {
+      "name": "Viewport 360 px",
+      "passed": true,
+      "details": "anteprime 72-104 px"
+    },
+    {
+      "name": "Viewport 390 px",
+      "passed": true,
+      "details": "anteprime fluide"
+    },
+    {
+      "name": "Viewport 430 px",
+      "passed": true,
+      "details": "spinner e archivio responsive"
+    },
+    {
+      "name": "Touch UI",
+      "passed": true,
+      "details": "target e controlli touch preservati"
+    },
+    {
+      "name": "Indicatore caricamento",
+      "passed": true,
+      "details": "avvio e anteprime, aria-live"
+    },
+    {
+      "name": "Reduced motion",
+      "passed": true,
+      "details": "animazione disabilitabile"
+    },
+    {
+      "name": "Sintassi JavaScript",
+      "passed": true,
+      "details": "tutti i moduli"
+    },
+    {
+      "name": "Codifica simboli",
+      "passed": true,
+      "details": "nessun mojibake"
+    }
+  ]
+}

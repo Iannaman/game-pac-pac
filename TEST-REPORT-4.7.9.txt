@@ -6,7 +6,7 @@ PASS apostrofi tipografici
 PASS frecce e simboli direzionali
 PASS icone di stato e comandi
 PASS emoji delle opzioni grafiche
-PASS nomi SighiÈ™oara e BraÈ™ov
+PASS nomi Sighișoara e Brașov
 PASS sintassi JavaScript dei moduli
 PASS visualizer 4.7.8 preservato
 PASS fix 4.7.7 preservati

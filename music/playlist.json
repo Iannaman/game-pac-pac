@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "start": "smoot-criminal.mp3",
+  "tracks": [
+    { "file": "smoot-criminal.mp3", "title": "Smoot Criminal" }
+  ]
+}

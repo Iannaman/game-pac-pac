@@ -19,6 +19,8 @@
 ./TEST-REPORT-4.9.4.md
 ./TEST-REPORT-4.9.5.txt
 ./TEST-REPORT-4.9.6.txt
+./TEST-REPORT-4.9.7.txt
+./TEST-REPORT-4.9.8.txt
 ./TEST-REPORT.txt
 ./arcade-240.css
 ./arcade-240.js
@@ -50,11 +52,14 @@
 ./manual-410.css
 ./manual.html
 ./multiplayer-config.js
+./music/README.md
+./music/playlist.json
 ./pacpac-400.css
 ./regression-310.js
 ./retention-250.css
 ./retention-250.js
 ./scripts-build-audio-playlist.js
+./scripts-build-music-playlist.js
 ./signaling-worker/README.md
 ./signaling-worker/src/index.js
 ./social-230.css
@@ -80,6 +85,7 @@
 ./src/ui/manual-410.js
 ./src/ui/menu-470.js
 ./src/ui/music-player-495.js
+./src/ui/music-player-498.js
 ./story-420.css
 ./tests/all-levels-startup-493.test.js
 ./tests/audio-console-485.test.js
@@ -107,6 +113,7 @@
 ./tests/menu-share-471.test.js
 ./tests/menu-share-472.test.js
 ./tests/mobile-viewport-496.test.js
+./tests/music-folder-498.test.js
 ./tests/music-player-495.test.js
 ./tests/regression.test.js
 ./tests/release-400.test.js

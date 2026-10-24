@@ -1,0 +1,10 @@
+PAC PAC 4.9.7 - TEST REPORT
+
+PASS zero mojibake in production and documentation
+PASS accents and apostrophes
+PASS arrows and control symbols
+PASS emoji sequences
+PASS Romanian diacritics
+PASS all JavaScript module syntax
+PASS mobile viewport patch preserved
+PASS music player preserved

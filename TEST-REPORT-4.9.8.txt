@@ -1,0 +1,11 @@
+PAC PAC 4.9.8 - TEST REPORT
+
+PASS music folder only
+PASS smoot-criminal.mp3 always first
+PASS all manifest tracks played sequentially
+PASS playlist loops after final track
+PASS previous stop next controls
+PASS no restart during sync calls
+PASS effects remain in audio folder
+PASS zero production mojibake
+PASS JavaScript syntax

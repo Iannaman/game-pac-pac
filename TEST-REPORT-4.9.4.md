@@ -6,12 +6,12 @@
 
 ## Ambito smartphone
 
-Simulazione tecnica sui viewport 320, 360, 390 e 430 px. Lâ€™ambiente di collaudo non dispone di un browser Chromium automatizzabile; sono stati verificati CSS responsive, struttura DOM, touch UI, overflow, generazione livelli e moduli JavaScript.
+Simulazione tecnica sui viewport 320, 360, 390 e 430 px. L’ambiente di collaudo non dispone di un browser Chromium automatizzabile; sono stati verificati CSS responsive, struttura DOM, touch UI, overflow, generazione livelli e moduli JavaScript.
 
 ## Risultati
 - PASS - **Livelli 1-100: generazione**: 100/100 senza eccezioni
 - PASS - **Mappe 23x23**: 100/100
-- PASS - **ValiditÃ  topologica**: 100/100
+- PASS - **Validità topologica**: 100/100
 - PASS - **Spawn giocatore accessibile**: 100/100
 - PASS - **Base fantasmi accessibile**: 100/100
 - PASS - **Cicli famiglie**: 10 cicli completi
@@ -28,7 +28,7 @@ Simulazione tecnica sui viewport 320, 360, 390 e 430 px. Lâ€™ambiente di co
 ## Note
 
 - Verificati tutti i livelli procedurali 1-100.
-- Indicatore di caricamento attivo allâ€™avvio e durante la generazione delle anteprime.
+- Indicatore di caricamento attivo all’avvio e durante la generazione delle anteprime.
 - Nessuna modifica a gameplay, audio, simboli o progressione.
 
 

@@ -1,1 +1,1 @@
-fix: release PAC PAC 4.9.6 mobile viewport gameplay layout
+feat: release PAC PAC 4.9.8 automatic music folder playlist

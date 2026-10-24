@@ -23,23 +23,23 @@ python3 -m http.server 8080
 Aprire `http://localhost:8080`. Per WebRTC e API native usare localhost o HTTPS.
 
 ## Story Game: Ralph racconta - Il compagno rapito
-Il giocatore sceglie Giovanni o Bruno; l'altro viene rapito. Otto labirinti unici seguono la ricerca dalla Transilvania a Roma. La modalitÃ  introduce acqua invalicabile, fiumi, fiaccole, trappole, muri mobili, maze a spirale, isole, rotori, trittici, anelli e croci fluviali.
+Il giocatore sceglie Giovanni o Bruno; l'altro viene rapito. Otto labirinti unici seguono la ricerca dalla Transilvania a Roma. La modalità introduce acqua invalicabile, fiumi, fiaccole, trappole, muri mobili, maze a spirale, isole, rotori, trittici, anelli e croci fluviali.
 
-Giovanni raccoglie Power Birra; Bruno raccoglie Power Stella. Entrambe attivano Power, velocitÃ  al 120%, munizioni infinite e raffica per 10 secondi. I racconti sono ridotti a scene brevi e non ripetitive: Ralph porta avanti il mistero del rapimento e rivela il piano di Dracula solo nel quinto atto.
+Giovanni raccoglie Power Birra; Bruno raccoglie Power Stella. Entrambe attivano Power, velocità al 120%, munizioni infinite e raffica per 10 secondi. I racconti sono ridotti a scene brevi e non ripetitive: Ralph porta avanti il mistero del rapimento e rivela il piano di Dracula solo nel quinto atto.
 
 Dettagli tecnici e narrativi sono disponibili in `README-STORY-450.md`.
 
 ## Story Game: Castelli, Fantasmi e Strade Romane
-Ralph, cane narratore in pixel art, presenta la storia tramite fumetti. I primi quattro capitoli si svolgono nei castelli della Transilvania, controllati dalle antagoniste originali Vespera, Glacia e Morvella. Il quinto capitolo Ã¨ lo scontro con Dracula. Trastevere, quartiere di Roma, apre l'arco urbano; il Colosseo introduce sei fantasmi e portali instabili; il Vaticano ospita il boss immaginario Custode della Cupola.
+Ralph, cane narratore in pixel art, presenta la storia tramite fumetti. I primi quattro capitoli si svolgono nei castelli della Transilvania, controllati dalle antagoniste originali Vespera, Glacia e Morvella. Il quinto capitolo è lo scontro con Dracula. Trastevere, quartiere di Roma, apre l'arco urbano; il Colosseo introduce sei fantasmi e portali instabili; il Vaticano ospita il boss immaginario Custode della Cupola.
 
 Nei capitoli boss, una volta terminate le palline si apre una seconda fase: le sfere-sigillo riattivano il Power e ogni fantasma sconfitto riduce la salute del boss. Ralph commenta introduzioni, missioni e conclusioni con fumetti.
 
 ## Story Game: Le Strade del Legame
-Giovanni, muratore originario della Romania, e Bruno, romano, giÃ  steward e amante dellâ€™arte e della vita mondana, sono protagonisti di un viaggio in otto capitoli. I primi cinque livelli attraversano SighiÈ™oara, BraÈ™ov, i Carpazi, il Castello di Bran e Sibiu. Gli ultimi capitoli sono ambientati a Trastevere, al Colosseo e al Vaticano. Giovanni Ã¨ il personaggio controllato; Bruno Ã¨ il compagno visibile che segue il percorso e alimenta la meccanica **Legame**.
+Giovanni, muratore originario della Romania, e Bruno, romano, già steward e amante dell’arte e della vita mondana, sono protagonisti di un viaggio in otto capitoli. I primi cinque livelli attraversano Sighișoara, Brașov, i Carpazi, il Castello di Bran e Sibiu. Gli ultimi capitoli sono ambientati a Trastevere, al Colosseo e al Vaticano. Giovanni è il personaggio controllato; Bruno è il compagno visibile che segue il percorso e alimenta la meccanica **Legame**.
 
 Il Legame aumenta raccogliendo sfere, avanzando insieme e sconfiggendo fantasmi. Al 100% attiva un bonus condiviso: Power temporaneo e due munizioni. Capitoli, record di Legame e avanzamento sono salvati in `pacpac-story-450`.
 
-## ModalitÃ 
+## Modalità
 - **Campagna / Normale:** 20 livelli progettati, progressione sequenziale, introduzione graduale delle meccaniche e stelle.
 - **Arcade infinito:** generazione procedurale deterministica, tre vite, combo, near miss, ghost chain, record e medaglie.
 - **Sfida giornaliera:** seed giornaliero condiviso e metriche salvate solo in locale.
@@ -74,7 +74,7 @@ Il Legame aumenta raccogliendo sfere, avanzando insieme e sconfiggendo fantasmi.
 7. Eseguire i test.
 
 ## Schema livello
-Ogni livello usa `schemaVersion: 2` e contiene `map`, `entities`, `settings` e `objectives`. Le entitÃ  supportate sono porte FIRE, porte automatiche, portali A/B, spawn giocatore e spawn fantasmi; la mappa supporta palline, Power Sphere, munizioni, muri e pavimento.
+Ogni livello usa `schemaVersion: 2` e contiene `map`, `entities`, `settings` e `objectives`. Le entità supportate sono porte FIRE, porte automatiche, portali A/B, spawn giocatore e spawn fantasmi; la mappa supporta palline, Power Sphere, munizioni, muri e pavimento.
 
 ## Miglioramenti di gameplay 4.0
 - FIRE apre prioritariamente la porta frontale e non spreca il colpo.
@@ -84,7 +84,7 @@ Ogni livello usa `schemaVersion: 2` e contiene `map`, `entities`, `settings` e `
 - Contatore raccoglibili e segnalazione ultime cinque palline.
 - Combo con avanzamento verso il moltiplicatore successivo.
 - Near miss valido solo dopo ingresso, uscita e spostamento minimo.
-- Progressione a piÃ¹ dimensioni: munizioni, potere, porte, portali, numero fantasmi e difficoltÃ .
+- Progressione a più dimensioni: munizioni, potere, porte, portali, numero fantasmi e difficoltà.
 - Metriche esclusivamente locali per tempo, punteggio, vite, munizioni e combo.
 
 ## Test

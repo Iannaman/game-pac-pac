@@ -1,4 +1,16 @@
 # Changelog
+## 4.8.1 - simboli UTF-8 e boss sempre visibili
+- Rimossi tutti i residui di doppia codifica UTF-8 dai file testuali.
+- Ripristinati accenti, frecce, icone, emoji e simboli dell’interfaccia.
+- Aggiunto rendering boss di fallback quando un PNG manca o non viene caricato.
+- Il fallback è attivo sia nel castello sia durante la caccia finale.
+- Visualizer, sfondo menu e gameplay 4.8.0 restano invariati.
+## 4.8.0 - visualizer audio reale e sfondo menu moderno
+- Collegato il visualizer al file musicale di progetto e al file musicale personale tramite MediaElementAudioSourceNode.
+- Conservato il collegamento alla musica arcade sintetizzata tramite musicGain.
+- Il visualizer usa un unico AnalyserNode e non altera volume o uscita audio.
+- Aggiunte palline luminose fluttuanti esclusivamente nel main menu.
+- Gameplay e ogni altra funzione della 4.7.9 restano invariati.
 ## 4.7.9 - correzione simboli e codifica UTF-8
 - Ripristinati accenti, apostrofi tipografici, frecce, icone, emoji e simboli dei controlli.
 - Corretti i nomi Sighișoara e Brașov.

@@ -1,0 +1,17 @@
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),js=fs.readFileSync('src/ui/audio-visualizer-478.js','utf8'),css=fs.readFileSync('ui-470.css','utf8');
+assert(js.includes('createMediaElementSource(element)'));
+assert(js.includes('source.connect(ac.destination)'));
+assert(js.includes('source.connect(a)'));
+assert(js.includes('const mediaSources=new WeakMap()'));
+assert(html.includes('attachMediaElement(audio,projectMusic)'));
+assert(html.includes('attachMediaElement(audio,musicFile)'));
+assert(html.includes('attachSyntheticBus(audio,musicGain)'));
+assert(js.includes("document.querySelector('#modal .game-launcher-472')"));
+assert(js.includes("layer.className='menu-orbs-480'"));
+assert(css.includes('@keyframes menu-orb-float-480'));
+assert(css.includes('.game-launcher-472>*:not(.menu-orbs-480)'));
+assert(html.includes('v4.8.1'));
+console.log('PASS 4.8.0 background music routing');
+console.log('PASS 4.8.0 main-menu floating lights');
+console.log('PASS 4.8.0 scope isolation');

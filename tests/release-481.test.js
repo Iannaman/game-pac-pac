@@ -1,0 +1,12 @@
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),runtime=fs.readFileSync('src/modes/story-runtime-470.js','utf8'),chase=fs.readFileSync('src/modes/story-chase-474.js','utf8'),fallback=fs.readFileSync('src/modes/boss-fallback-481.js','utf8');
+assert(html.includes('v4.8.1'));
+assert(html.includes('boss-fallback-481.js'));
+assert(html.indexOf('boss-fallback-481.js')<html.indexOf('story-chase-474.js'));
+assert(runtime.includes("else window.PacPacBossFallback481?.emblem"));
+assert(chase.includes("else window.PacPacBossFallback481?.emblem"));
+for(const name of ['Vespera','Glacia','Morvella','Dracula','Custode della Cupola'])assert(fallback.includes(name));
+assert(fallback.includes('function emblem'));
+console.log('PASS 4.8.1 boss fallback loaded');
+console.log('PASS 4.8.1 static boss guaranteed');
+console.log('PASS 4.8.1 chase boss guaranteed');

@@ -8,6 +8,8 @@
 ./README.md
 ./TEST-REPORT-4.7.7.txt
 ./TEST-REPORT-4.7.8.txt
+./TEST-REPORT-4.7.9.txt
+./TEST-REPORT-4.8.0.txt
 ./TEST-REPORT.txt
 ./arcade-240.css
 ./arcade-240.js
@@ -50,6 +52,7 @@
 ./src/levels/editor-publisher.js
 ./src/levels/level-loader.js
 ./src/levels/level-runtime.js
+./src/modes/boss-fallback-481.js
 ./src/modes/challenges.js
 ./src/modes/story-420.js
 ./src/modes/story-430.js
@@ -66,6 +69,7 @@
 ./story-420.css
 ./tests/audio-motion-473.test.js
 ./tests/audio-visualizer-478.test.js
+./tests/audio-visualizer-menu-480.test.js
 ./tests/baseline-splash-470.test.js
 ./tests/bugfix-332.test.js
 ./tests/feature-contract.test.js
@@ -79,6 +83,7 @@
 ./tests/release-400.test.js
 ./tests/release-470.test.js
 ./tests/release-477.test.js
+./tests/release-481.test.js
 ./tests/story-450.test.js
 ./tests/story-chase-474.test.js
 ./tests/story-start-470.test.js

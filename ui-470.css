@@ -15,3 +15,6 @@
 #app{position:relative;z-index:1}
 #modal{z-index:5}.game-launcher-472,.splash-panel{position:relative;isolation:isolate;background-color:#0b1323e8!important;backdrop-filter:blur(9px)}
 @media(prefers-reduced-motion:reduce){.audio-visualizer-478{opacity:.55}}
+
+/* 4.8.0 modern floating lights, main launcher only. */
+.game-launcher-472>*:not(.menu-orbs-480){position:relative;z-index:2}.menu-orbs-480{position:absolute;inset:0;z-index:1;overflow:hidden;border-radius:inherit;pointer-events:none}.menu-orbs-480 i{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff 0 8%,hsl(var(--hue) 100% 72%) 24%,hsl(var(--hue) 90% 52%/65%) 48%,transparent 72%);box-shadow:0 0 calc(var(--size)*.7) hsl(var(--hue) 100% 65%/75%),0 0 calc(var(--size)*1.5) hsl(var(--hue) 100% 55%/34%);opacity:.68;animation:menu-orb-float-480 var(--duration) ease-in-out var(--delay) infinite alternate}@keyframes menu-orb-float-480{0%{transform:translate3d(-12px,18px,0) scale(.72);opacity:.28}45%{opacity:.86}100%{transform:translate3d(24px,-42px,0) scale(1.18);opacity:.52}}@media(prefers-reduced-motion:reduce){.menu-orbs-480 i{animation:none;opacity:.32}}

@@ -1,0 +1,12 @@
+PAC PAC 4.8.0 - TEST REPORT
+
+PASS project background MP3 routed to analyser
+PASS personal background audio routed to analyser
+PASS synthesized musicGain routed to analyser
+PASS single analyser shared by music sources
+PASS media source duplicate guard via WeakMap
+PASS audio output and volume path preserved
+PASS floating glowing balls in main menu
+PASS particles do not intercept pointer events
+PASS reduced-motion support
+PASS 4.7.7 gameplay fixes preserved

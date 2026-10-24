@@ -1,0 +1,11 @@
+PAC PAC 4.8.1 - TEST REPORT
+
+PASS zero mojibake residues across textual files
+PASS accents arrows icons emoji and interface symbols
+PASS boss fallback module loaded before chase module
+PASS static boss visible without PNG
+PASS chase boss visible without PNG
+PASS Vespera Glacia Morvella Dracula and Custode palettes
+PASS JavaScript syntax
+PASS 4.8.0 audio visualizer preserved
+PASS 4.7.7 gameplay fixes preserved

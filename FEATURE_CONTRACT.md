@@ -30,3 +30,7 @@ Required 4.7.6: Story boss remains intelligent but catchable; chase-only 42% pla
 Required 4.7.7: every Story maze is fully reachable at runtime; eyes return to the castle ghost base with anti-stuck recovery in Arcade and Story; death requests `audio/gameover.mp3` with non-blocking fallback; all other 4.7.6 behavior unchanged.
 
 Required 4.7.8: futuristic non-interactive background audio visualizer, Web Audio reactive when available, ambient fallback, reduced-motion support; all gameplay unchanged.
+
+Required 4.8.0: visualizer analyses project MP3, personal music and synthesized background music without changing audio volume; glowing floating balls exist only in the main menu; all other behavior unchanged.
+
+Required 4.8.1: zero mojibake in textual sources; every Story boss remains visible in the castle and chase even when image assets fail; all 4.8.0 behavior unchanged.

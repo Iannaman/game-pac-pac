@@ -1,5 +1,6 @@
-fix: release PAC PAC 4.7.9 UTF-8 symbols
+fix: release PAC PAC 4.8.1 UTF-8 symbols and guaranteed bosses
 
-- repair mojibake across UI and story modules
-- restore arrows icons emoji and Romanian place names
-- preserve visualizer and gameplay
+- remove all mojibake residues
+- restore UI symbols and emoji
+- add boss fallback rendering for missing image assets
+- preserve 4.8.0 audio visualizer and gameplay

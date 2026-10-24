@@ -90,6 +90,8 @@
 ./tests/local-audio-campaign-486.test.js
 ./tests/manual-splash-410.test.js
 ./tests/maze-families-490.test.js
+./tests/maze-identity-preview-491.test.js
+./tests/maze-startup-492.test.js
 ./tests/menu-boss-audio-475.test.js
 ./tests/menu-share-471.test.js
 ./tests/menu-share-472.test.js

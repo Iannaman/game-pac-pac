@@ -1,4 +1,17 @@
 # Changelog
+## 4.9.2 - hotfix avvio e filtri famiglie
+- Corretto il crash Cannot read properties of undefined durante la generazione dei labirinti.
+- Aggiunti controlli di forma mappa e trasformazioni su copia indipendente.
+- Anteprime protette contro mappe incomplete.
+- Aggiunto filtro per famiglia e anteprime ingrandite.
+- Simboli, audio, gameplay e progressione invariati.
+## 4.9.1 - identità famiglie, anteprime e bilanciamento iniziale
+- Palette e pattern grafici dedicati per tutte le dieci famiglie.
+- Anteprime reali dei labirinti nell’archivio livelli.
+- Fantasmi più lenti e rilascio più dilazionato nei primi cinque livelli.
+- Curva progressiva invariata dai livelli successivi, con limite massimo.
+- Validazione topologica e fallback sicuro preservati.
+- Tutte le altre funzioni restano invariate.
 ## 4.9.0 - dieci famiglie di labirinti
 - Introdotte dieci famiglie topologiche a rotazione su cicli di dieci livelli.
 - Mostrati famiglia e grado di difficoltà nell’HUD e nell’archivio livelli.

@@ -1,4 +1,11 @@
 # Changelog
+## 4.9.5 - player playlist musicale
+- Aggiunti display e comandi precedente, stop e successivo.
+- Posizione fissa in basso a destra su desktop e in fondo al flusso su smartphone.
+- smoot-criminal.mp3 resta il loop iniziale fino al primo comando.
+- La modalità playlist riproduce in sequenza i brani del manifest e non torna al loop predefinito.
+- Esclusi automaticamente tutti gli asset audio riservati agli effetti.
+- Aggiunto generatore del manifest dalla cartella audio.
 ## 4.9.4 - collaudo smartphone, loading e report esportabili
 - Simulazione smartphone su viewport 320, 360, 390 e 430 px.
 - Aggiunto indicatore caricamento accessibile all’avvio e durante le anteprime.

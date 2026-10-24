@@ -1,0 +1,14 @@
+PAC PAC 4.9.5 - TEST REPORT
+
+PASS desktop bottom-right player
+PASS smartphone bottom flow player
+PASS previous next stop controls
+PASS default smoot-criminal loop preserved before controls
+PASS playlist handover after first control
+PASS automatic next on track end
+PASS stop remains stopped
+PASS game effect audio excluded
+PASS playlist manifest generator
+PASS visualizer compatibility preserved
+PASS JavaScript syntax
+PASS symbols unchanged

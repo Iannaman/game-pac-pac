@@ -17,10 +17,12 @@
 ./TEST-REPORT-4.9.4.html
 ./TEST-REPORT-4.9.4.json
 ./TEST-REPORT-4.9.4.md
+./TEST-REPORT-4.9.5.txt
 ./TEST-REPORT.txt
 ./arcade-240.css
 ./arcade-240.js
 ./audio/README.md
+./audio/playlist.json
 ./index.html
 ./legacy-320.css
 ./legacy-320.js
@@ -52,6 +54,7 @@
 ./regression-310.js
 ./retention-250.css
 ./retention-250.js
+./scripts-build-audio-playlist.js
 ./signaling-worker/README.md
 ./signaling-worker/src/index.js
 ./social-230.css
@@ -76,6 +79,7 @@
 ./src/ui/loading-indicator-494.js
 ./src/ui/manual-410.js
 ./src/ui/menu-470.js
+./src/ui/music-player-495.js
 ./story-420.css
 ./tests/all-levels-startup-493.test.js
 ./tests/audio-console-485.test.js
@@ -102,6 +106,7 @@
 ./tests/menu-boss-audio-475.test.js
 ./tests/menu-share-471.test.js
 ./tests/menu-share-472.test.js
+./tests/music-player-495.test.js
 ./tests/regression.test.js
 ./tests/release-400.test.js
 ./tests/release-470.test.js

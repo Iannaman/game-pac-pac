@@ -1,6 +1,6 @@
 const fs=require('fs'),assert=require('assert');
 const html=fs.readFileSync('index.html','utf8'),runtime=fs.readFileSync('src/modes/story-runtime-470.js','utf8'),chase=fs.readFileSync('src/modes/story-chase-474.js','utf8'),fallback=fs.readFileSync('src/modes/boss-fallback-481.js','utf8');
-assert(html.includes('v4.8.1'));
+assert(html.includes('v4.8.3'));
 assert(html.includes('boss-fallback-481.js'));
 assert(html.indexOf('boss-fallback-481.js')<html.indexOf('story-chase-474.js'));
 assert(runtime.includes("else window.PacPacBossFallback481?.emblem"));

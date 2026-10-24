@@ -1,6 +1,1 @@
-fix: release PAC PAC 4.8.1 UTF-8 symbols and guaranteed bosses
-
-- remove all mojibake residues
-- restore UI symbols and emoji
-- add boss fallback rendering for missing image assets
-- preserve 4.8.0 audio visualizer and gameplay
+feat: release PAC PAC 4.8.7 level archive cumulative card

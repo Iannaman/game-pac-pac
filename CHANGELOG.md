@@ -1,4 +1,40 @@
 # Changelog
+## 4.8.7 - archivio livelli e card cumulativa
+- Aggiunto menu livelli sbloccati con record e voto per livello.
+- Consentito avvio diretto da qualsiasi livello sbloccato.
+- Cheat code PACPACTUTTI per sbloccare tutti i livelli.
+- Card firmata cumulativa con record totale, voti per livello e voto medio complessivo.
+- Conservate tutte le altre informazioni della card.
+- Audio, simboli e gameplay 4.8.6 invariati.
+## 4.8.6 - audio locale e Campaign UI
+- Impedito definitivamente il routing MediaElementAudioSource su protocollo file.
+- smoot-criminal.mp3 resta in riproduzione diretta quando index.html è aperto localmente.
+- Corretto il riferimento nullo modeBack in campaign-ui.js.
+- Cache bust mirato ai soli due moduli corretti.
+- Simboli, caratteri e gameplay invariati.
+## 4.8.5 - diagnostica audio console
+- Aggiunto log strutturato degli eventi audio predefiniti.
+- Registrati caricamento, richiesta play, avvio, rifiuto, errore media e collegamento visualizer.
+- Esposta la funzione PacPacAudioDiagnostics() per lo stato completo.
+- Nessuna modifica al comportamento audio, ai simboli o al gameplay.
+## 4.8.4 - riproduzione audio predefinito
+- Avvio di smoot-criminal.mp3 prima del collegamento al visualizer.
+- In modalità file locale la musica usa la riproduzione diretta per evitare il silenzio Web Audio.
+- Riselezionando Audio predefinito vengono azzerati gli stati di errore precedenti.
+- Tutto il resto della 4.8.3 resta invariato.
+## 4.8.3 - affidabilità completa audio
+- La musica di progetto passa automaticamente alla traccia sintetizzata se il file MP3 manca o non è riproducibile.
+- Il file musicale personale passa alla stessa traccia di fallback in caso di errore.
+- Sparo e Power Sphere hanno fallback sonori distinti quando i file audio sono assenti.
+- Resi sicuri i richiami audio di morte e Story contro API obsolete in cache.
+- Aggiunto cache bust mirato ai soli moduli audio.
+- Simboli, caratteri, boss, visualizer e gameplay restano invariati.
+## 4.8.2 - contratto audio visualizer compatibile
+- Reso sicuro il richiamo alle API del visualizer tramite verifica del tipo funzione.
+- Eliminato il blocco della modalità Story quando il browser conserva una precedente versione del modulo.
+- Aggiunto cache bust mirato al solo modulo visualizer.
+- Conservato il collegamento all’audio reale di sottofondo.
+- Simboli, caratteri, boss, gameplay e configurazioni restano invariati.
 ## 4.8.1 - simboli UTF-8 e boss sempre visibili
 - Rimossi tutti i residui di doppia codifica UTF-8 dai file testuali.
 - Ripristinati accenti, frecce, icone, emoji e simboli dell’interfaccia.

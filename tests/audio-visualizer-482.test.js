@@ -1,0 +1,12 @@
+const fs=require('fs'),assert=require('assert');
+const html=fs.readFileSync('index.html','utf8'),visualizer=fs.readFileSync('src/ui/audio-visualizer-478.js','utf8');
+assert(html.includes("typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function'"));
+assert(html.includes("typeof window.PacPacAudioVisualizer478?.attachSyntheticBus==='function'"));
+assert(html.includes('audio-visualizer-478.js?v=486'));
+assert(visualizer.includes('Object.assign(window.PacPacAudioVisualizer478||{}'));
+assert(visualizer.includes('createMediaElementSource(element)'));
+assert(visualizer.includes('source.connect(a)'));
+assert(html.includes('v4.8.3'));
+console.log('PASS 4.8.2 Story safe audio contract');
+console.log('PASS 4.8.2 visualizer cache bust');
+console.log('PASS 4.8.2 real background audio analyser');

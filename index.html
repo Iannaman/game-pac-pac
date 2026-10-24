@@ -209,7 +209,7 @@ function syncRemaining(){if(!game?.map)return 0;game.remaining=countCollectibles
 function consume(p){const v=game.map[p.y][p.x];if(v===0||v===3){game.map[p.y][p.x]=2;game.remaining=Math.max(0,(game.remaining||0)-1);addScore(v===3?50:10);if(v===3){playPelletAudio();game.power=CONFIG[activeDifficulty].power;game.combo=0;game.ghosts.forEach(g=>{if(g.state!=='eyes')g.reverse=true});burst(p.x,p.y,'#ff68bc',20);tone(280,.3,'triangle')}if(syncRemaining()<=0){clearLevel();return}}else if(v===6){game.map[p.y][p.x]=2;game.ammo=Math.min(20,game.ammo+3);addScore(30);popup('+3 COLPI',p.x,p.y,'#93ffb6');tone(850,.1)}}
 function clearLevel(){unlockLevel(game.level);state='clear';stopTouchFire();const bonus=Math.max(250,Math.round(180-game.elapsed)*10);addScore(1000+bonus);tone(900,.3,'triangle');showModal(`<div class="eyebrow">SETTORE COMPLETATO</div><h2 id="dialogTitle">Livello ${game.level} superato!</h2><p>Bonus livello: 1.000 · Bonus tempo: ${bonus.toLocaleString('it-IT')}</p><div class="record">PUNTEGGIO ${game.score.toLocaleString('it-IT')}</div><div class="actions"><button class="primary" id="nextLevel">Prossimo livello →</button><button id="backMenu">Menu principale</button></div>`);$('nextLevel').onclick=()=>{game.level++;loadLevel()};$('backMenu').onclick=mainMenu}
 function eatGhost(g,shot=false){if(g.state==='eyes'||g.wait>0)return;g.state='eyes';g.reverse=false;g.returnStuck=0;g.returnMark=g.x.toFixed(2)+','+g.y.toFixed(2);const points=shot?300:200*2**Math.min(game.combo++,3);addScore(points);popup('+'+points,g.x,g.y);burst(g.x,g.y,g.color);tone(shot?160:720,.15,'square',.025)}
-function die(){stopPelletAudio();if(state!=='playing'||game.invuln>0)return;game.lives--;state='dying';game.deathTimer=1.2;stopTouchFire();shake=.3;burst(game.player.x,game.player.y,'#ffe176',26);if(window.PacPacAudioMotion473)PacPacAudioMotion473.play('death','death');else tone(90,.4,'sawtooth');updateRecord()}
+function die(){stopPelletAudio();if(state!=='playing'||game.invuln>0)return;game.lives--;state='dying';game.deathTimer=1.2;stopTouchFire();shake=.3;burst(game.player.x,game.player.y,'#ffe176',26);if(typeof window.PacPacAudioMotion473?.play==='function')window.PacPacAudioMotion473.play('death','death');else tone(90,.4,'sawtooth');updateRecord()}
 function gameOver(){state='over';showModal(`<div class="eyebrow">FINE PARTITA</div><h2 id="dialogTitle">GAME OVER</h2><div class="record">${game.score.toLocaleString('it-IT')} PUNTI · LIVELLO ${game.level}</div><p>Record ${activeDifficulty}: ${(records[recordKey()]||0).toLocaleString('it-IT')}</p><div class="actions"><button class="primary" id="again">Rigioca</button><button id="backMenu">Menu principale</button></div>`);$('again').onclick=startGame;$('backMenu').onclick=mainMenu}
 function shootSolo(){if(!['playing','tutorial'].includes(state)||game.ammo<=0||game.cooldown>0)return;const p=game.player,[dx,dy]=DIRS[p.dir];game.bullets.push({x:p.x+dx*.4,y:p.y+dy*.4,dx,dy,life:2});game.ammo--;game.cooldown=.23;playGunAudio();if(settings.speechBubble)speechTime=.65;if(state==='tutorial')tutorialShot()}
 function updateSolo(dt){if(['playing','tutorial'].includes(state))speechTime=Math.max(0,speechTime-dt);clock+=dt;if(game?.huntMode&&state==='playing'){game.huntLeft=Math.max(0,(game.huntLeft??game.huntDuration)-dt);game.power=Math.max(game.power,.2);if(game.huntLeft<=0){game.cleared=true;showModal(`<div class="eyebrow">CACCIA INVERSA</div><h2 id="dialogTitle">Tempo scaduto</h2><p>I fantasmi sono sopravvissuti. Catture: ${game.huntCaught||0}.</p><div class="actions"><button id="huntAgain">Rivincita</button><button id="huntMenu">Menu</button></div>`);state='over';$('huntAgain').onclick=()=>PacPacLegacy320.startHunt(game.huntDuration);$('huntMenu').onclick=mainMenu;return}}shake=Math.max(0,shake-dt);particles=particles.filter(p=>(p.life-=dt)>0);particles.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt});floats=floats.filter(f=>(f.life-=dt)>0);floats.forEach(f=>f.y-=dt*.7);
@@ -433,7 +433,7 @@ for(const id of ['pac','giovanni','bruno']){let data=builtinCharacters[id];try{d
 
 function soloMenu(){
  state='menu';game=null;stopTouchFire();speechTime=0;$('powerBar').style.width='0';
- showModal(`<div class="eyebrow" style="text-align:center">PAC PAC G&B · v4.8.1</div><h1 id="dialogTitle" class="splash-title">PAC PAC</h1><p class="splash-sub">Scegli il tuo personaggio e scendi nel labirinto.</p><div class="character-grid" role="group" aria-label="Scegli il personaggio">${['giovanni','bruno','pac'].map(id=>`<button type="button" class="character-card" data-character="${id}" aria-pressed="${settings.character===id}" aria-label="Scegli ${CHARACTER_NAMES[id]}"><canvas id="splash-${id}" width="180" height="180" aria-hidden="true"></canvas><strong>${CHARACTER_NAMES[id]}</strong><small>${settings.character===id?'✓ SELEZIONATO':'TOCCA PER SCEGLIERE'}</small></button>`).join('')}</div><div id="splashChoice" class="sr-only" role="status" aria-live="polite"></div><div class="splash-actions"><button class="primary" id="start">▶ Gioca con ${CHARACTER_NAMES[settings.character]}</button><button id="options">⚙ Impostazioni</button><button id="tutorialMenu">◎ Tutorial touch</button><button id="multiplayerMenu">↔ Multiplayer · 2 dispositivi</button><button id="levelsMenu">▦ Livelli sbloccati</button></div><p class="splash-footer">Stesse abilità per tutti · Frecce / WASD · Spazio: spara</p>`);
+ showModal(`<div class="eyebrow" style="text-align:center">PAC PAC G&B · v4.8.7</div><h1 id="dialogTitle" class="splash-title">PAC PAC</h1><p class="splash-sub">Scegli il tuo personaggio e scendi nel labirinto.</p><div class="character-grid" role="group" aria-label="Scegli il personaggio">${['giovanni','bruno','pac'].map(id=>`<button type="button" class="character-card" data-character="${id}" aria-pressed="${settings.character===id}" aria-label="Scegli ${CHARACTER_NAMES[id]}"><canvas id="splash-${id}" width="180" height="180" aria-hidden="true"></canvas><strong>${CHARACTER_NAMES[id]}</strong><small>${settings.character===id?'✓ SELEZIONATO':'TOCCA PER SCEGLIERE'}</small></button>`).join('')}</div><div id="splashChoice" class="sr-only" role="status" aria-live="polite"></div><div class="splash-actions"><button class="primary" id="start">▶ Gioca con ${CHARACTER_NAMES[settings.character]}</button><button id="options">⚙ Impostazioni</button><button id="tutorialMenu">◎ Tutorial touch</button><button id="multiplayerMenu">↔ Multiplayer · 2 dispositivi</button><button id="levelsMenu">▦ Livelli sbloccati</button></div><p class="splash-footer">Stesse abilità per tutti · Frecce / WASD · Spazio: spara</p>`);
  $('panel').classList.add('splash-panel');
  document.querySelectorAll('[data-character]').forEach(b=>b.onclick=()=>{
   settings.character=b.dataset.character;saveStore('neonArcadeSettings',settings);
@@ -449,7 +449,7 @@ function renderSplashCharacters(){
 
 let musicGain=null,musicNext=0,musicStep=0,musicRunning=false,musicNodes=new Set(),musicFile=null,musicFileURL=null,musicFileName='',musicPlayPending=false,musicFileFailed=false;
 function unlockMusic(){
- try{audio??=new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});if(!musicGain){musicGain=audio.createGain();musicGain.gain.value=0;musicGain.connect(audio.destination)}window.PacPacAudioVisualizer478?.attachSyntheticBus(audio,musicGain)}catch{}
+ try{audio??=new(window.AudioContext||window.webkitAudioContext)();if(audio.state==='suspended')audio.resume().catch(()=>{});if(!musicGain){musicGain=audio.createGain();musicGain.gain.value=0;musicGain.connect(audio.destination)}typeof window.PacPacAudioVisualizer478?.attachSyntheticBus==='function'&&window.PacPacAudioVisualizer478.attachSyntheticBus(audio,musicGain)}catch{}
 }
 document.addEventListener('pointerdown',unlockMusic,{passive:true});document.addEventListener('keydown',unlockMusic);
 function stopMusic(){if(projectMusic)projectMusic.pause();
@@ -463,9 +463,9 @@ function musicNote(midi,at,length,type,level){
 function syncMusic(){
  const allowed=settings.music&&settings.musicVolume>0&&['playing','ready'].includes(state)&&!document.hidden;
  if(!allowed){if(musicRunning||musicFile&&!musicFile.paused||projectMusic&&!projectMusic.paused)stopMusic();return}
- if(settings.musicSource==='project'){syncProjectMusic();return}
+ if(settings.musicSource==='project'&&!projectMusicFailed){syncProjectMusic();if(!projectMusicFailed)return}
  if(projectMusic&&!projectMusic.paused)projectMusic.pause();
- if(settings.musicSource==='file'&&musicFile){
+ if(settings.musicSource==='file'&&musicFile&&!musicFileFailed){
   if(musicGain&&musicRunning){stopMusic()}
   musicFile.volume=settings.musicVolume/100;
   if(musicFile.paused&&!musicPlayPending&&!musicFileFailed){musicPlayPending=true;musicFile.play().catch(()=>{musicFileFailed=true;toast('Audio non riproducibile: prova un altro file o la musica originale.')}).finally(()=>{musicPlayPending=false;if(!settings.music||!['playing','ready'].includes(state)||document.hidden)musicFile.pause()})}return;
@@ -485,12 +485,12 @@ function syncMusic(){
  }
 }
 function setupMusicSettings(){
- $('music').checked=settings.music;$('musicVolume').value=settings.musicVolume;$('musicVolumeLabel').textContent=settings.musicVolume+'%';$('musicSource').value=settings.musicSource;
+ $('music').checked=settings.music;$('musicVolume').value=settings.musicVolume;$('musicVolumeLabel').textContent=settings.musicVolume+'%';$('musicSource').value=settings.musicSource;$('musicSource').onchange=()=>{if($('musicSource').value==='project'){projectMusicFailed=false;projectMusicBlocked=false;if(projectMusic){projectMusic.pause();projectMusic=null}}};
  $('musicVolume').oninput=()=>{$('musicVolumeLabel').textContent=$('musicVolume').value+'%'};
  $('musicFileStatus').textContent=musicFileName?'File caricato: '+musicFileName:'Nessun file personale. Sorgente predefinita: audio/smoot-criminal.mp3.';
  $('musicUpload').onchange=e=>{
   const f=e.target.files[0];if(!f)return;if(f.size>25*1024*1024||!(/\.(mp3|wav|ogg|m4a)$/i.test(f.name)||f.type.startsWith('audio/'))){toast('Scegli un file audio entro 25 MB');return}
-  stopMusic();if(musicFileURL)URL.revokeObjectURL(musicFileURL);musicFileURL=URL.createObjectURL(f);musicFile=new Audio(musicFileURL);musicFile.loop=true;window.PacPacAudioVisualizer478?.attachMediaElement(audio,musicFile);musicFileName=f.name;musicFileFailed=false;musicFile.onerror=()=>{musicFileFailed=true;toast('Formato audio non supportato: seleziona un altro file.')};$('musicSource').value='file';$('musicFileStatus').textContent='File caricato: '+f.name;
+  stopMusic();if(musicFileURL)URL.revokeObjectURL(musicFileURL);musicFileURL=URL.createObjectURL(f);musicFile=new Audio(musicFileURL);musicFile.loop=true;musicFile.addEventListener('playing',()=>{if(location.protocol!=='file:'&&typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function')window.PacPacAudioVisualizer478.attachMediaElement(audio,musicFile)},{once:true});musicFileName=f.name;musicFileFailed=false;musicFile.onerror=()=>{musicFileFailed=true;toast('Formato audio non supportato: seleziona un altro file.')};$('musicSource').value='file';$('musicFileStatus').textContent='File caricato: '+f.name;
  };
  $('clearMusicFile').onclick=()=>{stopMusic();if(musicFileURL)URL.revokeObjectURL(musicFileURL);musicFile=null;musicFileURL=null;musicFileName='';musicFileFailed=false;$('musicSource').value='project';$('musicFileStatus').textContent='File rimosso. Disponibile audio/smoot-criminal.mp3.'};
 }
@@ -499,26 +499,32 @@ function setupMusicSettings(){
 
 const PROJECT_MUSIC_PATH='./audio/smoot-criminal.mp3';
 let projectMusic=null,projectMusicPending=false,projectMusicFailed=false,projectMusicBlocked=false;
+const audioDebugLog=[];
+function audioLog(event,details={}){const entry={time:new Date().toISOString(),event,...details};audioDebugLog.push(entry);if(audioDebugLog.length>80)audioDebugLog.shift();console.info('[PAC PAC AUDIO]',event,details);return entry}
+window.PacPacAudioDiagnostics=()=>({source:settings.musicSource,enabled:settings.music,volume:settings.musicVolume,protocol:location.protocol,context:audio?.state||'not-created',project:{created:!!projectMusic,paused:projectMusic?.paused??null,readyState:projectMusic?.readyState??null,networkState:projectMusic?.networkState??null,currentSrc:projectMusic?.currentSrc||PROJECT_MUSIC_PATH,failed:projectMusicFailed,blocked:projectMusicBlocked,pending:projectMusicPending,error:projectMusic?.error?{code:projectMusic.error.code,message:projectMusic.error.message}:null},visualizer:{available:typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function'},assets:Object.fromEntries(audioAssetStatus||[]),log:[...audioDebugLog]});
 function syncProjectMusic(){
  if(projectMusicFailed||projectMusicBlocked)return;
- if(!projectMusic){projectMusic=new Audio(PROJECT_MUSIC_PATH);projectMusic.loop=true;window.PacPacAudioVisualizer478?.attachMediaElement(audio,projectMusic);projectMusic.preload='auto';projectMusic.addEventListener('error',()=>{projectMusicFailed=true;projectMusic.pause()})}
+ if(!projectMusic){projectMusic=new Audio(PROJECT_MUSIC_PATH);projectMusic.loop=true;projectMusic.preload='auto';audioLog('project-created',{src:PROJECT_MUSIC_PATH});projectMusic.addEventListener('loadedmetadata',()=>audioLog('project-metadata',{duration:projectMusic.duration,readyState:projectMusic.readyState}),{once:true});projectMusic.addEventListener('canplay',()=>audioLog('project-canplay',{readyState:projectMusic.readyState}),{once:true});projectMusic.addEventListener('playing',()=>{audioLog('project-playing',{volume:projectMusic.volume,protocol:location.protocol});if(location.protocol!=='file:'&&typeof window.PacPacAudioVisualizer478?.attachMediaElement==='function'){const linked=window.PacPacAudioVisualizer478.attachMediaElement(audio,projectMusic);audioLog('visualizer-link',{linked})}},{once:true});projectMusic.addEventListener('error',()=>{projectMusicFailed=true;audioLog('project-error',{code:projectMusic.error?.code||0,message:projectMusic.error?.message||'',networkState:projectMusic.networkState,readyState:projectMusic.readyState,src:projectMusic.currentSrc||PROJECT_MUSIC_PATH});projectMusic.pause()})}
  projectMusic.volume=settings.musicVolume/100;
- if(projectMusic.paused&&!projectMusicPending){projectMusicPending=true;projectMusic.play().catch(e=>{if(e.name==='NotAllowedError')projectMusicBlocked=true;else if(e.name!=='AbortError')projectMusicFailed=true}).finally(()=>{projectMusicPending=false;if(!settings.music||settings.musicSource!=='project'||!['playing','ready'].includes(state)||document.hidden)projectMusic.pause()})}
+ if(projectMusic.paused&&!projectMusicPending){projectMusicPending=true;audioLog('project-play-request',{src:PROJECT_MUSIC_PATH,context:audio?.state||'not-created'});projectMusic.play().catch(e=>{audioLog('project-play-rejected',{name:e.name,message:e.message});if(e.name==='NotAllowedError')projectMusicBlocked=true;else if(e.name!=='AbortError')projectMusicFailed=true}).finally(()=>{projectMusicPending=false;if(!settings.music||settings.musicSource!=='project'||!['playing','ready'].includes(state)||document.hidden)projectMusic.pause()})}
 }
-document.addEventListener('pointerdown',()=>{projectMusicBlocked=false},{passive:true});
+document.addEventListener('pointerdown',()=>{projectMusicBlocked=false;if(projectMusicFailed){projectMusicFailed=false;projectMusic=null}},{passive:true});
 document.addEventListener('keydown',()=>{projectMusicBlocked=false});
 const PELLET_AUDIO_PATH='./audio/hee-hee.mp3',GUN_AUDIO_PATH='./audio/gun.wav';
 const activeEffects=new Set(),failedEffectPaths=new Set();
+function effectFallback(path){if(path===GUN_AUDIO_PATH)tone(155,.055,'square',.025);else tone(420,.12,'triangle',.03)}
 function playOneShot(path){
- if(!settings.sound||document.hidden||failedEffectPaths.has(path))return;
+ if(!settings.sound||document.hidden)return;
+ if(failedEffectPaths.has(path)){effectFallback(path);return}
+ let settled=false;
  try{
   const clip=new Audio(path);clip.loop=false;clip.volume=1;activeEffects.add(clip);
   const cleanup=()=>{activeEffects.delete(clip);clip.removeAttribute?.('src');clip.load?.()};
-  clip.addEventListener('ended',cleanup,{once:true});
-  clip.addEventListener('error',()=>{failedEffectPaths.add(path);cleanup()},{once:true});
-  // One play call per gameplay event. No timer, loop, replay or frame-driven retry.
-  const p=clip.play();if(p?.catch)p.catch(e=>{if(e.name==='NotSupportedError')failedEffectPaths.add(path);cleanup()});
- }catch{}
+  const fallback=()=>{if(settled)return;settled=true;failedEffectPaths.add(path);cleanup();effectFallback(path)};
+  clip.addEventListener('ended',()=>{settled=true;cleanup()},{once:true});
+  clip.addEventListener('error',fallback,{once:true});
+  const p=clip.play();if(p?.catch)p.catch(fallback);
+ }catch{effectFallback(path)}
 }
 function playPelletAudio(){playOneShot(PELLET_AUDIO_PATH)}
 function playGunAudio(){playOneShot(GUN_AUDIO_PATH)}
@@ -756,9 +762,9 @@ function probeAudioAssets(){
  }
 }
 $('introSplash').addEventListener('click',probeAudioAssets,{once:true});
-function stabilityDiagnostics(){return{version:'4.8.1',fixedStepHz:120,droppedSimulationFrames,network:net?{connected:net.dc?.readyState==='open',rttMs:Math.round(net.rtt||0),silenceMs:Math.round(performance.now()-net.lastSeen),backpressureDrops:net.backpressure||0}:null,audio:Object.fromEntries(audioAssetStatus),performance:{...performanceStats,graphics:settings.graphics,levelCache:levelTemplateCache.size,distanceCache:distanceCache.size}}}
+function stabilityDiagnostics(){return{audioDiagnostics:window.PacPacAudioDiagnostics?.(),version:'4.8.7',fixedStepHz:120,droppedSimulationFrames,network:net?{connected:net.dc?.readyState==='open',rttMs:Math.round(net.rtt||0),silenceMs:Math.round(performance.now()-net.lastSeen),backpressureDrops:net.backpressure||0}:null,audio:Object.fromEntries(audioAssetStatus),performance:{...performanceStats,graphics:settings.graphics,levelCache:levelTemplateCache.size,distanceCache:distanceCache.size}}}
 
 applySettings();showIntroSplash();fit();requestAnimationFrame(loop);
 </script>
-<script src="./regression-310.js"></script><script src="./arcade-240.js"></script><script src="./retention-250.js"></script><script src="./vendor/qrcode-core.js"></script><script src="./social-230.js"></script><script src="./legacy-320.js"></script><script src="./src/levels/level-loader.js"></script><script src="./src/levels/level-runtime.js"></script><script src="./src/ui/campaign-ui.js"></script><script src="./src/ui/gameplay-feedback.js"></script><script src="./src/levels/editor-publisher.js"></script><script src="./src/modes/challenges.js"></script><script src="./src/ui/manual-410.js"></script><script src="./src/modes/story-450.js"></script><script src="./src/modes/story-runtime-470.js"></script><script src="./src/ui/menu-470.js"></script><script src="./src/ui/audio-motion-473.js"></script><script src="./src/modes/boss-fallback-481.js"></script><script src="./src/modes/story-chase-474.js"></script><script src="./src/ui/audio-visualizer-478.js"></script>
+<script src="./regression-310.js"></script><script src="./arcade-240.js"></script><script src="./retention-250.js"></script><script src="./vendor/qrcode-core.js"></script><script src="./social-230.js"></script><script src="./legacy-320.js"></script><script src="./src/levels/level-loader.js"></script><script src="./src/levels/level-runtime.js"></script><script src="./src/ui/campaign-ui.js?v=486"></script><script src="./src/ui/gameplay-feedback.js"></script><script src="./src/levels/editor-publisher.js"></script><script src="./src/modes/challenges.js"></script><script src="./src/ui/manual-410.js"></script><script src="./src/modes/story-450.js"></script><script src="./src/modes/story-runtime-470.js"></script><script src="./src/ui/menu-470.js"></script><script src="./src/ui/audio-motion-473.js?v=483"></script><script src="./src/modes/boss-fallback-481.js"></script><script src="./src/modes/story-chase-474.js"></script><script src="./src/ui/audio-visualizer-478.js?v=486"></script><script src="./src/ui/level-records-487.js?v=487"></script>
 </body></html>

@@ -1,0 +1,11 @@
+PAC PAC 4.8.2 - TEST REPORT
+
+PASS Story no longer fails when old visualizer API is cached
+PASS attachMediaElement guarded by function type
+PASS attachSyntheticBus guarded by function type
+PASS visualizer module cache bust
+PASS API merged for backward compatibility
+PASS real background audio analyser preserved
+PASS symbols and character encoding unchanged
+PASS boss fallback preserved
+PASS gameplay fixes preserved

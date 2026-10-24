@@ -1,0 +1,15 @@
+(()=>{'use strict';
+const KEY='pacPacLevelRecords487',CHEAT='PACPACTUTTI';
+const order=['D','C','B','A','S'];
+function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{"levels":{},"total":0,"all":false}')}catch{return{levels:{},total:0,all:false}}}
+function write(v){localStorage.setItem(KEY,JSON.stringify(v))}
+function unlockedMax(){const d=read();if(d.all)return 100;try{return Math.max(1,JSON.parse(localStorage.getItem('pacPacProgressV2')||'{}').max||1)}catch{return 1}}
+function grade(score,a={}){let merit=0;if(score>=25000)merit+=3;else if(score>=15000)merit+=2;else if(score>=8000)merit++;if((a.maxCombo||0)>=8)merit+=2;else if((a.maxCombo||0)>=4)merit++;if((a.nearMisses||0)>=3)merit++;return order[Math.min(4,merit)]}
+function record(){if(!game?.level)return;const d=read(),n=game.level,score=game.score||0,g=grade(score,game.arcade);if(!d.levels[n]||score>d.levels[n].score)d.levels[n]={score,grade:g,date:Date.now()};d.total=Math.max(d.total,score);write(d)}
+function overall(){const vals=Object.values(read().levels);if(!vals.length)return'D';return order[Math.round(vals.reduce((s,x)=>s+order.indexOf(x.grade),0)/vals.length)]}
+function startAt(n){n=Math.max(1,Math.min(unlockedMax(),Number(n)||1));startGame();game.level=n;game.score=0;loadLevel()}
+function menu(){const d=read(),max=unlockedMax(),rows=Array.from({length:max},(_,i)=>{const n=i+1,r=d.levels[n];return `<button class="level-record-487" data-level="${n}"><strong>Livello ${n}</strong><span>Record ${(r?.score||0).toLocaleString('it-IT')}</span><b class="grade-487">${r?.grade||'–'}</b></button>`}).join('');showModal(`<div class="eyebrow">ARCHIVIO PARTITA</div><h2 id="dialogTitle">Livelli sbloccati e record</h2><div class="record-total-487"><span>Record totale</span><strong>${d.total.toLocaleString('it-IT')}</strong><b>Voto complessivo ${overall()}</b></div><div class="level-record-grid-487">${rows}</div><div class="cheat-487"><label for="cheat487">Cheat code</label><input id="cheat487" autocomplete="off" placeholder="Inserisci codice"><button id="applyCheat487">Sblocca</button></div><div class="actions"><button id="recordsBack487">Menu</button></div>`);document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>startAt(b.dataset.level));$('recordsBack487').onclick=mainMenu;$('applyCheat487').onclick=()=>{if($('cheat487').value.trim().toUpperCase()===CHEAT){d.all=true;write(d);progress.max=Math.max(progress.max,100);saveStore('pacPacProgressV2',progress);toast('Tutti i livelli sbloccati');menu()}else toast('Cheat code non valido')}}
+function enhance(){const a=document.querySelector('#modal .splash-actions');if(!a||$('levelRecords487'))return;const b=document.createElement('button');b.id='levelRecords487';b.textContent='▦ Livelli, record e voti';b.onclick=menu;a.append(b)}
+const clear0=window.clearLevel;window.clearLevel=function(...a){record();return clear0.apply(this,a)};const main0=window.mainMenu;window.mainMenu=function(...a){const v=main0.apply(this,a);queueMicrotask(enhance);return v};queueMicrotask(enhance);
+window.PacPacLevelRecords487={read,record,overall,menu,startAt,unlockedMax,CHEAT};
+})();

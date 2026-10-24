@@ -34,3 +34,5 @@ Required 4.7.8: futuristic non-interactive background audio visualizer, Web Audi
 Required 4.8.0: visualizer analyses project MP3, personal music and synthesized background music without changing audio volume; glowing floating balls exist only in the main menu; all other behavior unchanged.
 
 Required 4.8.1: zero mojibake in textual sources; every Story boss remains visible in the castle and chase even when image assets fail; all 4.8.0 behavior unchanged.
+
+Required 4.8.3: background music remains audible when project/personal media fails; gun and power cues have immediate fallbacks; optional audio APIs never block Story; all visual and gameplay behavior unchanged.

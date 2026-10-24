@@ -11,7 +11,7 @@ assert(js.includes("document.querySelector('#modal .game-launcher-472')"));
 assert(js.includes("layer.className='menu-orbs-480'"));
 assert(css.includes('@keyframes menu-orb-float-480'));
 assert(css.includes('.game-launcher-472>*:not(.menu-orbs-480)'));
-assert(html.includes('v4.8.1'));
+assert(html.includes('v4.8.3'));
 console.log('PASS 4.8.0 background music routing');
 console.log('PASS 4.8.0 main-menu floating lights');
 console.log('PASS 4.8.0 scope isolation');

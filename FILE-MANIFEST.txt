@@ -81,6 +81,7 @@
 ./tests/bugfix-332.test.js
 ./tests/default-music-484.test.js
 ./tests/feature-contract.test.js
+./tests/level-button-488.test.js
 ./tests/level-completion-331.test.js
 ./tests/levels-400.test.js
 ./tests/levels-records-487.test.js

@@ -1,4 +1,9 @@
 # Changelog
+## 4.8.8 - pulsante archivio visibile
+- Spostato il pulsante Livelli, record e voti nella toolbar visibile del menu moderno.
+- Mantenuto il fallback per il menu classico.
+- Aggiunto recupero automatico dopo la decorazione asincrona del menu.
+- Nessun’altra funzione modificata.
 ## 4.8.7 - archivio livelli e card cumulativa
 - Aggiunto menu livelli sbloccati con record e voto per livello.
 - Consentito avvio diretto da qualsiasi livello sbloccato.

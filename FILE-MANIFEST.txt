@@ -55,6 +55,7 @@
 ./src/levels/editor-publisher.js
 ./src/levels/level-loader.js
 ./src/levels/level-runtime.js
+./src/levels/maze-families-490.js
 ./src/modes/boss-fallback-481.js
 ./src/modes/challenges.js
 ./src/modes/story-420.js
@@ -82,11 +83,13 @@
 ./tests/default-music-484.test.js
 ./tests/feature-contract.test.js
 ./tests/level-button-488.test.js
+./tests/level-button-icon-489.test.js
 ./tests/level-completion-331.test.js
 ./tests/levels-400.test.js
 ./tests/levels-records-487.test.js
 ./tests/local-audio-campaign-486.test.js
 ./tests/manual-splash-410.test.js
+./tests/maze-families-490.test.js
 ./tests/menu-boss-audio-475.test.js
 ./tests/menu-share-471.test.js
 ./tests/menu-share-472.test.js

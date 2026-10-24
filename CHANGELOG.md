@@ -1,4 +1,14 @@
 # Changelog
+## 4.9.0 - dieci famiglie di labirinti
+- Introdotte dieci famiglie topologiche a rotazione su cicli di dieci livelli.
+- Mostrati famiglia e grado di difficoltà nell’HUD e nell’archivio livelli.
+- Aumento graduale della velocità dei fantasmi, limitato a +18%.
+- Ogni trasformazione è validata; in caso di anomalia viene usata la mappa sicura originale.
+- Story, Campagna progettata, audio, simboli, record e condivisione restano invariati.
+## 4.8.9 - icona pulsante livelli e record
+- Aggiunta icona grafico record al pulsante Livelli, record e voti.
+- Icona responsive, luminosa e accessibile.
+- Nessun’altra funzione modificata.
 ## 4.8.8 - pulsante archivio visibile
 - Spostato il pulsante Livelli, record e voti nella toolbar visibile del menu moderno.
 - Mantenuto il fallback per il menu classico.
